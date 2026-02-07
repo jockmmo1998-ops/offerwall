@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Nhận Thưởng Offerwall</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#6c3cff,#8f6bff);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #6c3cff;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background: #6c3cff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    iframe {
+      margin-top: 15px;
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
+    }
+    .note {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>🎁 Nhận Thưởng</h2>
+
+  <input id="userInput" placeholder="Nhập USER_ID của bạn">
+
+  <button onclick="saveUser()">Lưu & Mở Offerwall</button>
+
+  <iframe id="offerwall"></iframe>
+
+  <div class="note">
+    USER_ID được lưu tự động cho lần sau
+  </div>
+</div>
+
+<script>
+  const PLACEMENT_ID = "6987046ad95123da06330801";
+  const iframe = document.getElementById("offerwall");
+  const input = document.getElementById("userInput");
+
+  // Load USER_ID đã lưu
+  const savedUser = localStorage.getItem("USER_ID");
+  if (savedUser) {
+    input.value = savedUser;
+    iframe.src = `https://gemiwall.com/${PLACEMENT_ID}/${savedUser}`;
+  }
+
+  function saveUser() {
+    const userId = input.value.trim();
+    if (!userId) {
+      alert("Vui lòng nhập USER_ID");
+      return;
+    }
+
+    localStorage.setItem("USER_ID", userId);
+    iframe.src = `https://gemiwall.com/${PLACEMENT_ID}/${userId}`;
+  }
+</script>
+
+</body>
+</html>
