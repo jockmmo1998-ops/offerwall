@@ -1,97 +1,158 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nhận Thưởng Offerwall</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<title>Offer Rewards</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg,#6c3cff,#8f6bff);
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    .container {
-      max-width: 420px;
-      margin: auto;
-      background: #fff;
-      border-radius: 14px;
-      padding: 20px;
-    }
-    h2 {
-      text-align: center;
-      color: #6c3cff;
-    }
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-    }
-    button {
-      background: #6c3cff;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    iframe {
-      margin-top: 15px;
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 10px;
-    }
-    .note {
-      font-size: 13px;
-      color: #666;
-      margin-top: 8px;
-      text-align: center;
-    }
-  </style>
+<style>
+:root{
+  --bg:#0f1117;
+  --card:#161a22;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#22c55e;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+header{
+  padding:16px 24px;
+  background:#0b0d12;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+nav button{
+  background:none;
+  border:none;
+  color:var(--text);
+  margin-left:12px;
+  cursor:pointer;
+}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:24px;
+}
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:20px;
+}
+.hidden{display:none}
+input,select{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:none;
+  background:#0b0d12;
+  color:var(--text);
+}
+button.primary{
+  margin-top:14px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:var(--accent);
+  color:#022c22;
+  font-weight:600;
+  cursor:pointer;
+}
+iframe{
+  width:100%;
+  height:520px;
+  border:none;
+  border-radius:12px;
+}
+small{color:var(--muted)}
+</style>
 </head>
 
 <body>
 
+<header>
+  <strong>OfferRewards</strong>
+  <nav>
+    <button onclick="show('dashboard')">Dashboard</button>
+    <button onclick="show('withdraw')">Withdraw</button>
+    <button onclick="show('history')">History</button>
+    <button onclick="show('profile')">Profile</button>
+    <button onclick="logout()">Logout</button>
+  </nav>
+</header>
+
 <div class="container">
-  <h2>🎁 Nhận Thưởng</h2>
 
-  <input id="userInput" placeholder="Nhập USER_ID của bạn">
+<!-- LOGIN -->
+<div id="login" class="card">
+  <h2>Login / Register</h2>
+  <input id="user" placeholder="Username or Email">
+  <button class="primary" onclick="login()">Continue</button>
+  <small>No password required (demo UI)</small>
+</div>
 
-  <button onclick="saveUser()">Lưu & Mở Offerwall</button>
-
-  <iframe id="offerwall"></iframe>
-
-  <div class="note">
-    USER_ID được lưu tự động cho lần sau
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+  <div class="card">
+    <h3>Offerwall</h3>
+    <iframe src="https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/"></iframe>
   </div>
 </div>
 
+<!-- WITHDRAW -->
+<div id="withdraw" class="hidden card">
+  <h3>Withdraw Request</h3>
+  <select>
+    <option>LTC</option>
+    <option>USDT (TRC20)</option>
+  </select>
+  <input placeholder="Your wallet address">
+  <button class="primary">Submit Request</button>
+  <small>Withdrawals are manually reviewed.</small>
+</div>
+
+<!-- HISTORY -->
+<div id="history" class="hidden card">
+  <h3>Offer History</h3>
+  <small>Completed offers will appear here once confirmed.</small>
+</div>
+
+<!-- PROFILE -->
+<div id="profile" class="hidden card">
+  <h3>Profile</h3>
+  <input placeholder="Display name">
+  <input placeholder="Contact email">
+  <button class="primary">Save</button>
+</div>
+
+</div>
+
+<!-- CHAT EMBED -->
+<!-- PASTE TAWK / CRISP HERE -->
+
 <script>
-  const PLACEMENT_ID = "6987046ad95123da06330801";
-  const iframe = document.getElementById("offerwall");
-  const input = document.getElementById("userInput");
-
-  // Load USER_ID đã lưu
-  const savedUser = localStorage.getItem("USER_ID");
-  if (savedUser) {
-    input.value = savedUser;
-    iframe.src = `https://gemiwall.com/${PLACEMENT_ID}/${savedUser}`;
-  }
-
-  function saveUser() {
-    const userId = input.value.trim();
-    if (!userId) {
-      alert("Vui lòng nhập USER_ID");
-      return;
-    }
-
-    localStorage.setItem("USER_ID", userId);
-    iframe.src = `https://gemiwall.com/${PLACEMENT_ID}/${userId}`;
-  }
+function show(id){
+  document.querySelectorAll('.container > div').forEach(d=>d.classList.add('hidden'))
+  document.getElementById(id).classList.remove('hidden')
+}
+function login(){
+  localStorage.setItem('user','1')
+  document.getElementById('login').classList.add('hidden')
+  show('dashboard')
+}
+function logout(){
+  localStorage.clear()
+  location.reload()
+}
+if(localStorage.getItem('user')) login()
 </script>
 
 </body>
