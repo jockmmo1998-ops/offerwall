@@ -1,229 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>GPT Rewards</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Nhận Thưởng Offerwall</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-:root{
-  --bg:#0f1117;
-  --card:#161a22;
-  --text:#eaeaf0;
-  --muted:#8b8fa3;
-  --primary:#7a5cff;
-}
-
-.light{
-  --bg:#f6f7fb;
-  --card:#ffffff;
-  --text:#222;
-  --muted:#777;
-}
-
-*{box-sizing:border-box;font-family:Inter,system-ui}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-}
-
-/* AUTH */
-.auth{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.auth-box{
-  width:100%;
-  max-width:420px;
-  background:var(--card);
-  padding:32px;
-  border-radius:18px;
-}
-input{
-  width:100%;
-  padding:14px;
-  margin:10px 0;
-  border-radius:12px;
-  border:none;
-  background:#222;
-  color:#fff;
-}
-button{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  border:none;
-  background:var(--primary);
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-}
-
-/* APP */
-.app{display:none}
-.layout{
-  display:flex;
-  min-height:100vh;
-}
-.sidebar{
-  width:240px;
-  background:var(--card);
-  padding:20px;
-}
-.logo{
-  font-size:20px;
-  font-weight:700;
-  margin-bottom:30px;
-}
-.nav button{
-  width:100%;
-  background:none;
-  border:none;
-  padding:12px;
-  text-align:left;
-  border-radius:12px;
-  cursor:pointer;
-  color:var(--text);
-}
-.nav button.active,
-.nav button:hover{
-  background:rgba(255,255,255,.08);
-}
-
-.content{
-  flex:1;
-  padding:25px;
-}
-
-.card{
-  background:var(--card);
-  padding:22px;
-  border-radius:18px;
-  margin-bottom:20px;
-}
-
-.notice{
-  font-size:14px;
-  color:var(--muted);
-}
-
-/* TOGGLE */
-.toggle{
-  cursor:pointer;
-  margin-top:20px;
-  font-size:14px;
-  color:var(--muted);
-}
-</style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#6c3cff,#8f6bff);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #6c3cff;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background: #6c3cff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    iframe {
+      margin-top: 15px;
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
+    }
+    .note {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div class="auth" id="auth">
-  <div class="auth-box">
-    <h2>Login</h2>
-    <input placeholder="Email">
-    <input placeholder="Password" type="password">
-    <button onclick="login()">Continue</button>
-  </div>
-</div>
+<div class="container">
+  <h2>🎁 Nhận Thưởng</h2>
 
-<!-- APP -->
-<div class="app" id="app">
-  <div class="layout">
+  <input id="userInput" placeholder="Nhập USER_ID của bạn">
 
-    <aside class="sidebar">
-      <div class="logo">💎 GPT Rewards</div>
-      <div class="nav">
-        <button class="active" onclick="show('dashboard')">🏠 Dashboard</button>
-        <button onclick="show('offers')">🎯 Offers</button>
-        <button onclick="show('withdraw')">💰 Withdraw</button>
-        <button onclick="show('profile')">👤 Profile</button>
-      </div>
+  <button onclick="saveUser()">Lưu & Mở Offerwall</button>
 
-      <div class="toggle" onclick="toggleTheme()">🌙 Toggle Dark Mode</div>
-    </aside>
+  <iframe id="offerwall"></iframe>
 
-    <main class="content">
-
-      <!-- DASHBOARD -->
-      <div id="dashboard" class="page">
-        <div class="card">
-          <h2>Welcome 👋</h2>
-          <p class="notice">
-            Complete offers from our partners and get rewarded securely.
-          </p>
-        </div>
-      </div>
-
-      <!-- OFFERS -->
-      <div id="offers" class="page" style="display:none">
-        <div class="card">
-          <h2>GemiWall</h2>
-          <p class="notice">
-            Offers are hosted by our official partner.
-          </p>
-          <button onclick="openWall()">Open Offerwall</button>
-        </div>
-      </div>
-
-      <!-- WITHDRAW -->
-      <div id="withdraw" class="page" style="display:none">
-        <div class="card">
-          <h2>Withdraw</h2>
-          <p class="notice">
-            All rewards are processed by our offerwall partner.
-            To withdraw, please continue on GemiWall.
-          </p>
-          <button onclick="openWall()">Go to Withdraw</button>
-        </div>
-      </div>
-
-      <!-- PROFILE -->
-      <div id="profile" class="page" style="display:none">
-        <div class="card">
-          <h2>Profile</h2>
-          <input value="user@email.com">
-          <button onclick="logout()">Logout</button>
-        </div>
-      </div>
-
-    </main>
+  <div class="note">
+    USER_ID được lưu tự động cho lần sau
   </div>
 </div>
 
 <script>
-function login(){
-  auth.style.display='none';
-  app.style.display='block';
-}
+  const PLACEMENT_ID = "6987046ad95123da06330801";
+  const iframe = document.getElementById("offerwall");
+  const input = document.getElementById("userInput");
 
-function logout(){
-  location.reload();
-}
+  // Load USER_ID đã lưu
+  const savedUser = localStorage.getItem("USER_ID");
+  if (savedUser) {
+    input.value = savedUser;
+    iframe.src = `https://gemiwall.com/${PLACEMENT_ID}/${savedUser}`;
+  }
 
-function show(page){
-  document.querySelectorAll('.page').forEach(p=>p.style.display='none');
-  document.getElementById(page).style.display='block';
-  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
+  function saveUser() {
+    const userId = input.value.trim();
+    if (!userId) {
+      alert("Vui lòng nhập USER_ID");
+      return;
+    }
 
-function openWall(){
-  window.open(
-    'https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/',
-    '_blank'
-  );
-}
-
-function toggleTheme(){
-  document.body.classList.toggle('light');
-}
+    localStorage.setItem("USER_ID", userId);
+    iframe.src = `https://gemiwall.com/${PLACEMENT_ID}/${userId}`;
+  }
 </script>
 
 </body>
