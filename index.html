@@ -1,118 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Offerwall Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Offerwall Center</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
-      background: #f7f7f8;
-      color: #111;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f7f7f8;
+  color: #111;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      padding: 24px;
-    }
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 32px;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+}
 
-    p {
-      text-align: center;
-      color: #555;
-      margin-bottom: 24px;
-    }
+.subtitle {
+  text-align: center;
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 14px;
+}
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
 
-    button {
-      padding: 12px 20px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      background: #fafafa;
-      cursor: pointer;
-      font-size: 15px;
-      transition: all 0.2s ease;
-    }
+button {
+  flex: 1;
+  padding: 14px 0;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-    button:hover {
-      background: #111;
-      color: #fff;
-    }
+button:hover {
+  background: #f3f4f6;
+}
 
-    iframe {
-      width: 100%;
-      height: 70vh;
-      border: none;
-      border-radius: 8px;
-      background: #f0f0f0;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 13px;
-      color: #888;
-      margin-top: 15px;
-    }
-  </style>
+.footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>Offerwall Center</h1>
-      <p>Select an offerwall to continue</p>
+<div class="wrapper">
+  <div class="card">
+    <h1>Offerwall Center</h1>
+    <div class="subtitle">Select an offerwall to continue</div>
 
-      <div class="buttons">
-        <button onclick="loadWall('gemi')">GemiWall</button>
-        <button onclick="loadWall('revu')">Revu</button>
-        <button onclick="loadWall('mm')">MM Wall</button>
-      </div>
+    <div class="buttons">
+      <button onclick="openWall('gemi')">GemiWall</button>
+      <button onclick="openWall('revu')">Revu</button>
+      <button onclick="openWall('mm')">MM Wall</button>
+    </div>
 
-      <iframe id="offerFrame" src=""></iframe>
-
-      <div class="footer">
-        Powered by Cloudflare Pages
-      </div>
+    <div class="footer">
+      Secure • Fast • No iframe
     </div>
   </div>
+</div>
 
-  <script>
-    function loadWall(type) {
-      const frame = document.getElementById("offerFrame");
+<script>
+function openWall(type) {
+  const links = {
+    gemi: "https://gemiwall.com/6987046ad95123da06330801/jockmmo1998",
+    revu: "DÁN_LINK_REVU_CỦA_BẠN",
+    mm: "DÁN_LINK_MMWALL_CỦA_BẠN"
+  };
+  window.open(links[type], "_blank");
+}
+</script>
 
-      if (type === "gemi") {
-        frame.src = "https://gemiwall.com/YOUR_PLACEMENT_ID";
-      }
-
-      if (type === "revu") {
-        frame.src = "https://revu.co/offerwall/YOUR_ID";
-      }
-
-      if (type === "mm") {
-        frame.src = "https://mmwall.com/YOUR_ID";
-      }
-    }
-  </script>
 </body>
 </html>
