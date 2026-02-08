@@ -1,106 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Offerwall Center</title>
-
+<meta charset="UTF-8">
+<title>Offerwall Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f7f7f8;
-  color: #111;
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --primary: #6c4cff;
+  --text: #222;
+  --muted: #777;
 }
 
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+* { box-sizing: border-box; font-family: Inter, system-ui, Arial; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
   padding: 20px;
 }
 
-.card {
-  width: 100%;
-  max-width: 520px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  padding: 32px;
-}
-
-h1 {
-  margin: 0;
-  text-align: center;
-  font-size: 26px;
-  font-weight: 600;
-}
-
-.subtitle {
-  text-align: center;
-  margin-top: 8px;
-  color: #6b7280;
-  font-size: 14px;
-}
-
-.buttons {
+header {
   display: flex;
-  gap: 12px;
-  margin-top: 28px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
-button {
-  flex: 1;
-  padding: 14px 0;
+header h1 {
+  font-size: 24px;
+}
+
+.balance {
+  background: var(--card);
+  padding: 16px 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.05);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.offerwall-buttons button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 14px;
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  background: #fff;
+  border: none;
   font-size: 15px;
-  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  background: var(--primary);
+  color: white;
 }
 
-button:hover {
-  background: #f3f4f6;
+.offerwall-buttons button:hover {
+  opacity: .9;
 }
 
-.footer {
-  margin-top: 28px;
-  text-align: center;
-  font-size: 12px;
-  color: #9ca3af;
+input, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.withdraw-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.notice {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
 }
 </style>
 </head>
-
 <body>
-<div class="wrapper">
+
+<div class="container">
+
+<header>
+  <h1>Offerwall Dashboard</h1>
+  <div class="balance">
+    💰 Balance: <strong>$12.40</strong>
+  </div>
+</header>
+
+<div class="grid">
+
+  <!-- OFFERWALL -->
   <div class="card">
-    <h1>Offerwall Center</h1>
-    <div class="subtitle">Select an offerwall to continue</div>
-
-    <div class="buttons">
-      <button onclick="openWall('gemi')">GemiWall</button>
-      <button onclick="openWall('revu')">Revu</button>
-      <button onclick="openWall('mm')">MM Wall</button>
-    </div>
-
-    <div class="footer">
-      Secure • Fast • No iframe
+    <h3>Offerwalls</h3>
+    <div class="offerwall-buttons">
+      <button onclick="openWall('https://gemiwall.com/6987046ad95123da06330801/jockmmo1998')">GemiWall</button>
+      <button onclick="openWall('https://revu.co/YOUR_ID')">Revu</button>
+      <button onclick="openWall('https://mm-wall.com/YOUR_ID')">MM Wall</button>
     </div>
   </div>
+
+  <!-- STATS -->
+  <div class="card">
+    <h3>Statistics</h3>
+    <p>✅ Completed offers: <strong>7</strong></p>
+    <p>⏳ Pending: <strong>2</strong></p>
+    <p>🚀 Account status: <strong>Active</strong></p>
+  </div>
+
+  <!-- WITHDRAW -->
+  <div class="card">
+    <h3>Withdraw</h3>
+    <select>
+      <option>PayPal</option>
+      <option>USDT (TRC20)</option>
+    </select>
+    <input type="text" placeholder="PayPal email / Wallet address">
+    <input type="number" placeholder="Amount ($)">
+    <button class="withdraw-btn" onclick="withdraw()">Request Withdraw</button>
+    <div class="notice">
+      Withdraw requests are reviewed manually within 24–48 hours.
+    </div>
+  </div>
+
+</div>
+
 </div>
 
 <script>
-function openWall(type) {
-  const links = {
-    gemi: "https://gemiwall.com/6987046ad95123da06330801/jockmmo1998",
-    revu: "DÁN_LINK_REVU_CỦA_BẠN",
-    mm: "DÁN_LINK_MMWALL_CỦA_BẠN"
-  };
-  window.open(links[type], "_blank");
+function openWall(url) {
+  window.open(url, "_blank");
+}
+
+function withdraw() {
+  alert("✅ Withdraw request submitted!\nWe will process it shortly.");
 }
 </script>
 
