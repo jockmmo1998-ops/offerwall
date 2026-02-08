@@ -7,9 +7,16 @@
 
 <style>
 :root{
-  --primary:#6c4cff;
+  --bg:#0f1117;
+  --card:#161a22;
+  --text:#eaeaf0;
+  --muted:#8b8fa3;
+  --primary:#7a5cff;
+}
+
+.light{
   --bg:#f6f7fb;
-  --card:#fff;
+  --card:#ffffff;
   --text:#222;
   --muted:#777;
 }
@@ -19,6 +26,7 @@
 body{
   margin:0;
   background:var(--bg);
+  color:var(--text);
 }
 
 /* AUTH */
@@ -30,20 +38,19 @@ body{
 }
 .auth-box{
   width:100%;
-  max-width:380px;
+  max-width:420px;
   background:var(--card);
-  padding:30px;
+  padding:32px;
   border-radius:18px;
-  box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
-.auth-box h1{text-align:center}
-.auth-box p{text-align:center;color:var(--muted)}
 input{
   width:100%;
   padding:14px;
   margin:10px 0;
   border-radius:12px;
-  border:1px solid #ddd;
+  border:none;
+  background:#222;
+  color:#fff;
 }
 button{
   width:100%;
@@ -52,10 +59,9 @@ button{
   border:none;
   background:var(--primary);
   color:#fff;
+  font-weight:600;
   cursor:pointer;
 }
-.switch{text-align:center;margin-top:15px;font-size:14px}
-.switch span{color:var(--primary);cursor:pointer}
 
 /* APP */
 .app{display:none}
@@ -65,13 +71,12 @@ button{
 }
 .sidebar{
   width:240px;
-  background:#fff;
+  background:var(--card);
   padding:20px;
-  box-shadow:5px 0 20px rgba(0,0,0,.05);
 }
 .logo{
-  font-weight:700;
   font-size:20px;
+  font-weight:700;
   margin-bottom:30px;
 }
 .nav button{
@@ -80,80 +85,68 @@ button{
   border:none;
   padding:12px;
   text-align:left;
-  border-radius:10px;
+  border-radius:12px;
   cursor:pointer;
-  margin-bottom:8px;
+  color:var(--text);
 }
 .nav button.active,
 .nav button:hover{
-  background:var(--bg);
+  background:rgba(255,255,255,.08);
 }
+
 .content{
   flex:1;
   padding:25px;
 }
+
 .card{
   background:var(--card);
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  padding:22px;
+  border-radius:18px;
   margin-bottom:20px;
 }
 
-/* TABLE */
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-th,td{
-  padding:12px;
-  border-bottom:1px solid #eee;
-  text-align:left;
-}
-.status{
-  padding:4px 10px;
-  border-radius:8px;
-  font-size:12px;
-}
-.done{background:#d4fbe3;color:#0a7a3b}
-.pending{background:#fff3cd;color:#856404}
-
-/* PROFILE */
-label{
-  font-size:13px;
+.notice{
+  font-size:14px;
   color:var(--muted);
 }
-.logout{
-  background:#ff4d4f;
-  margin-top:15px;
+
+/* TOGGLE */
+.toggle{
+  cursor:pointer;
+  margin-top:20px;
+  font-size:14px;
+  color:var(--muted);
 }
 </style>
 </head>
 
 <body>
 
-<!-- AUTH -->
+<!-- LOGIN -->
 <div class="auth" id="auth">
   <div class="auth-box">
-    <h1 id="title">Login</h1>
-    <p id="desc">Welcome back! Earn rewards.</p>
+    <h2>Login</h2>
     <input placeholder="Email">
     <input placeholder="Password" type="password">
     <button onclick="login()">Continue</button>
-    <div class="switch"><span onclick="toggle()">Create account</span></div>
   </div>
 </div>
 
 <!-- APP -->
 <div class="app" id="app">
   <div class="layout">
+
     <aside class="sidebar">
       <div class="logo">💎 GPT Rewards</div>
       <div class="nav">
         <button class="active" onclick="show('dashboard')">🏠 Dashboard</button>
-        <button onclick="show('history')">📜 History</button>
+        <button onclick="show('offers')">🎯 Offers</button>
+        <button onclick="show('withdraw')">💰 Withdraw</button>
         <button onclick="show('profile')">👤 Profile</button>
       </div>
+
+      <div class="toggle" onclick="toggleTheme()">🌙 Toggle Dark Mode</div>
     </aside>
 
     <main class="content">
@@ -161,54 +154,42 @@ label{
       <!-- DASHBOARD -->
       <div id="dashboard" class="page">
         <div class="card">
-          <h2>Balance</h2>
-          <h1>$12.40</h1>
-        </div>
-
-        <div class="card">
-          <h3>Offerwalls</h3>
-          <button onclick="openWall()">GemiWall</button>
-          <button onclick="openWall()">Revu</button>
-          <button onclick="openWall()">MM Wall</button>
+          <h2>Welcome 👋</h2>
+          <p class="notice">
+            Complete offers from our partners and get rewarded securely.
+          </p>
         </div>
       </div>
 
-      <!-- HISTORY -->
-      <div id="history" class="page" style="display:none">
+      <!-- OFFERS -->
+      <div id="offers" class="page" style="display:none">
         <div class="card">
-          <h2>Offer History</h2>
-          <table>
-            <tr>
-              <th>Offer</th>
-              <th>Reward</th>
-              <th>Status</th>
-            </tr>
-            <tr>
-              <td>Survey – Mobile App</td>
-              <td>$2.50</td>
-              <td><span class="status done">Completed</span></td>
-            </tr>
-            <tr>
-              <td>Game Install</td>
-              <td>$5.00</td>
-              <td><span class="status pending">Pending</span></td>
-            </tr>
-          </table>
+          <h2>GemiWall</h2>
+          <p class="notice">
+            Offers are hosted by our official partner.
+          </p>
+          <button onclick="openWall()">Open Offerwall</button>
+        </div>
+      </div>
+
+      <!-- WITHDRAW -->
+      <div id="withdraw" class="page" style="display:none">
+        <div class="card">
+          <h2>Withdraw</h2>
+          <p class="notice">
+            All rewards are processed by our offerwall partner.
+            To withdraw, please continue on GemiWall.
+          </p>
+          <button onclick="openWall()">Go to Withdraw</button>
         </div>
       </div>
 
       <!-- PROFILE -->
       <div id="profile" class="page" style="display:none">
         <div class="card">
-          <h2>Profile Settings</h2>
-          <label>Email</label>
+          <h2>Profile</h2>
           <input value="user@email.com">
-          <label>Username</label>
-          <input value="GPT_User">
-          <label>Payment Method</label>
-          <input placeholder="PayPal / USDT">
-          <button>Save Changes</button>
-          <button class="logout" onclick="logout()">Logout</button>
+          <button onclick="logout()">Logout</button>
         </div>
       </div>
 
@@ -217,27 +198,31 @@ label{
 </div>
 
 <script>
-let loginMode=true;
-function toggle(){
-  loginMode=!loginMode;
-  title.innerText=loginMode?'Login':'Register';
-  desc.innerText=loginMode?'Welcome back!':'Create account to earn.';
-}
 function login(){
   auth.style.display='none';
   app.style.display='block';
 }
+
 function logout(){
   location.reload();
 }
+
 function show(page){
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
   document.getElementById(page).style.display='block';
   document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
 }
+
 function openWall(){
-  window.open('#','_blank');
+  window.open(
+    'https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/',
+    '_blank'
+  );
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light');
 }
 </script>
 
