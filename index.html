@@ -1,150 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <title>Offerwall GPT</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Supabase CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <style>
-    * { box-sizing: border-box; font-family: Inter, Arial, sans-serif; }
-
     body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #1b2333, #0b0f1a);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background:#0b0f14;
+      font-family: Arial;
+      color:#fff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
     }
-
-    .card {
-      width: 100%;
-      max-width: 420px;
-      background: #121826;
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    .box {
+      background:#121826;
+      padding:30px;
+      border-radius:12px;
+      width:360px;
+      box-shadow:0 0 20px rgba(0,0,0,.6);
     }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: 24px;
-      font-weight: 700;
+    input, button {
+      width:100%;
+      padding:12px;
+      margin-top:10px;
+      border-radius:8px;
+      border:none;
+      font-size:15px;
     }
-
-    p {
-      color: #9aa4bf;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      font-size: 15px;
-      margin-bottom: 14px;
-    }
-
     button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      background: #22c55e;
-      color: #000;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
+      background:#22c55e;
+      color:#000;
+      font-weight:bold;
+      cursor:pointer;
     }
-
-    button:hover { opacity: .9; }
-
-    .note {
-      margin-top: 12px;
-      font-size: 13px;
-      color: #8b95b1;
-      text-align: center;
-    }
-
-    /* Dashboard */
-    #dashboard {
-      display: none;
-      width: 100%;
-      max-width: 900px;
-      height: 90vh;
-      background: #0f1422;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,.6);
-    }
-
-    .topbar {
-      padding: 16px 20px;
-      background: #121826;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .topbar span {
-      font-size: 14px;
-      color: #9aa4bf;
-    }
-
-    .topbar button {
-      width: auto;
-      padding: 8px 14px;
-      background: #ef4444;
-      color: #fff;
-      font-size: 13px;
-    }
-
-    iframe {
-      width: 100%;
-      height: calc(100% - 60px);
-      border: none;
-      background: #fff;
-    }
+    .hidden { display:none; }
   </style>
 </head>
-
 <body>
 
-<!-- LOGIN -->
-<div class="card" id="login">
-  <h1>Login / Register</h1>
-  <p>No password required – Email verification</p>
-
-  <input type="email" id="email" placeholder="Enter your email" />
+<div id="login" class="box">
+  <h2>Login / Register</h2>
+  <input id="email" placeholder="Email address" />
   <button onclick="login()">Continue</button>
-
-  <div class="note">
-    You will receive a magic login link
-  </div>
+  <p style="opacity:.7;font-size:13px">No password · Email OTP</p>
 </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard">
-  <div class="topbar">
-    <span id="userEmail"></span>
-    <button onclick="logout()">Logout</button>
-  </div>
-
-  <!-- GemiWall -->
-  <iframe
-    src="https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/">
-  </iframe>
+<div id="dashboard" class="box hidden">
+  <h2>Dashboard</h2>
+  <p id="userEmail"></p>
+  <button onclick="logout()">Logout</button>
 </div>
 
 <script>
-  // 🔑 SUPABASE CONFIG (ĐÃ GẮN SẴN CHO BẠN)
+  // 🔥 THAY 2 DÒNG NÀY
   const SUPABASE_URL = "https://glejepbcpjcilxyrxxcg.supabase.co";
   const SUPABASE_ANON_KEY = "sb_publishable_kTKaL4ycqXhSIwGCx3ReNg_20dEKu1-";
 
@@ -153,13 +63,9 @@
     SUPABASE_ANON_KEY
   );
 
-  // LOGIN
   async function login() {
-    const email = document.getElementById("email").value.trim();
-    if (!email) {
-      alert("Please enter email");
-      return;
-    }
+    const email = document.getElementById("email").value;
+    if (!email) return alert("Nhập email");
 
     const { error } = await supabase.auth.signInWithOtp({
       email,
@@ -168,31 +74,33 @@
       }
     });
 
-    if (error) {
-      alert(error.message);
-    } else {
-      alert("Check your email to login");
-    }
+    if (error) alert(error.message);
+    else alert("Check email để đăng nhập");
   }
 
-  // CHECK SESSION
   async function checkUser() {
-    const { data } = await supabase.auth.getUser();
-    if (data?.user) {
-      showDashboard(data.user.email);
+    const { data } = await supabase.auth.getSession();
+    if (data.session) {
+      showDashboard(data.session.user);
     }
   }
 
-  function showDashboard(email) {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
-    document.getElementById("userEmail").innerText = email;
+  function showDashboard(user) {
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+    document.getElementById("userEmail").innerText =
+      "Logged in as: " + user.email;
   }
 
   async function logout() {
     await supabase.auth.signOut();
     location.reload();
   }
+
+  // 🔑 LẮNG NGHE AUTH STATE (CỰC QUAN TRỌNG)
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (session) showDashboard(session.user);
+  });
 
   checkUser();
 </script>
