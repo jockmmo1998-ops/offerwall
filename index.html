@@ -1,208 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Offerwall GPT</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <meta charset="UTF-8" />
+  <title>Offerwall GPT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-body{
-  margin:0;
-  font-family:Inter,system-ui;
-  background:#0b0f14;
-  color:#fff;
-}
-.hidden{display:none}
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-/* LOGIN */
-#login{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-.login-box{
-  width:360px;
-  background:#111827;
-  padding:24px;
-  border-radius:12px;
-}
-.login-box h1{margin-bottom:12px}
-.login-box input{
-  width:100%;
-  padding:12px;
-  border-radius:8px;
-  border:none;
-  margin-bottom:12px;
-}
-.login-box button{
-  width:100%;
-  padding:12px;
-  border-radius:8px;
-  border:none;
-  background:#22c55e;
-  font-weight:600;
-  cursor:pointer;
-}
+  <style>
+    * { box-sizing: border-box; font-family: Inter, Arial, sans-serif; }
 
-/* DASHBOARD */
-nav{
-  background:#111827;
-  padding:12px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-nav button{
-  background:none;
-  border:none;
-  color:#9ca3af;
-  margin-right:12px;
-  cursor:pointer;
-}
-nav button.active{color:#22c55e}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1b2333, #0b0f1a);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.page{display:none;padding:20px}
-.page.active{display:block}
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: #121826;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
 
-iframe{
-  width:100%;
-  height:75vh;
-  border:none;
-  border-radius:12px;
-  background:#000;
-}
+    h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      font-weight: 700;
+    }
 
-.card{
-  background:#111827;
-  padding:16px;
-  border-radius:12px;
-  margin-bottom:16px;
-}
-input,select{
-  width:100%;
-  padding:10px;
-  border-radius:8px;
-  border:none;
-  margin-top:8px;
-}
-.submit{
-  margin-top:12px;
-  background:#22c55e;
-  border:none;
-  padding:12px;
-  border-radius:8px;
-  width:100%;
-  font-weight:600;
-}
-</style>
+    p {
+      color: #9aa4bf;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: #22c55e;
+      color: #000;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover { opacity: .9; }
+
+    .note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #8b95b1;
+      text-align: center;
+    }
+
+    /* Dashboard */
+    #dashboard {
+      display: none;
+      width: 100%;
+      max-width: 900px;
+      height: 90vh;
+      background: #0f1422;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.6);
+    }
+
+    .topbar {
+      padding: 16px 20px;
+      background: #121826;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar span {
+      font-size: 14px;
+      color: #9aa4bf;
+    }
+
+    .topbar button {
+      width: auto;
+      padding: 8px 14px;
+      background: #ef4444;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100% - 60px);
+      border: none;
+      background: #fff;
+    }
+  </style>
 </head>
 
 <body>
 
 <!-- LOGIN -->
-<div id="login">
-  <div class="login-box">
-    <h1>Login / Register</h1>
-    <input id="emailInput" type="email" placeholder="Email address">
-    <button onclick="login()">Continue</button>
-    <p style="opacity:.7;font-size:13px">No password • Email verification</p>
+<div class="card" id="login">
+  <h1>Login / Register</h1>
+  <p>No password required – Email verification</p>
+
+  <input type="email" id="email" placeholder="Enter your email" />
+  <button onclick="login()">Continue</button>
+
+  <div class="note">
+    You will receive a magic login link
   </div>
 </div>
 
 <!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
-
-<nav>
-  <b>Offerwall</b>
-  <div>
-    <button onclick="show('offers')" class="active">Offers</button>
-    <button onclick="show('withdraw')">Withdraw</button>
-    <button onclick="show('profile')">Profile</button>
+<div id="dashboard">
+  <div class="topbar">
+    <span id="userEmail"></span>
     <button onclick="logout()">Logout</button>
   </div>
-</nav>
 
-<div id="offers" class="page active">
-  <iframe src="https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/"></iframe>
-</div>
-
-<div id="withdraw" class="page">
-  <div class="card">
-    <h3>Withdraw</h3>
-    <select id="method">
-      <option>LTC</option>
-      <option>USDT (TRC20)</option>
-    </select>
-    <input id="wallet" placeholder="Wallet address">
-    <button class="submit" onclick="withdraw()">Submit</button>
-    <p style="opacity:.7;font-size:13px">
-      Processed manually within 30 minutes
-    </p>
-  </div>
-</div>
-
-<div id="profile" class="page">
-  <div class="card">
-    <h3>Profile</h3>
-    <div id="userEmail"></div>
-  </div>
-</div>
-
+  <!-- GemiWall -->
+  <iframe
+    src="https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/">
+  </iframe>
 </div>
 
 <script>
-// 🔧 CHỈ SỬA 2 DÒNG NÀY
-const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
-const SUPABASE_KEY = "YOUR_PUBLIC_ANON_KEY";
+  // 🔑 SUPABASE CONFIG (ĐÃ GẮN SẴN CHO BẠN)
+  const SUPABASE_URL = "https://glejepbcpjcilxyrxxcg.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_kTKaL4ycqXhSIwGCx3ReNg_20dEKu1-";
 
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const supabase = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
 
-const loginBox = document.getElementById("login");
-const dashboard = document.getElementById("dashboard");
+  // LOGIN
+  async function login() {
+    const email = document.getElementById("email").value.trim();
+    if (!email) {
+      alert("Please enter email");
+      return;
+    }
 
-async function login(){
-  const email = document.getElementById("emailInput").value;
-  if(!email) return alert("Enter email");
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: window.location.href
+      }
+    });
 
-  await supabase.auth.signInWithOtp({ email });
-  alert("Check your email to login");
-}
-
-async function checkUser(){
-  const { data:{ user } } = await supabase.auth.getUser();
-  if(user){
-    loginBox.classList.add("hidden");
-    dashboard.classList.remove("hidden");
-    document.getElementById("userEmail").innerText = user.email;
+    if (error) {
+      alert(error.message);
+    } else {
+      alert("Check your email to login");
+    }
   }
-}
-checkUser();
 
-function show(id){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-}
+  // CHECK SESSION
+  async function checkUser() {
+    const { data } = await supabase.auth.getUser();
+    if (data?.user) {
+      showDashboard(data.user.email);
+    }
+  }
 
-async function logout(){
-  await supabase.auth.signOut();
-  location.reload();
-}
+  function showDashboard(email) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+    document.getElementById("userEmail").innerText = email;
+  }
 
-async function withdraw(){
-  const wallet = document.getElementById("wallet").value;
-  if(!wallet) return alert("Enter wallet");
+  async function logout() {
+    await supabase.auth.signOut();
+    location.reload();
+  }
 
-  await supabase.from("withdraw_requests").insert({
-    wallet,
-    method: document.getElementById("method").value,
-    status:"pending"
-  });
-
-  alert("Withdraw submitted");
-  document.getElementById("wallet").value="";
-}
+  checkUser();
 </script>
 
 </body>
