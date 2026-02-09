@@ -1,127 +1,145 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Login / Register</title>
+<meta charset="UTF-8">
+<title>Offerwall Dashboard</title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: radial-gradient(circle at top, #111827, #020617);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: system-ui, sans-serif;
-      color: #fff;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: #fff;
+}
 
-    .card {
-      width: 360px;
-      background: #020617;
-      padding: 28px;
-      border-radius: 14px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.6);
-    }
+.hidden { display: none; }
 
-    h2 {
-      margin: 0 0 18px;
-      text-align: center;
-    }
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
 
-    input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      font-size: 15px;
-      margin-bottom: 14px;
-    }
+.card {
+  background: #020617;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.6);
+}
 
-    button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      background: #22c55e;
-      color: #000;
-      font-weight: 700;
-      font-size: 16px;
-      cursor: pointer;
-    }
+input, button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+}
 
-    button:disabled {
-      opacity: .6;
-      cursor: not-allowed;
-    }
+button {
+  margin-top: 10px;
+  background: #22c55e;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-    .hint {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #9ca3af;
-      text-align: center;
-    }
-  </style>
+h1, h2 {
+  margin-top: 0;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  gap: 16px;
+}
+
+.offer {
+  background: #020617;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #1f2933;
+}
+
+.offer a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  background: #2563eb;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+</style>
 </head>
+
 <body>
 
+<!-- LOGIN FAKE -->
+<div id="login" class="container">
   <div class="card">
-    <h2>Login / Register</h2>
-
-    <input
-      id="email"
-      type="email"
-      placeholder="Nhập email của bạn"
-    />
-
-    <button id="btn" onclick="login()">Continue</button>
-
-    <div class="hint">No password · Email OTP</div>
+    <h2>Enter Username</h2>
+    <input id="username" placeholder="Nhập username bất kỳ">
+    <button onclick="enter()">Enter</button>
+    <p style="opacity:.6;text-align:center">Không cần đăng ký · Không mật khẩu</p>
   </div>
+</div>
 
-  <!-- SUPABASE SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- DASHBOARD -->
+<div id="dashboard" class="container hidden">
+  <h1>Welcome, <span id="user"></span></h1>
 
-  <script>
-    console.log("JS loaded");
+  <div class="offer-grid">
 
-    // ❗ KHỞI TẠO SUPABASE (CHỈ 1 LẦN)
-    const supabase = window.supabase.createClient(
-      "https://glejepbcpjcilxyrxxcg.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdsZWplcGJjcGpjaWx4eXJ4eGNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA1MDY5MzYsImV4cCI6MjA4NjA4MjkzNn0.q0dd11JHXSa141N2woQidqcCM7N3Gf-WO5gDWlh7luw"
-    );
+    <div class="offer">
+      <h3>Offerwall #1</h3>
+      <p>Survey & Tasks</p>
+      <a href="#" target="_blank">Open</a>
+    </div>
 
-    // ❗ HÀM LOGIN – PHẢI GẮN WINDOW
-    window.login = async function () {
-      const btn = document.getElementById("btn");
-      const email = document.getElementById("email").value.trim();
+    <div class="offer">
+      <h3>Offerwall #2</h3>
+      <p>Games & Apps</p>
+      <a href="#" target="_blank">Open</a>
+    </div>
 
-      if (!email) {
-        alert("Vui lòng nhập email");
-        return;
-      }
+    <div class="offer">
+      <h3>Offerwall #3</h3>
+      <p>CPA Offers</p>
+      <a href="#" target="_blank">Open</a>
+    </div>
 
-      btn.disabled = true;
-      btn.innerText = "Đang gửi OTP...";
+    <div class="offer">
+      <h3>Offerwall #4</h3>
+      <p>Video / Ads</p>
+      <a href="#" target="_blank">Open</a>
+    </div>
 
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: window.location.href
-        }
-      });
+  </div>
+</div>
 
-      btn.disabled = false;
-      btn.innerText = "Continue";
+<script>
+function enter() {
+  const name = document.getElementById("username").value.trim();
+  if (!name) {
+    alert("Nhập username");
+    return;
+  }
 
-      if (error) {
-        alert("Lỗi: " + error.message);
-      } else {
-        alert("✅ Đã gửi email xác nhận, kiểm tra inbox / spam");
-      }
-    };
-  </script>
+  localStorage.setItem("user", name);
+  showDashboard();
+}
+
+function showDashboard() {
+  const name = localStorage.getItem("user");
+  if (!name) return;
+
+  document.getElementById("login").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+  document.getElementById("user").innerText = name;
+}
+
+showDashboard();
+</script>
 
 </body>
 </html>
