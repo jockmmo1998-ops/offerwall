@@ -1,103 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Offerwall Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login / Register</title>
+
   <style>
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, sans-serif;
+      height: 100vh;
       background: radial-gradient(circle at top, #111827, #020617);
-      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      font-family: system-ui, sans-serif;
+      color: #fff;
     }
+
     .card {
-      background: linear-gradient(180deg, #0f172a, #020617);
+      width: 360px;
+      background: #020617;
       padding: 28px;
       border-radius: 14px;
-      width: 360px;
       box-shadow: 0 20px 60px rgba(0,0,0,.6);
     }
-    h1 {
+
+    h2 {
       margin: 0 0 18px;
-      font-size: 22px;
+      text-align: center;
     }
+
     input {
       width: 100%;
-      padding: 12px 14px;
+      padding: 14px;
       border-radius: 10px;
       border: none;
       outline: none;
+      font-size: 15px;
       margin-bottom: 14px;
-      font-size: 14px;
     }
+
     button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       border-radius: 10px;
       border: none;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
       background: #22c55e;
-      color: #020617;
+      color: #000;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
     }
-    button:hover { opacity: .9; }
-    .note {
+
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .hint {
       margin-top: 10px;
-      font-size: 12px;
+      font-size: 13px;
       color: #9ca3af;
-    }
-    .hidden { display: none; }
-    .dashboard {
       text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <!-- LOGIN -->
-  <div class="card" id="loginBox">
-    <h1>Login / Register</h1>
-    <input id="email" type="email" placeholder="Enter your email" />
-    <button onclick="login()">Continue</button>
-    <div class="note">No password · Email OTP</div>
+  <div class="card">
+    <h2>Login / Register</h2>
+
+    <input
+      id="email"
+      type="email"
+      placeholder="Nhập email của bạn"
+    />
+
+    <button id="btn" onclick="login()">Continue</button>
+
+    <div class="hint">No password · Email OTP</div>
   </div>
 
-  <!-- DASHBOARD -->
-  <div class="card hidden dashboard" id="dashboard">
-    <h1>Dashboard</h1>
-    <p id="userEmail"></p>
-    <button onclick="logout()">Logout</button>
-  </div>
+  <!-- SUPABASE SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- SUPABASE -->
-  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script>
-    // 🔑 SUPABASE CONFIG (ĐÃ GẮN KEY CHO BẠN)
-    const SUPABASE_URL = "https://glejepbcpjcilxyrxxcg.supabase.co";
-    const SUPABASE_ANON_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdsZWplcGJjcGpjaWx4eXJ4eGNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA1MDY5MzYsImV4cCI6MjA4NjA4MjkzNn0.q0dd11JHXSa141N2woQidqcCM7N3Gf-WO5gDWlh7luw";
+    console.log("JS loaded");
 
-    const supabase = supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_ANON_KEY
+    // ❗ KHỞI TẠO SUPABASE (CHỈ 1 LẦN)
+    const supabase = window.supabase.createClient(
+      "https://glejepbcpjcilxyrxxcg.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdsZWplcGJjcGpjaWx4eXJ4eGNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA1MDY5MzYsImV4cCI6MjA4NjA4MjkzNn0.q0dd11JHXSa141N2woQidqcCM7N3Gf-WO5gDWlh7luw"
     );
 
-    const loginBox = document.getElementById("loginBox");
-    const dashboard = document.getElementById("dashboard");
-    const userEmail = document.getElementById("userEmail");
-
-    async function login() {
+    // ❗ HÀM LOGIN – PHẢI GẮN WINDOW
+    window.login = async function () {
+      const btn = document.getElementById("btn");
       const email = document.getElementById("email").value.trim();
+
       if (!email) {
-        alert("Nhập email trước đã");
+        alert("Vui lòng nhập email");
         return;
       }
+
+      btn.disabled = true;
+      btn.innerText = "Đang gửi OTP...";
 
       const { error } = await supabase.auth.signInWithOtp({
         email,
@@ -106,28 +112,16 @@
         }
       });
 
+      btn.disabled = false;
+      btn.innerText = "Continue";
+
       if (error) {
-        alert(error.message);
+        alert("Lỗi: " + error.message);
       } else {
-        alert("📩 Check email để đăng nhập");
+        alert("✅ Đã gửi email xác nhận, kiểm tra inbox / spam");
       }
-    }
-
-    async function checkUser() {
-      const { data } = await supabase.auth.getUser();
-      if (data?.user) {
-        loginBox.classList.add("hidden");
-        dashboard.classList.remove("hidden");
-        userEmail.innerText = "Logged in as: " + data.user.email;
-      }
-    }
-
-    async function logout() {
-      await supabase.auth.signOut();
-      location.reload();
-    }
-
-    checkUser();
+    };
   </script>
+
 </body>
 </html>
