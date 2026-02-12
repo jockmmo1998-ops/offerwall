@@ -105,13 +105,14 @@ h1, h2 {
       </a>
     </div>
 
-    <!-- OFFER TRỐNG (BẠN ADD SAU) -->
+    <!-- REVTOO OFFERWALL -->
     <div class="offer">
-      <h3>Offerwall #2</h3>
-      <p>Add later</p>
-      <a href="#">Coming soon</a>
+      <h3>Revtoo Offerwall</h3>
+      <p>Survey · Apps · Games</p>
+      <a href="#" onclick="openRevtoo()">Open</a>
     </div>
 
+    <!-- OFFER TRỐNG -->
     <div class="offer">
       <h3>Offerwall #3</h3>
       <p>Add later</p>
@@ -122,6 +123,8 @@ h1, h2 {
 </div>
 
 <script>
+const REVTOO_API_KEY = "7y9n22mjsz0c3ujyncuomz95k6p31p";
+
 function enter() {
   const name = document.getElementById("username").value.trim();
   if (!name) {
@@ -138,6 +141,16 @@ function showDashboard() {
   document.getElementById("login").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
   document.getElementById("user").innerText = name;
+}
+
+function openRevtoo() {
+  const user = localStorage.getItem("user");
+  if (!user) {
+    alert("Chưa có user");
+    return;
+  }
+  const url = `https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`;
+  window.open(url, "_blank");
 }
 
 showDashboard();
