@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Offerwall Dashboard</title>
+<title>Offerwall</title>
 
 <style>
 body {
@@ -36,10 +36,21 @@ input, button {
 }
 
 button {
-  margin-top: 10px;
+  margin-top: 12px;
   background: #22c55e;
   font-weight: 700;
   cursor: pointer;
+}
+
+.rules {
+  max-height: 220px;
+  overflow-y: auto;
+  font-size: 14px;
+  opacity: .9;
+  border: 1px solid #1f2933;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 15px 0;
 }
 
 .offer-grid {
@@ -70,17 +81,6 @@ button {
   padding: 10px;
   border-radius: 8px;
 }
-
-.rules {
-  max-height: 220px;
-  overflow-y: auto;
-  font-size: 14px;
-  opacity: .9;
-  border: 1px solid #1f2933;
-  padding: 12px;
-  border-radius: 10px;
-  margin: 15px 0;
-}
 </style>
 </head>
 
@@ -90,17 +90,16 @@ button {
 <div id="login" class="container">
   <div class="card">
     <h2>Enter Username</h2>
-    <input id="username" placeholder="Nhập username bất kỳ">
+    <input id="username" placeholder="Nhập username">
 
     <div class="rules">
       <b>RULE – Luật sử dụng Offerwall</b><br><br>
       • Mỗi người chỉ dùng 1 username<br>
       • 1 thiết bị = 1 người dùng<br>
-      • KHÔNG dùng VPN / Proxy / Giả lập<br>
+      • KHÔNG VPN / Proxy / Giả lập<br>
+      • Không traffic khuyến khích (incent)<br>
       • Mỗi offer chỉ làm 1 lần<br>
-      • Hoàn thành offer đúng yêu cầu<br>
-      • Gian lận sẽ không được trả thưởng<br><br>
-      Offer có thể ở trạng thái Pending trước khi được duyệt.
+      • Gian lận sẽ bị từ chối thanh toán
     </div>
 
     <label>
@@ -118,23 +117,20 @@ button {
 
   <div class="offer-grid">
 
+    <!-- REVTOO -->
+    <div class="offer">
+      <h3>Revtoo Offerwall</h3>
+      <p>Offers · Surveys</p>
+      <a id="revtooLink" target="_blank">Open</a>
+    </div>
+
     <!-- GEMIWALL -->
     <div class="offer">
       <img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png">
       <h3>Gemiwall</h3>
-      <p>Survey · Games · Offers</p>
-      <a href="https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/" target="_blank">
-        Open
-      </a>
-    </div>
-
-    <!-- REVTOO -->
-    <div class="offer">
-      <h3>Revtoo</h3>
-      <p>Offers · Surveys</p>
-      <a href="https://revtoo.com/offerwall?api_key=7y9n22mjsz0c3ujyncuomz95k6p31p&user_id=USERNAME"
-         target="_blank"
-         onclick="this.href=this.href.replace('USERNAME', localStorage.getItem('user'));">
+      <p>Games · Surveys</p>
+      <a href="https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/"
+         target="_blank">
         Open
       </a>
     </div>
@@ -143,12 +139,14 @@ button {
 </div>
 
 <script>
+const API_KEY = "7y9n22mjsz0c3ujyncuomz95k6p31p";
+
 function enter() {
   const name = document.getElementById("username").value.trim();
   const agree = document.getElementById("agree").checked;
 
   if (!name) {
-    alert("Nhập username");
+    alert("Vui lòng nhập username");
     return;
   }
 
@@ -164,9 +162,14 @@ function enter() {
 function showDashboard() {
   const name = localStorage.getItem("user");
   if (!name) return;
+
   document.getElementById("login").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
   document.getElementById("user").innerText = name;
+
+  const userId = encodeURIComponent(name);
+  document.getElementById("revtooLink").href =
+    `https://wall.revtoo.com/?api_key=${API_KEY}&user_id=${userId}`;
 }
 
 showDashboard();
