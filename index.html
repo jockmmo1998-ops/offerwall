@@ -42,10 +42,6 @@ button {
   cursor: pointer;
 }
 
-h1, h2 {
-  margin-top: 0;
-}
-
 .offer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
@@ -74,6 +70,17 @@ h1, h2 {
   padding: 10px;
   border-radius: 8px;
 }
+
+.rules {
+  max-height: 220px;
+  overflow-y: auto;
+  font-size: 14px;
+  opacity: .9;
+  border: 1px solid #1f2933;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
 </style>
 </head>
 
@@ -84,6 +91,25 @@ h1, h2 {
   <div class="card">
     <h2>Enter Username</h2>
     <input id="username" placeholder="Nhập username bất kỳ">
+
+    <div class="rules">
+      <b>RULE – Luật sử dụng Offerwall</b><br><br>
+
+      • Mỗi người chỉ dùng 1 username<br>
+      • 1 thiết bị = 1 người dùng<br>
+      • KHÔNG dùng VPN / Proxy / Giả lập<br>
+      • Mỗi offer chỉ làm 1 lần<br>
+      • Hoàn thành offer đúng yêu cầu<br>
+      • Gian lận sẽ không được trả thưởng<br><br>
+
+      Offer có thể cần thời gian duyệt (Pending → Approved).  
+      Quyết định cuối cùng thuộc về Offerwall & Advertiser.
+    </div>
+
+    <label>
+      <input type="checkbox" id="agree"> Tôi đồng ý với rule
+    </label>
+
     <button onclick="enter()">Enter</button>
     <p style="opacity:.6;text-align:center">Không cần đăng ký · Không mật khẩu</p>
   </div>
@@ -105,32 +131,35 @@ h1, h2 {
       </a>
     </div>
 
-    <!-- REVTOO OFFERWALL -->
+    <!-- REVTOO -->
     <div class="offer">
-      <h3>Revtoo Offerwall</h3>
-      <p>Survey · Apps · Games</p>
-      <a href="#" onclick="openRevtoo()">Open</a>
-    </div>
-
-    <!-- OFFER TRỐNG -->
-    <div class="offer">
-      <h3>Offerwall #3</h3>
-      <p>Add later</p>
-      <a href="#">Coming soon</a>
+      <h3>Revtoo</h3>
+      <p>Offers · Surveys</p>
+      <a href="https://revtoo.com/offerwall?api_key=YOUR_API_KEY&user_id=USERNAME"
+         target="_blank"
+         onclick="this.href=this.href.replace('USERNAME',localStorage.getItem('user'));">
+        Open
+      </a>
     </div>
 
   </div>
 </div>
 
 <script>
-const REVTOO_API_KEY = "7y9n22mjsz0c3ujyncuomz95k6p31p";
-
 function enter() {
   const name = document.getElementById("username").value.trim();
+  const agree = document.getElementById("agree").checked;
+
   if (!name) {
     alert("Nhập username");
     return;
   }
+
+  if (!agree) {
+    alert("Bạn phải đồng ý với rule");
+    return;
+  }
+
   localStorage.setItem("user", name);
   showDashboard();
 }
@@ -141,16 +170,6 @@ function showDashboard() {
   document.getElementById("login").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
   document.getElementById("user").innerText = name;
-}
-
-function openRevtoo() {
-  const user = localStorage.getItem("user");
-  if (!user) {
-    alert("Chưa có user");
-    return;
-  }
-  const url = `https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`;
-  window.open(url, "_blank");
 }
 
 showDashboard();
