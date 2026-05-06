@@ -5,75 +5,98 @@
 <title>Offerwall Dashboard</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: radial-gradient(circle at top, #111827, #020617);
-  color: #fff;
+
+body{
+margin:0;
+font-family:system-ui;
+background: radial-gradient(circle at top,#0f172a,#020617);
+color:white;
 }
 
-.hidden { display: none; }
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 30px;
+.hidden{
+display:none;
 }
 
-.card {
-  background: #020617;
-  border-radius: 14px;
-  padding: 24px;
-  box-shadow: 0 20px 50px rgba(0,0,0,.6);
+.container{
+max-width:1000px;
+margin:auto;
+padding:30px;
 }
 
-input, button {
-  width: 100%;
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-  font-size: 15px;
+.card{
+background:#020617;
+padding:25px;
+border-radius:16px;
+box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
 
-button {
-  margin-top: 10px;
-  background: #22c55e;
-  font-weight: 700;
-  cursor: pointer;
+h1,h2,h3{
+margin-top:0;
 }
 
-h1, h2 {
-  margin-top: 0;
+input{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:none;
+margin-top:10px;
+font-size:15px;
 }
 
-.offer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
-  gap: 16px;
+button{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+font-weight:bold;
+background:#22c55e;
+cursor:pointer;
 }
 
-.offer {
-  background: #020617;
-  padding: 18px;
-  border-radius: 12px;
-  border: 1px solid #1f2933;
-  text-align: center;
+.offer-grid{
+margin-top:20px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:16px;
 }
 
-.offer img {
-  width: 120px;
-  margin-bottom: 10px;
+.offer{
+background:#020617;
+padding:20px;
+border-radius:14px;
+border:1px solid #1f2937;
+text-align:center;
+transition:.2s;
 }
 
-.offer a {
-  display: block;
-  margin-top: 10px;
-  text-decoration: none;
-  background: #2563eb;
-  color: #fff;
-  padding: 10px;
-  border-radius: 8px;
+.offer:hover{
+transform:translateY(-4px);
+border-color:#2563eb;
 }
+
+.offer img{
+width:120px;
+margin-bottom:10px;
+}
+
+.offer button{
+background:#2563eb;
+}
+
+#offerFrame{
+width:100%;
+height:100vh;
+border:none;
+}
+
+.backBtn{
+background:#ef4444;
+width:auto;
+padding:10px 20px;
+margin-bottom:10px;
+}
+
 </style>
 </head>
 
@@ -81,89 +104,182 @@ h1, h2 {
 
 <!-- LOGIN -->
 <div id="login" class="container">
-  <div class="card">
-    <h2>Enter Username</h2>
-    <input id="username" placeholder="Nhập username bất kỳ">
-    <button onclick="enter()">Enter</button>
-    <p style="opacity:.6;text-align:center">Không cần đăng ký · Không mật khẩu</p>
-  </div>
+
+<div class="card">
+
+<h2>Enter Username</h2>
+
+<input id="username" placeholder="Nhập username bất kỳ">
+
+<button onclick="enter()">Enter</button>
+
+<p style="opacity:.6;text-align:center">
+Không cần đăng ký · Không mật khẩu
+</p>
+
 </div>
+
+</div>
+
 
 <!-- DASHBOARD -->
 <div id="dashboard" class="container hidden">
-  <h1>Welcome, <span id="user"></span></h1>
 
-  <div class="offer-grid">
+<h1>Welcome, <span id="user"></span></h1>
 
-    <!-- GEMIWALL -->
-    <div class="offer">
-      <img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png">
-      <h3>Gemiwall</h3>
-      <p>Survey · Games · Offers</p>
-      <a href="https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/" target="_blank">
-        Open
-      </a>
-    </div>
+<div class="offer-grid">
 
-    <!-- REVTOO -->
-    <div class="offer">
-      <h3>Revtoo Offerwall</h3>
-      <p>Survey · Apps · Games</p>
-      <a href="#" onclick="openRevtoo()">Open</a>
-    </div>
-
-    <!-- CLICKWALL -->
-    <div class="offer">
-      <h3>Offerwall #3</h3>
-      <p>Survey · Apps · Games</p>
-      <a href="#" onclick="openClickwall()">Open</a>
-    </div>
-
-  </div>
+<!-- GEMIWALL -->
+<div class="offer">
+<img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png">
+<h3>Gemiwall</h3>
+<p>Survey · Games · Offers</p>
+<button onclick="openGemi()">Open</button>
 </div>
 
+
+<!-- REVTOO -->
+<div class="offer">
+<h3>Revtoo</h3>
+<p>Survey · Apps · Games</p>
+<button onclick="openRevtoo()">Open</button>
+</div>
+
+
+<!-- CLICKWALL -->
+<div class="offer">
+<h3>Clickwall</h3>
+<p>Survey · Apps · Games</p>
+<button onclick="openClickwall()">Open</button>
+</div>
+
+
+<!-- MOUSTACHE -->
+<div class="offer">
+<h3>MoustacheLeads</h3>
+<p>Survey · Apps · Offers</p>
+<button onclick="openMoustache()">Open</button>
+</div>
+
+
+</div>
+</div>
+
+
+<!-- OFFERWALL VIEW -->
+<div id="offerView" class="hidden">
+
+<div style="padding:10px;background:#020617">
+
+<button class="backBtn" onclick="back()">← Back</button>
+
+</div>
+
+<iframe id="offerFrame"></iframe>
+
+</div>
+
+
 <script>
-const REVTOO_API_KEY = "7y9n22mjsz0c3ujyncuomz95k6p31p";
 
-function enter() {
-  const name = document.getElementById("username").value.trim();
-  if (!name) {
-    alert("Nhập username");
-    return;
-  }
-  localStorage.setItem("user", name);
-  showDashboard();
+const REVTOO_API_KEY="7y9n22mjsz0c3ujyncuomz95k6p31p";
+
+
+function enter(){
+
+const name=document.getElementById("username").value.trim();
+
+if(!name){
+alert("Nhập username");
+return;
 }
 
-function showDashboard() {
-  const name = localStorage.getItem("user");
-  if (!name) return;
-  document.getElementById("login").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
-  document.getElementById("user").innerText = name;
-}
-
-function openRevtoo() {
-  const user = localStorage.getItem("user");
-  if (!user) {
-    alert("Chưa có user");
-    return;
-  }
-  const url = `https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`;
-  window.open(url, "_blank");
-}
-
-function openClickwall() {
-  const user = localStorage.getItem("user");
-  if (!user) {
-    alert("Chưa có user");
-    return;
-  }
-  const url = `https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`;
-  window.open(url, "_blank");
-}
+localStorage.setItem("user",name);
 
 showDashboard();
+
+}
+
+
+function showDashboard(){
+
+const name=localStorage.getItem("user");
+
+if(!name)return;
+
+document.getElementById("login").classList.add("hidden");
+
+document.getElementById("dashboard").classList.remove("hidden");
+
+document.getElementById("user").innerText=name;
+
+}
+
+
+function openFrame(url){
+
+document.getElementById("dashboard").classList.add("hidden");
+
+document.getElementById("offerView").classList.remove("hidden");
+
+document.getElementById("offerFrame").src=url;
+
+}
+
+
+function back(){
+
+document.getElementById("offerView").classList.add("hidden");
+
+document.getElementById("dashboard").classList.remove("hidden");
+
+document.getElementById("offerFrame").src="";
+
+}
+
+
+function openGemi(){
+
+openFrame("https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/");
+
+}
+
+
+function openRevtoo(){
+
+const user=localStorage.getItem("user");
+
+const url=`https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`;
+
+openFrame(url);
+
+}
+
+
+function openClickwall(){
+
+const user=localStorage.getItem("user");
+
+const url=`https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`;
+
+openFrame(url);
+
+}
+
+
+function openMoustache(){
+
+const user=localStorage.getItem("user");
+
+const url=`https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`;
+
+openFrame(url);
+
+}
+
+
+showDashboard();
+
 </script>
 
 </body>
