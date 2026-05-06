@@ -112,12 +112,12 @@ h1, h2 {
       <a href="#" onclick="openRevtoo()">Open</a>
     </div>
 
-    <!-- OFFER TRỐNG -->
-    <div class="offer">
-      <h3>Offerwall #3</h3>
-      <p>Add later</p>
-      <a href="#">Coming soon</a>
-    </div>
+   <!-- OFFERWALL #3 (CLICKWALL) -->
+<div class="offer">
+  <h3>Offerwall #3</h3>
+  <p>Survey · Apps · Games</p>
+  <a href="#" onclick="openClickwall()">Open</a>
+</div>
 
   </div>
 </div>
@@ -155,6 +155,16 @@ function openRevtoo() {
 
 showDashboard();
 </script>
+function openClickwall() {
+  const user = localStorage.getItem("user");
+  if (!user) {
+    alert("Chưa có user");
+    return;
+  }
 
+  const url = `https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`;
+  window.open(url, "_blank");
+}
+</script>
 </body>
 </html>
