@@ -1,100 +1,357 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Offerwall Dashboard</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Offerwall Hub</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:system-ui;
-background: radial-gradient(circle at top,#0f172a,#020617);
-color:white;
+padding:0;
+box-sizing:border-box;
 }
+
+body{
+font-family:system-ui,-apple-system,sans-serif;
+background:
+radial-gradient(circle at top,#1e293b,#020617 70%);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#334155;
+border-radius:20px;
+}
+
+/* UTIL */
 
 .hidden{
-display:none;
+display:none !important;
 }
 
+/* BG EFFECT */
+
+.bg{
+position:fixed;
+inset:0;
+overflow:hidden;
+z-index:-1;
+}
+
+.blob{
+position:absolute;
+width:400px;
+height:400px;
+border-radius:50%;
+filter:blur(100px);
+opacity:.15;
+animation:float 10s infinite ease-in-out;
+}
+
+.blob1{
+background:#2563eb;
+top:-100px;
+left:-100px;
+}
+
+.blob2{
+background:#22c55e;
+bottom:-100px;
+right:-100px;
+animation-delay:2s;
+}
+
+@keyframes float{
+0%{transform:translateY(0px)}
+50%{transform:translateY(30px)}
+100%{transform:translateY(0px)}
+}
+
+/* CONTAINER */
+
 .container{
-max-width:1000px;
+max-width:1200px;
 margin:auto;
 padding:30px;
 }
 
-.card{
-background:#020617;
-padding:25px;
-border-radius:16px;
-box-shadow:0 20px 60px rgba(0,0,0,.6);
+/* LOGIN */
+
+.login-card{
+max-width:500px;
+margin:100px auto;
+background:rgba(15,23,42,.8);
+backdrop-filter:blur(20px);
+padding:35px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 20px 80px rgba(0,0,0,.5);
 }
 
-h1,h2,h3{
-margin-top:0;
+.login-title{
+font-size:38px;
+font-weight:800;
+margin-bottom:10px;
 }
 
-input{
+.login-sub{
+opacity:.7;
+margin-bottom:30px;
+line-height:1.6;
+}
+
+.input{
 width:100%;
-padding:14px;
-border-radius:10px;
+padding:16px;
 border:none;
-margin-top:10px;
-font-size:15px;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-font-weight:bold;
-background:#22c55e;
-cursor:pointer;
-}
-
-.offer-grid{
-margin-top:20px;
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:16px;
-}
-
-.offer{
-background:#020617;
-padding:20px;
+outline:none;
 border-radius:14px;
-border:1px solid #1f2937;
-text-align:center;
+background:#0f172a;
+color:white;
+font-size:16px;
+border:1px solid #1e293b;
+}
+
+.input:focus{
+border-color:#2563eb;
+}
+
+.btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+cursor:pointer;
+font-size:16px;
+font-weight:700;
+margin-top:15px;
 transition:.2s;
 }
 
+.btn-primary{
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+color:white;
+}
+
+.btn-primary:hover{
+transform:translateY(-2px);
+}
+
+/* HEADER */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:34px;
+font-weight:900;
+background:linear-gradient(90deg,#60a5fa,#22c55e);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.user-box{
+display:flex;
+align-items:center;
+gap:12px;
+background:#0f172a;
+padding:12px 18px;
+border-radius:14px;
+border:1px solid #1e293b;
+}
+
+.avatar{
+width:42px;
+height:42px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:800;
+background:#2563eb;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:16px;
+margin-bottom:25px;
+}
+
+.stat{
+background:rgba(15,23,42,.85);
+border:1px solid rgba(255,255,255,.06);
+padding:22px;
+border-radius:20px;
+}
+
+.stat h3{
+font-size:14px;
+opacity:.7;
+margin-bottom:10px;
+}
+
+.stat .num{
+font-size:30px;
+font-weight:900;
+}
+
+/* OFFER GRID */
+
+.offer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.offer{
+background:rgba(15,23,42,.85);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.06);
+border-radius:24px;
+padding:25px;
+transition:.25s;
+position:relative;
+overflow:hidden;
+}
+
+.offer::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,transparent,rgba(255,255,255,.04));
+pointer-events:none;
+}
+
 .offer:hover{
-transform:translateY(-4px);
+transform:translateY(-6px);
 border-color:#2563eb;
 }
 
 .offer img{
-width:120px;
+height:60px;
+object-fit:contain;
+margin-bottom:20px;
+}
+
+.offer h3{
+font-size:24px;
 margin-bottom:10px;
+}
+
+.offer p{
+opacity:.7;
+line-height:1.6;
+margin-bottom:20px;
 }
 
 .offer button{
-background:#2563eb;
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+font-weight:800;
+cursor:pointer;
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+color:white;
+transition:.2s;
 }
 
-#offerFrame{
-width:100%;
-height:100vh;
-border:none;
+.offer button:hover{
+transform:scale(1.02);
+}
+
+/* IFRAME */
+
+#offerView{
+position:fixed;
+inset:0;
+background:#020617;
+z-index:999;
+display:flex;
+flex-direction:column;
+}
+
+.topbar{
+height:70px;
+background:#0f172a;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+border-bottom:1px solid #1e293b;
+}
+
+.topbar-left{
+display:flex;
+align-items:center;
+gap:12px;
 }
 
 .backBtn{
+padding:12px 18px;
+border:none;
+border-radius:12px;
 background:#ef4444;
-width:auto;
-padding:10px 20px;
-margin-bottom:10px;
+color:white;
+font-weight:700;
+cursor:pointer;
+}
+
+.refreshBtn{
+padding:12px 18px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:white;
+font-weight:700;
+cursor:pointer;
+}
+
+iframe{
+flex:1;
+width:100%;
+border:none;
+background:white;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.container{
+padding:20px;
+}
+
+.login-card{
+margin-top:50px;
+}
+
+.logo{
+font-size:28px;
+}
+
 }
 
 </style>
@@ -102,181 +359,400 @@ margin-bottom:10px;
 
 <body>
 
+<!-- BG -->
+
+<div class="bg">
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+</div>
+
 <!-- LOGIN -->
-<div id="login" class="container">
 
-<div class="card">
+<div id="loginPage" class="container">
 
-<h2>Enter Username</h2>
+<div class="login-card">
 
-<input id="username" placeholder="Nhập username bất kỳ">
+<div class="login-title">
+Offerwall Hub
+</div>
 
-<button onclick="enter()">Enter</button>
+<div class="login-sub">
+Kiếm tiền với survey, game và app offers.<br>
+Hỗ trợ nhiều offerwall premium.
+</div>
 
-<p style="opacity:.6;text-align:center">
-Không cần đăng ký · Không mật khẩu
-</p>
+<input
+id="username"
+class="input"
+placeholder="Nhập username của bạn"
+/>
+
+<button class="btn btn-primary" onclick="enter()">
+Enter Dashboard
+</button>
 
 </div>
 
 </div>
-
 
 <!-- DASHBOARD -->
+
 <div id="dashboard" class="container hidden">
 
-<h1>Welcome, <span id="user"></span></h1>
+<div class="header">
+
+<div class="logo">
+Offerwall Hub
+</div>
+
+<div class="user-box">
+<div class="avatar" id="avatar">U</div>
+
+<div>
+<div style="font-size:13px;opacity:.7">
+Logged in
+</div>
+
+<div id="userNameText" style="font-weight:700">
+User
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<h3>Total Offerwalls</h3>
+<div class="num">4</div>
+</div>
+
+<div class="stat">
+<h3>Status</h3>
+<div class="num">ONLINE</div>
+</div>
+
+<div class="stat">
+<h3>Traffic Quality</h3>
+<div class="num">GOOD</div>
+</div>
+
+</div>
+
+<!-- OFFERS -->
 
 <div class="offer-grid">
 
 <!-- GEMIWALL -->
-<div class="offer">
-<img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png">
-<h3>Gemiwall</h3>
-<p>Survey · Games · Offers</p>
-<button onclick="openGemi()">Open</button>
-</div>
 
+<div class="offer">
+
+<img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png">
+
+<h3>Gemiwall</h3>
+
+<p>
+Survey · Games · Mobile Offers
+</p>
+
+<button onclick="openGemi()">
+Open Offerwall
+</button>
+
+</div>
 
 <!-- REVTOO -->
-<div class="offer">
-<h3>Revtoo</h3>
-<p>Survey · Apps · Games</p>
-<button onclick="openRevtoo()">Open</button>
-</div>
 
+<div class="offer">
+
+<h3>Revtoo</h3>
+
+<p>
+CPA Offers · Apps · Surveys
+</p>
+
+<button onclick="openRevtoo()">
+Open Offerwall
+</button>
+
+</div>
 
 <!-- CLICKWALL -->
-<div class="offer">
-<h3>Clickwall</h3>
-<p>Survey · Apps · Games</p>
-<button onclick="openClickwall()">Open</button>
-</div>
 
+<div class="offer">
+
+<h3>Clickwall</h3>
+
+<p>
+High Converting Mobile Offers
+</p>
+
+<button onclick="openClickwall()">
+Open Offerwall
+</button>
+
+</div>
 
 <!-- MOUSTACHE -->
+
 <div class="offer">
+
 <h3>MoustacheLeads</h3>
-<p>Survey · Apps · Offers</p>
-<button onclick="openMoustache()">Open</button>
+
+<p>
+Premium Survey & App Offers
+</p>
+
+<button onclick="openMoustache()">
+Open Offerwall
+</button>
+
 </div>
 
-
-</div>
 </div>
 
+</div>
 
-<!-- OFFERWALL VIEW -->
+<!-- OFFER VIEW -->
+
 <div id="offerView" class="hidden">
 
-<div style="padding:10px;background:#020617">
+<div class="topbar">
 
-<button class="backBtn" onclick="back()">← Back</button>
+<div class="topbar-left">
+
+<button class="backBtn" onclick="backToDashboard()">
+← Back
+</button>
+
+<div id="offerTitle">
+Offerwall
+</div>
 
 </div>
 
-<iframe id="offerFrame"></iframe>
+<button class="refreshBtn" onclick="refreshFrame()">
+↻ Refresh
+</button>
 
 </div>
 
+<iframe
+id="offerFrame"
+allowfullscreen
+></iframe>
+
+</div>
 
 <script>
 
-const REVTOO_API_KEY="7y9n22mjsz0c3ujyncuomz95k6p31p";
+/* =========================
+CONFIG
+========================= */
 
+const REVTOO_API_KEY =
+"7y9n22mjsz0c3ujyncuomz95k6p31p";
+
+/* =========================
+LOGIN
+========================= */
 
 function enter(){
 
-const name=document.getElementById("username").value.trim();
+const input =
+document.getElementById("username");
 
-if(!name){
-alert("Nhập username");
+const rawName =
+input.value.trim();
+
+if(!rawName){
+
+alert("Vui lòng nhập username");
+
 return;
+
 }
 
-localStorage.setItem("user",name);
+/* USER FIXED */
+
+const fixedUser =
+"uid_" +
+rawName
+.toLowerCase()
+.replace(/[^a-z0-9]/g,'');
+
+/* SAVE */
+
+localStorage.setItem(
+"user",
+fixedUser
+);
 
 showDashboard();
 
 }
 
+/* =========================
+SHOW DASHBOARD
+========================= */
 
 function showDashboard(){
 
-const name=localStorage.getItem("user");
+const user =
+localStorage.getItem("user");
 
-if(!name)return;
+if(!user){
+return;
+}
 
-document.getElementById("login").classList.add("hidden");
+/* HIDE LOGIN */
 
-document.getElementById("dashboard").classList.remove("hidden");
+document
+.getElementById("loginPage")
+.classList.add("hidden");
 
-document.getElementById("user").innerText=name;
+/* SHOW DASHBOARD */
+
+document
+.getElementById("dashboard")
+.classList.remove("hidden");
+
+/* USER UI */
+
+document
+.getElementById("userNameText")
+.innerText = user;
+
+document
+.getElementById("avatar")
+.innerText =
+user.charAt(0).toUpperCase();
 
 }
 
+/* =========================
+OPEN IFRAME
+========================= */
 
-function openFrame(url){
+function openFrame(url,title){
 
-document.getElementById("dashboard").classList.add("hidden");
+document
+.getElementById("dashboard")
+.classList.add("hidden");
 
-document.getElementById("offerView").classList.remove("hidden");
+document
+.getElementById("offerView")
+.classList.remove("hidden");
 
-document.getElementById("offerFrame").src=url;
+document
+.getElementById("offerFrame")
+.src = url;
+
+document
+.getElementById("offerTitle")
+.innerText = title;
 
 }
 
+/* =========================
+BACK
+========================= */
 
-function back(){
+function backToDashboard(){
 
-document.getElementById("offerView").classList.add("hidden");
+document
+.getElementById("offerView")
+.classList.add("hidden");
 
-document.getElementById("dashboard").classList.remove("hidden");
+document
+.getElementById("dashboard")
+.classList.remove("hidden");
 
-document.getElementById("offerFrame").src="";
+document
+.getElementById("offerFrame")
+.src = "";
 
 }
 
+/* =========================
+REFRESH
+========================= */
+
+function refreshFrame(){
+
+const frame =
+document.getElementById("offerFrame");
+
+frame.src = frame.src;
+
+}
+
+/* =========================
+OFFERWALLS
+========================= */
 
 function openGemi(){
 
-openFrame("https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/");
+openFrame(
+"https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/",
+"Gemiwall"
+);
 
 }
 
+/* REVTOO */
 
 function openRevtoo(){
 
-const user=localStorage.getItem("user");
+const user =
+localStorage.getItem("user");
 
-const url=`https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`;
+const url =
+`https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`;
 
-openFrame(url);
+/* popup tốt hơn iframe */
+
+window.open(url,"_blank");
 
 }
 
+/* CLICKWALL */
 
 function openClickwall(){
 
-const user=localStorage.getItem("user");
+const user =
+localStorage.getItem("user");
 
-const url=`https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`;
+const url =
+`https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`;
 
-openFrame(url);
+window.open(url,"_blank");
 
 }
 
+/* MOUSTACHE */
 
 function openMoustache(){
 
-const user=localStorage.getItem("user");
+const user =
+localStorage.getItem("user");
 
-const url=`https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`;
+const url =
+`https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`;
 
-openFrame(url);
+/* Moustache nên popup */
+
+window.open(url,"_blank");
 
 }
 
+/* =========================
+AUTO LOGIN
+========================= */
 
 showDashboard();
 
