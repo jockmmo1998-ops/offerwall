@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Earn Rewards</title>
+<title>EarnRewards 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 font-family:system-ui;
 background:#0f172a;
 color:white;
+overflow-x:hidden;
 }
 
 .hidden{
@@ -20,7 +30,7 @@ display:none;
 }
 
 .container{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 padding:25px;
 }
@@ -28,7 +38,7 @@ padding:25px;
 .card{
 background:#020617;
 padding:25px;
-border-radius:16px;
+border-radius:18px;
 box-shadow:0 20px 60px rgba(0,0,0,.5);
 }
 
@@ -39,63 +49,156 @@ margin-top:0;
 input{
 width:100%;
 padding:14px;
-border-radius:10px;
+border-radius:12px;
 border:none;
 margin-top:10px;
 font-size:15px;
+background:#111827;
+color:white;
 }
 
 button{
 padding:14px;
 border:none;
-border-radius:10px;
+border-radius:12px;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
 }
 
 .loginBtn{
 width:100%;
 margin-top:10px;
 background:#22c55e;
+color:white;
 }
 
-.balanceBox{
+.header{
 display:flex;
 justify-content:space-between;
-background:#020617;
-padding:20px;
-border-radius:14px;
+align-items:center;
+margin-bottom:25px;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#22c55e;
+}
+
+.userBox{
+background:#111827;
+padding:12px 18px;
+border-radius:12px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:16px;
 margin-bottom:20px;
 }
 
-.balance{
-font-size:26px;
+.stat{
+background:#020617;
+padding:20px;
+border-radius:16px;
+border:1px solid #1f2937;
+}
+
+.stat h3{
+font-size:14px;
+color:#94a3b8;
+margin-bottom:10px;
+}
+
+.big{
+font-size:28px;
+font-weight:800;
+}
+
+.green{
 color:#22c55e;
+}
+
+.blue{
+color:#3b82f6;
+}
+
+.purple{
+color:#a855f7;
+}
+
+.orange{
+color:#f59e0b;
+}
+
+.actions{
+display:flex;
+gap:10px;
+margin-bottom:25px;
+flex-wrap:wrap;
+}
+
+.actionBtn{
+background:#2563eb;
+color:white;
+}
+
+.withdrawBtn{
+background:#22c55e;
+color:white;
+}
+
+.spinBtn{
+background:#a855f7;
+color:white;
 }
 
 .offer-grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-gap:16px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
 }
 
 .offer{
 background:#020617;
-padding:20px;
-border-radius:14px;
+padding:22px;
+border-radius:18px;
 border:1px solid #1f2937;
 text-align:center;
-transition:.2s;
+transition:.25s;
+position:relative;
+overflow:hidden;
 }
 
 .offer:hover{
-transform:translateY(-4px);
+transform:translateY(-5px);
 border-color:#2563eb;
+}
+
+.offer img{
+width:80px;
+height:80px;
+object-fit:contain;
+margin-bottom:12px;
+}
+
+.offer p{
+color:#94a3b8;
+margin:10px 0;
 }
 
 .offer button{
 background:#2563eb;
 width:100%;
+color:white;
 margin-top:10px;
 }
 
@@ -103,28 +206,64 @@ iframe{
 width:100%;
 height:100vh;
 border:none;
+background:white;
 }
 
 .backBtn{
 background:#ef4444;
 padding:10px 20px;
 margin:10px;
+color:white;
 }
 
-.header{
+.leaderboard{
+margin-top:25px;
+background:#020617;
+padding:20px;
+border-radius:18px;
+}
+
+.leaderItem{
 display:flex;
 justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
+padding:12px 0;
+border-bottom:1px solid #1f2937;
 }
 
-.logo{
-font-size:22px;
-font-weight:bold;
-color:#22c55e;
+.popup{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#111827;
+padding:15px 20px;
+border-radius:14px;
+border:1px solid #22c55e;
+z-index:9999;
+animation:slideIn .4s ease;
+}
+
+@keyframes slideIn{
+from{
+transform:translateX(100%);
+opacity:0;
+}
+to{
+transform:translateX(0);
+opacity:1;
+}
+}
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -135,16 +274,21 @@ color:#22c55e;
 
 <div class="card">
 
-<h2>Login</h2>
+<h1>💰 EarnRewards</h1>
+
+<p style="margin-top:10px;color:#94a3b8">
+Complete offers & earn rewards online.
+</p>
 
 <input id="username" placeholder="Enter username">
 
-<button class="loginBtn" onclick="enter()">Start Earning</button>
+<button class="loginBtn" onclick="enter()">
+Start Earning
+</button>
 
 </div>
 
 </div>
-
 
 <!-- DASHBOARD -->
 
@@ -156,79 +300,198 @@ color:#22c55e;
 💰 EarnRewards
 </div>
 
-<div>
-User: <span id="user"></span>
+<div class="userBox">
+👤 <span id="user"></span>
 </div>
 
 </div>
 
-<div class="balanceBox">
+<!-- STATS -->
 
-<div>
+<div class="stats">
 
-Balance  
-<div class="balance">$<span id="balance"></span></div>
+<div class="stat">
+<h3>Balance</h3>
+<div class="big green">$<span id="balance"></span></div>
+</div>
+
+<div class="stat">
+<h3>Offers Completed</h3>
+<div class="big blue">24</div>
+</div>
+
+<div class="stat">
+<h3>Referral Earnings</h3>
+<div class="big purple">$12.45</div>
+</div>
+
+<div class="stat">
+<h3>Leaderboard Rank</h3>
+<div class="big orange">#18</div>
+</div>
 
 </div>
 
-<button onclick="addDaily()">Daily Bonus</button>
+<!-- ACTIONS -->
+
+<div class="actions">
+
+<button class="actionBtn" onclick="addDaily()">
+🎁 Daily Bonus
+</button>
+
+<button class="spinBtn" onclick="spinWheel()">
+🎡 Spin Wheel
+</button>
+
+<button class="withdrawBtn" onclick="withdrawFake()">
+💸 Withdraw
+</button>
 
 </div>
 
+<!-- OFFERWALLS -->
 
-<h2>Offerwalls</h2>
+<h2 style="margin-bottom:15px">
+🔥 Offerwalls
+</h2>
 
 <div class="offer-grid">
 
+<!-- GEMIWALL -->
+
 <div class="offer">
+
+<img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png">
+
 <h3>Gemiwall</h3>
+
 <p>Surveys • Apps • Games</p>
-<button onclick="openGemi()">Open</button>
+
+<button onclick="openGemi()">
+Open
+</button>
+
 </div>
 
+<!-- REVTOO -->
+
 <div class="offer">
+
 <h3>Revtoo</h3>
+
 <p>Offers • Apps</p>
-<button onclick="openRevtoo()">Open</button>
+
+<button onclick="openRevtoo()">
+Open
+</button>
+
 </div>
 
+<!-- CLICKWALL -->
+
 <div class="offer">
+
 <h3>Clickwall</h3>
+
 <p>Surveys • Apps</p>
-<button onclick="openClickwall()">Open</button>
+
+<button onclick="openClickwall()">
+Open
+</button>
+
 </div>
+
+<!-- MOUSTACHE -->
 
 <div class="offer">
+
 <h3>MoustacheLeads</h3>
+
 <p>Offers • Surveys</p>
-<button onclick="openMoustache()">Open</button>
+
+<button onclick="openMoustache()">
+Open
+</button>
+
+</div>
+
+<!-- TASKWALL -->
+
+<div class="offer">
+
+<h3>Taskwall</h3>
+
+<p>Offers • Surveys • Apps</p>
+
+<button onclick="openTaskwall()">
+Open
+</button>
+
+</div>
+
+</div>
+
+<!-- LEADERBOARD -->
+
+<div class="leaderboard">
+
+<h2 style="margin-bottom:15px">
+🏆 Leaderboard
+</h2>
+
+<div class="leaderItem">
+<span>user_king</span>
+<span>$542</span>
+</div>
+
+<div class="leaderItem">
+<span>crypto_earn</span>
+<span>$489</span>
+</div>
+
+<div class="leaderItem">
+<span>rewardmaster</span>
+<span>$412</span>
+</div>
+
+<div class="leaderItem">
+<span id="myName">you</span>
+<span>$<span id="myBalance2"></span></span>
 </div>
 
 </div>
 
 </div>
 
-
-<!-- OFFERWALL VIEW -->
+<!-- OFFER VIEW -->
 
 <div id="offerView" class="hidden">
 
-<button class="backBtn" onclick="back()">← Back</button>
+<button class="backBtn" onclick="back()">
+← Back
+</button>
 
 <iframe id="frame"></iframe>
 
 </div>
 
+<!-- POPUP -->
 
+<div id="popup" class="popup hidden">
+🔥 New user earned $2.50
+</div>
 
 <script>
 
-const REVTOO_API_KEY="7y9n22mjsz0c3ujyncuomz95k6p31p";
-
+const REVTOO_API_KEY =
+"7y9n22mjsz0c3ujyncuomz95k6p31p";
 
 function enter(){
 
-const name=document.getElementById("username").value.trim();
+const name =
+document.getElementById("username")
+.value.trim();
 
 if(!name){
 
@@ -250,98 +513,182 @@ showDashboard();
 
 }
 
-
 function showDashboard(){
 
-const user=localStorage.getItem("user");
+const user = localStorage.getItem("user");
 
 if(!user)return;
 
-document.getElementById("login").classList.add("hidden");
+document.getElementById("login")
+.classList.add("hidden");
 
-document.getElementById("dashboard").classList.remove("hidden");
+document.getElementById("dashboard")
+.classList.remove("hidden");
 
-document.getElementById("user").innerText=user;
+document.getElementById("user")
+.innerText=user;
 
-document.getElementById("balance").innerText=localStorage.getItem("balance");
+document.getElementById("myName")
+.innerText=user;
+
+document.getElementById("balance")
+.innerText=
+localStorage.getItem("balance");
+
+document.getElementById("myBalance2")
+.innerText=
+localStorage.getItem("balance");
 
 }
 
+function updateBalance(value){
+
+let balance =
+parseFloat(localStorage.getItem("balance"));
+
+balance += value;
+
+localStorage.setItem(
+"balance",
+balance.toFixed(2)
+);
+
+document.getElementById("balance")
+.innerText=balance.toFixed(2);
+
+document.getElementById("myBalance2")
+.innerText=balance.toFixed(2);
+
+}
 
 function addDaily(){
 
-let balance=parseFloat(localStorage.getItem("balance"));
+updateBalance(0.20);
 
-balance+=0.20;
-
-localStorage.setItem("balance",balance.toFixed(2));
-
-document.getElementById("balance").innerText=balance.toFixed(2);
-
-alert("Daily bonus +$0.20");
+alert("🎁 Daily Bonus +$0.20");
 
 }
 
+function spinWheel(){
+
+let rewards=[0.10,0.25,0.50,1,2];
+
+let reward =
+rewards[Math.floor(Math.random()*rewards.length)];
+
+updateBalance(reward);
+
+alert("🎡 You won $" + reward);
+
+}
+
+function withdrawFake(){
+
+alert(
+"✅ Withdraw request submitted successfully!"
+);
+
+}
 
 function openFrame(url){
 
-document.getElementById("dashboard").classList.add("hidden");
+document.getElementById("dashboard")
+.classList.add("hidden");
 
-document.getElementById("offerView").classList.remove("hidden");
+document.getElementById("offerView")
+.classList.remove("hidden");
 
-document.getElementById("frame").src=url;
+document.getElementById("frame")
+.src=url;
 
 }
-
 
 function back(){
 
-document.getElementById("offerView").classList.add("hidden");
+document.getElementById("offerView")
+.classList.add("hidden");
 
-document.getElementById("dashboard").classList.remove("hidden");
+document.getElementById("dashboard")
+.classList.remove("hidden");
 
-document.getElementById("frame").src="";
+document.getElementById("frame")
+.src="";
 
 }
-
-
 
 function openGemi(){
 
-openFrame("https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/");
+openFrame(
+"https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/"
+);
 
 }
-
 
 function openRevtoo(){
 
-const user=localStorage.getItem("user");
+const user =
+localStorage.getItem("user");
 
-openFrame(`https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`);
+openFrame(
+`https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`
+);
 
 }
-
 
 function openClickwall(){
 
-const user=localStorage.getItem("user");
+const user =
+localStorage.getItem("user");
 
-openFrame(`https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`);
+openFrame(
+`https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`
+);
 
 }
-
 
 function openMoustache(){
 
-const user=localStorage.getItem("user");
+const user =
+localStorage.getItem("user");
 
-openFrame(`https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`);
+openFrame(
+`https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`
+);
 
 }
 
+function openTaskwall(){
 
+const user =
+localStorage.getItem("user");
+
+openFrame(
+`https://wall.taskwall.io/?app_id=0640f51b6a17749572b508423c387b00&userid=${encodeURIComponent(user)}`
+);
+
+}
 
 showDashboard();
+
+setInterval(()=>{
+
+const popup =
+document.getElementById("popup");
+
+const amounts=["1.20","2.50","5.00","3.40"];
+
+popup.innerText =
+`🔥 User earned $${amounts[Math.floor(Math.random()*amounts.length)]}`;
+
+popup.classList.remove("hidden");
+
+setTimeout(()=>{
+
+popup.classList.add("hidden");
+
+},3000);
+
+},10000);
 
 </script>
 
