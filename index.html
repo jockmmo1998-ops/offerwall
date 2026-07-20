@@ -668,6 +668,17 @@ openFrame(
 
 }
 
+function openCointo(){
+
+const user =
+localStorage.getItem("user");
+
+openFrame(
+`https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`
+);
+
+}
+
 showDashboard();
 
 setInterval(()=>{
