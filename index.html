@@ -430,6 +430,22 @@ Open
 
 </div>
 
+<!-- COINTOMEDIA -->
+
+<div class="offer">
+
+<img src="https://cointomedia.com/favicon.ico">
+
+<h3>CoinToMedia</h3>
+
+<p>Offers • Surveys • Games</p>
+
+<button onclick="openCointo()">
+Open
+</button>
+
+</div>
+
 </div>
 
 <!-- LEADERBOARD -->
@@ -673,8 +689,9 @@ function openCointo(){
 const user =
 localStorage.getItem("user");
 
-openFrame(
-`https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`
+window.open(
+`https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`,
+"_blank"
 );
 
 }
