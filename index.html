@@ -684,14 +684,17 @@ openFrame(
 
 }
 
-function openCointo(){
-
+function openCointo() {
     const user = localStorage.getItem("user");
 
-    openFrame(
-        `https://www.cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`
-    );
+    if (!user) {
+        alert("Please login first");
+        return;
+    }
 
+    openFrame(
+        `https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`
+    );
 }
 
 showDashboard();
