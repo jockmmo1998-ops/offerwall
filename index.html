@@ -686,13 +686,11 @@ openFrame(
 
 function openCointo(){
 
-const user =
-localStorage.getItem("user");
+    const user = localStorage.getItem("user");
 
-window.open(
-`https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`,
-"_blank"
-);
+    openFrame(
+        `https://www.cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`
+    );
 
 }
 
