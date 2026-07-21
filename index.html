@@ -1,753 +1,2644 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>EarnRewards 2026</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EarnRewards Pro 2026 - Kiếm Tiền Online</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #111827;
+  --bg-card: #0f172a;
+  --bg-hover: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-green: #22c55e;
+  --accent-blue: #3b82f6;
+  --accent-purple: #a855f7;
+  --accent-orange: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-pink: #ec4899;
+  --accent-cyan: #06b6d4;
+  --border-color: #1e293b;
+  --gradient-1: linear-gradient(135deg, #22c55e, #06b6d4);
+  --gradient-2: linear-gradient(135deg, #3b82f6, #a855f7);
+  --gradient-3: linear-gradient(135deg, #f59e0b, #ef4444);
+  --shadow: 0 20px 60px rgba(0,0,0,.5);
+  --shadow-sm: 0 4px 20px rgba(0,0,0,.3);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-lg: 20px;
 }
 
-body{
-font-family:system-ui;
-background:#0f172a;
-color:white;
-overflow-x:hidden;
+.light-mode {
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border-color: #e2e8f0;
+  --shadow: 0 20px 60px rgba(0,0,0,.08);
+  --shadow-sm: 0 4px 20px rgba(0,0,0,.05);
 }
 
-.hidden{
-display:none;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+  min-height: 100vh;
 }
 
-.container{
-max-width:1200px;
-margin:auto;
-padding:25px;
+.hidden { display: none !important; }
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 20px;
 }
 
-.card{
-background:#020617;
-padding:25px;
-border-radius:18px;
-box-shadow:0 20px 60px rgba(0,0,0,.5);
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 30px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all .3s;
 }
 
-h1,h2,h3{
-margin-top:0;
+.light-mode .navbar { background: rgba(255,255,255,0.9); }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
 }
 
-input{
-width:100%;
-padding:14px;
-border-radius:12px;
-border:none;
-margin-top:10px;
-font-size:15px;
-background:#111827;
-color:white;
+.nav-logo .logo-icon {
+  font-size: 32px;
+  -webkit-text-fill-color: initial;
 }
 
-button{
-padding:14px;
-border:none;
-border-radius:12px;
-font-weight:bold;
-cursor:pointer;
-transition:.2s;
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-button:hover{
-transform:translateY(-2px);
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-secondary);
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.loginBtn{
-width:100%;
-margin-top:10px;
-background:#22c55e;
-color:white;
+.nav-user .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gradient-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
 }
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:25px;
-flex-wrap:wrap;
-gap:15px;
+.nav-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all .2s;
 }
 
-.logo{
-font-size:28px;
-font-weight:800;
-color:#22c55e;
+.nav-btn:hover {
+  background: var(--bg-hover);
+  transform: translateY(-1px);
 }
 
-.userBox{
-background:#111827;
-padding:12px 18px;
-border-radius:12px;
+.nav-btn.active {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
 }
 
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:16px;
-margin-bottom:20px;
+/* ===== TABS ===== */
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  padding: 20px 0 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
-.stat{
-background:#020617;
-padding:20px;
-border-radius:16px;
-border:1px solid #1f2937;
+.tab-bar::-webkit-scrollbar { display: none; }
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.stat h3{
-font-size:14px;
-color:#94a3b8;
-margin-bottom:10px;
+.tab:hover { background: var(--bg-hover); }
+
+.tab.active {
+  background: var(--gradient-1);
+  color: white;
+  border-color: transparent;
 }
 
-.big{
-font-size:28px;
-font-weight:800;
+/* ===== STATS GRID ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-.green{
-color:#22c55e;
+.stat-card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  transition: all .3s;
 }
 
-.blue{
-color:#3b82f6;
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-blue);
 }
 
-.purple{
-color:#a855f7;
+.stat-card .stat-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-.orange{
-color:#f59e0b;
+.stat-card .stat-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 6px;
 }
 
-.actions{
-display:flex;
-gap:10px;
-margin-bottom:25px;
-flex-wrap:wrap;
+.stat-card .stat-value {
+  font-size: 28px;
+  font-weight: 800;
 }
 
-.actionBtn{
-background:#2563eb;
-color:white;
+.stat-card .stat-change {
+  font-size: 12px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.withdrawBtn{
-background:#22c55e;
-color:white;
+.stat-change.up { color: var(--accent-green); }
+.stat-change.down { color: var(--accent-red); }
+
+.stat-card .glow {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  opacity: .15;
 }
 
-.spinBtn{
-background:#a855f7;
-color:white;
+/* ===== SECTION TITLE ===== */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.offer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
+/* ===== OFFER GRID ===== */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-.offer{
-background:#020617;
-padding:22px;
-border-radius:18px;
-border:1px solid #1f2937;
-text-align:center;
-transition:.25s;
-position:relative;
-overflow:hidden;
+.offer-card {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
 }
 
-.offer:hover{
-transform:translateY(-5px);
-border-color:#2563eb;
+.offer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-blue);
 }
 
-.offer img{
-width:80px;
-height:80px;
-object-fit:contain;
-margin-bottom:12px;
+.offer-card .offer-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent-orange);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
 }
 
-.offer p{
-color:#94a3b8;
-margin:10px 0;
+.offer-card .offer-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
 }
 
-.offer button{
-background:#2563eb;
-width:100%;
-color:white;
-margin-top:10px;
+.offer-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
-iframe{
-width:100%;
-height:100vh;
-border:none;
-background:white;
+.offer-card p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 14px;
+  line-height: 1.5;
 }
 
-.backBtn{
-background:#ef4444;
-padding:10px 20px;
-margin:10px;
-color:white;
+.offer-card .earn-tag {
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--accent-green);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
-.leaderboard{
-margin-top:25px;
-background:#020617;
-padding:20px;
-border-radius:18px;
+.offer-card .start-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--gradient-2);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .2s;
 }
 
-.leaderItem{
-display:flex;
-justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid #1f2937;
+.offer-card .start-btn:hover {
+  opacity: .9;
+  transform: scale(1.02);
 }
 
-.popup{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#111827;
-padding:15px 20px;
-border-radius:14px;
-border:1px solid #22c55e;
-z-index:9999;
-animation:slideIn .4s ease;
+/* ===== ACTION BUTTONS ===== */
+.action-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
 }
 
-@keyframes slideIn{
-from{
-transform:translateX(100%);
-opacity:0;
-}
-to{
-transform:translateX(0);
-opacity:1;
-}
-}
-
-@media(max-width:768px){
-
-.header{
-flex-direction:column;
-align-items:flex-start;
+.action-btn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
 }
 
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
+.action-btn.daily { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.action-btn.spin { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.action-btn.withdraw { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.action-btn.ai-task { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.action-btn.social { background: linear-gradient(135deg, #ec4899, #be185d); }
+.action-btn.mining { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+
+/* ===== LEADERBOARD ===== */
+.leaderboard-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.leader-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leader-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border-color);
+  transition: background .2s;
+}
+
+.leader-item:hover { background: var(--bg-hover); }
+
+.leader-item:last-child { border-bottom: none; }
+
+.leader-rank {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  margin-right: 14px;
+}
+
+.leader-rank.gold { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+.leader-rank.silver { background: rgba(148, 163, 184, 0.2); color: #94a3b8; }
+.leader-rank.bronze { background: rgba(180, 83, 9, 0.2); color: #b45309; }
+.leader-rank.default { background: var(--bg-hover); color: var(--text-muted); }
+
+.leader-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leader-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.leader-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.leader-earnings {
+  font-weight: 700;
+  color: var(--accent-green);
+  font-size: 15px;
+}
+
+/* ===== ACHIEVEMENTS ===== */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.achievement-card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all .3s;
+}
+
+.achievement-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.achievement-card.locked {
+  opacity: .5;
+  filter: grayscale(0.8);
+}
+
+.achievement-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.achievement-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.achievement-info p {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.achievement-info .progress-bar {
+  height: 6px;
+  background: var(--bg-hover);
+  border-radius: 3px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.achievement-info .progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--gradient-1);
+  transition: width .5s;
+}
+
+/* ===== STREAK / LEVEL ===== */
+.streak-bar {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.streak-days {
+  display: flex;
+  gap: 6px;
+}
+
+.streak-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+
+.streak-dot.completed {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.streak-dot.today {
+  background: var(--gradient-1);
+  color: white;
+  border-color: transparent;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+}
+
+.level-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.level-info .level-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.level-info .level-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.level-info .level-xp {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.level-bar {
+  height: 10px;
+  background: var(--bg-hover);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.level-bar .fill {
+  height: 100%;
+  background: var(--gradient-2);
+  border-radius: 5px;
+  transition: width .5s;
+}
+
+/* ===== LOGIN PAGE ===== */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: var(--bg-primary);
+}
+
+.login-card {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow);
+}
+
+.login-card .brand {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-card .brand-icon {
+  font-size: 56px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.login-card .brand h1 {
+  font-size: 28px;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-card .brand p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 14px;
+  transition: border-color .2s;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--accent-blue);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--gradient-1);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all .2s;
+  margin-top: 6px;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.3);
+}
+
+.secondary-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all .2s;
+  margin-top: 10px;
+}
+
+.secondary-btn:hover {
+  background: var(--border-color);
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.social-login {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.social-btn span { font-size: 13px; font-weight: 500; }
+
+.social-btn:hover {
+  background: var(--border-color);
+  transform: translateY(-1px);
+}
+
+/* ===== WITHDRAW MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  animation: modalIn .3s ease;
+}
+
+@keyframes modalIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-hover);
+  border: none;
+  color: var(--text-primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.payment-method {
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-color);
+  background: var(--bg-hover);
+  cursor: pointer;
+  text-align: center;
+  transition: all .2s;
+}
+
+.payment-method:hover, .payment-method.selected {
+  border-color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.payment-method i {
+  font-size: 28px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.payment-method span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.withdraw-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 14px;
+  outline: none;
+}
+
+.withdraw-input:focus {
+  border-color: var(--accent-blue);
+}
+
+/* ===== CALCULATOR ===== */
+.calc-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  margin-bottom: 24px;
+}
+
+.calc-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.calc-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.calc-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.calc-group select, .calc-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+.calc-result {
+  background: var(--bg-hover);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: center;
+}
+
+.calc-result .amount {
+  font-size: 36px;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.calc-result .period {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ===== GUIDES ===== */
+.guide-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: all .3s;
+}
+
+.guide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.guide-card .guide-header {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.guide-card .guide-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.guide-card .guide-title {
+  flex: 1;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.guide-card .guide-difficulty {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.guide-card .guide-body {
+  padding: 0 24px 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+  display: none;
+}
+
+.guide-card.open .guide-body { display: block; }
+
+/* ===== REFERRAL ===== */
+.referral-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  margin-bottom: 24px;
+}
+
+.referral-link-box {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.referral-link-box input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  outline: none;
+}
+
+.copy-btn {
+  padding: 12px 20px;
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+
+.copy-btn:hover { background: #2563eb; }
+
+.referral-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.ref-stat {
+  text-align: center;
+  padding: 16px;
+  background: var(--bg-hover);
+  border-radius: var(--radius-sm);
+}
+
+.ref-stat .ref-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--accent-green);
+}
+
+.ref-stat .ref-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ===== TOAST / POPUP ===== */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bg-card);
+  padding: 14px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-green);
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  font-weight: 600;
+  font-size: 14px;
+  animation: slideIn .4s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(120%); opacity: 0; }
+}
+
+/* ===== SPIN WHEEL ===== */
+.wheel-container {
+  text-align: center;
+  padding: 30px;
+}
+
+.wheel-canvas {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 4px solid var(--border-color);
+  position: relative;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  z-index: 10;
+}
+
+/* ===== HISTORY ===== */
+.history-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.history-item:last-child { border-bottom: none; }
+
+.history-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  font-size: 18px;
+}
+
+.history-info { flex: 1; }
+.history-info .h-title { font-weight: 600; font-size: 14px; }
+.history-info .h-time { font-size: 12px; color: var(--text-muted); }
+.history-amount { font-weight: 700; font-size: 15px; }
+.history-amount.positive { color: var(--accent-green); }
+.history-amount.negative { color: var(--accent-red); }
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 40px;
+}
+
+.footer a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  padding: 10px;
+  z-index: 100;
+  justify-content: space-around;
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 10px;
+  transition: all .2s;
+}
+
+.mobile-nav-item.active {
+  color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.mobile-nav-item i {
+  font-size: 20px;
+}
+
+/* ===== NOTIFICATION BELL ===== */
+.notif-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-red);
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar { padding: 12px 16px; }
+  .nav-logo { font-size: 20px; }
+  .nav-user { display: none; }
+  .mobile-nav { display: flex; }
+  .container { padding-bottom: 80px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .offer-grid { grid-template-columns: 1fr; }
+  .action-row { flex-direction: column; }
+  .action-btn { justify-content: center; }
+  .referral-stats { grid-template-columns: 1fr; }
+  .payment-methods { grid-template-columns: 1fr; }
+  .leader-item { padding: 12px 16px; }
+  .modal { padding: 20px; margin: 10px; }
+  .calc-row { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-card { padding: 14px; }
+  .stat-card .stat-value { font-size: 22px; }
+  .streak-bar { flex-direction: column; align-items: flex-start; }
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  animation: fadeIn .4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.glow-text {
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(34, 197, 94, 0.3); }
+  to { text-shadow: 0 0 30px rgba(34, 197, 94, 0.6); }
+}
+
+/* ===== TOOLTIP ===== */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  border: 1px solid var(--border-color);
+}
 </style>
-
 </head>
-
 <body>
 
-<!-- LOGIN -->
+<!-- ==================== LOGIN PAGE ==================== -->
+<div id="loginPage" class="login-page">
+<div class="login-card">
+<div class="brand">
+<span class="brand-icon">💰</span>
+<h1>EarnRewards Pro</h1>
+<p>Kiếm tiền online thực sự năm 2026</p>
+<p style="font-size:12px; color: var(--text-muted); margin-top:4px;">Trải nghiệm hệ thống kiếm tiền hiện đại nhất</p>
+</div>
 
-<div id="login" class="container">
+<label class="form-label">Tên đăng nhập</label>
+<input class="form-input" id="username" placeholder="Nhập tên của bạn...">
 
-<div class="card">
+<label class="form-label">Mã giới thiệu (tuỳ chọn)</label>
+<input class="form-input" id="refCode" placeholder="Nhập mã giới thiệu...">
 
-<h1>💰 EarnRewards</h1>
-
-<p style="margin-top:10px;color:#94a3b8">
-Complete offers & earn rewards online.
-</p>
-
-<input id="username" placeholder="Enter username">
-
-<button class="loginBtn" onclick="enter()">
-Start Earning
+<button class="primary-btn" onclick="enterSite()">
+🚀 Bắt Đầu Kiếm Tiền
 </button>
 
+<div class="divider">hoặc</div>
+
+<div class="social-login">
+<button class="social-btn" onclick="socialLogin('google')">
+<i class="fab fa-google" style="color:#ea4335"></i>
+<span>Google</span>
+</button>
+<button class="social-btn" onclick="socialLogin('facebook')">
+<i class="fab fa-facebook" style="color:#1877f2"></i>
+<span>Facebook</span>
+</button>
+<button class="social-btn" onclick="socialLogin('discord')">
+<i class="fab fa-discord" style="color:#7289da"></i>
+<span>Discord</span>
+</button>
 </div>
 
+<p style="text-align:center; margin-top:20px; font-size:12px; color: var(--text-muted);">
+🔒 Bảo mật & riêng tư | <a href="#" style="color:var(--accent-blue);">Điều khoản</a>
+</p>
+</div>
 </div>
 
-<!-- DASHBOARD -->
+<!-- ==================== MAIN APP ==================== -->
+<div id="mainApp" class="hidden">
 
-<div id="dashboard" class="container hidden">
+<!-- NAVBAR -->
+<nav class="navbar">
+<div class="nav-logo" onclick="switchTab('dashboard')">
+<span class="logo-icon">💰</span>
+<span>EarnRewards Pro</span>
+</div>
+<div class="nav-right">
+<div class="nav-user">
+<div class="avatar" id="navAvatar">U</div>
+<span id="navUsername">User</span>
+<span style="margin-left:8px; color:var(--accent-green); font-size:13px;">Lv.<span id="navLevel">1</span></span>
+</div>
+<button class="nav-btn" id="themeToggle" onclick="toggleTheme()" data-tooltip="Chế độ sáng/tối">
+<i class="fas fa-moon"></i>
+</button>
+<button class="nav-btn" onclick="logout()" data-tooltip="Đăng xuất">
+<i class="fas fa-sign-out-alt"></i>
+</button>
+</div>
+</nav>
 
-<div class="header">
+<div class="container">
 
-<div class="logo">
-💰 EarnRewards
+<!-- TAB BAR -->
+<div class="tab-bar">
+<div class="tab active" data-tab="dashboard" onclick="switchTab('dashboard')">
+<i class="fas fa-home"></i> Dashboard
+</div>
+<div class="tab" data-tab="earn" onclick="switchTab('earn')">
+<i class="fas fa-bolt"></i> Kiếm Tiền
+</div>
+<div class="tab" data-tab="guides" onclick="switchTab('guides')">
+<i class="fas fa-graduation-cap"></i> Hướng Dẫn
+</div>
+<div class="tab" data-tab="referral" onclick="switchTab('referral')">
+<i class="fas fa-users"></i> Giới Thiệu
+</div>
+<div class="tab" data-tab="calculator" onclick="switchTab('calculator')">
+<i class="fas fa-calculator"></i> Tính Toán
+</div>
+<div class="tab" data-tab="history" onclick="switchTab('history')">
+<i class="fas fa-history"></i> Lịch Sử
+</div>
 </div>
 
-<div class="userBox">
-👤 <span id="user"></span>
-</div>
+<!-- ===== DASHBOARD TAB ===== -->
+<div id="tab-dashboard" class="tab-content fade-in">
 
+<!-- STREAK & LEVEL -->
+<div class="streak-bar">
+<div>
+<div style="font-size:13px; color:var(--text-secondary); margin-bottom:8px;">🔥 Streak hàng ngày</div>
+<div class="streak-days" id="streakDays"></div>
+</div>
+<div class="level-info">
+<div class="level-header">
+<span class="level-name" id="levelName">Newcomer</span>
+<span class="level-xp" id="levelXP">0 / 100 XP</span>
+</div>
+<div class="level-bar">
+<div class="fill" id="levelFill" style="width:0%"></div>
+</div>
+<div style="font-size:12px; color:var(--text-muted); margin-top:6px;">
+Hoàn thành nhiệm vụ để lên level ⬆️
+</div>
+</div>
 </div>
 
 <!-- STATS -->
-
-<div class="stats">
-
-<div class="stat">
-<h3>Balance</h3>
-<div class="big green">$<span id="balance"></span></div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="glow" style="background:var(--accent-green)"></div>
+<div class="stat-icon">💵</div>
+<div class="stat-label">Số dư</div>
+<div class="stat-value green" id="balance">$0.50</div>
+<div class="stat-change up">↑ +$0.20 hôm nay</div>
+</div>
+<div class="stat-card">
+<div class="glow" style="background:var(--accent-blue)"></div>
+<div class="stat-icon">📋</div>
+<div class="stat-label">Offers Hoàn Thành</div>
+<div class="stat-value blue" id="offersDone">24</div>
+<div class="stat-change up">↑ 3 tuần này</div>
+</div>
+<div class="stat-card">
+<div class="glow" style="background:var(--accent-purple)"></div>
+<div class="stat-icon">🤝</div>
+<div class="stat-label">Thu Nhập Giới Thiệu</div>
+<div class="stat-value purple" id="refEarnings">$12.45</div>
+<div class="stat-change up">↑ 2 người mới</div>
+</div>
+<div class="stat-card">
+<div class="glow" style="background:var(--accent-orange)"></div>
+<div class="stat-icon">🏆</div>
+<div class="stat-label">Bảng Xếp Hạng</div>
+<div class="stat-value orange" id="rank">#18</div>
+<div class="stat-change up">↑ 5 bậc tuần này</div>
+</div>
+<div class="stat-card">
+<div class="glow" style="background:var(--accent-pink)"></div>
+<div class="stat-icon">⭐</div>
+<div class="stat-label">Điểm XP</div>
+<div class="stat-value" style="color:var(--accent-pink)" id="xpPoints">85</div>
+<div class="stat-change up">↑ +15 hôm nay</div>
+</div>
+<div class="stat-card">
+<div class="glow" style="background:var(--accent-cyan)"></div>
+<div class="stat-icon">🎯</div>
+<div class="stat-label">Streak</div>
+<div class="stat-value" style="color:var(--accent-cyan)" id="streakCount">7</div>
+<div class="stat-change up">↑ Tốt nhất!</div>
+</div>
 </div>
 
-<div class="stat">
-<h3>Offers Completed</h3>
-<div class="big blue">24</div>
-</div>
-
-<div class="stat">
-<h3>Referral Earnings</h3>
-<div class="big purple">$12.45</div>
-</div>
-
-<div class="stat">
-<h3>Leaderboard Rank</h3>
-<div class="big orange">#18</div>
-</div>
-
-</div>
-
-<!-- ACTIONS -->
-
-<div class="actions">
-
-<button class="actionBtn" onclick="addDaily()">
-🎁 Daily Bonus
+<!-- ACTION BUTTONS -->
+<div class="action-row">
+<button class="action-btn daily" onclick="claimDaily()">
+<i class="fas fa-gift"></i> Nhận Thưởng Ngày
 </button>
-
-<button class="spinBtn" onclick="spinWheel()">
-🎡 Spin Wheel
+<button class="action-btn spin" onclick="showSpinModal()">
+<i class="fas fa-dharmachakra"></i> Vòng Quay May Mắn
 </button>
-
-<button class="withdrawBtn" onclick="withdrawFake()">
-💸 Withdraw
+<button class="action-btn withdraw" onclick="showWithdrawModal()">
+<i class="fas fa-money-bill-wave"></i> Rút Tiền
 </button>
-
+<button class="action-btn ai-task" onclick="startAITask()">
+<i class="fas fa-robot"></i> Nhiệm Vụ AI
+</button>
+<button class="action-btn social" onclick="completeSocial()">
+<i class="fas fa-hashtag"></i> Nhiệm Vụ Social
+</button>
 </div>
 
-<!-- OFFERWALLS -->
-
-<h2 style="margin-bottom:15px">
-🔥 Offerwalls
-</h2>
-
-<div class="offer-grid">
-
-<!-- GEMIWALL -->
-
-<div class="offer">
-
-<img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png">
-
-<h3>Gemiwall</h3>
-
-<p>Surveys • Apps • Games</p>
-
-<button onclick="openGemi()">
-Open
-</button>
-
+<!-- ACHIEVEMENTS -->
+<div class="section-title">
+<i class="fas fa-trophy" style="color:var(--accent-orange)"></i>
+Thành Tích
 </div>
-
-<!-- REVTOO -->
-
-<div class="offer">
-
-<h3>Revtoo</h3>
-
-<p>Offers • Apps</p>
-
-<button onclick="openRevtoo()">
-Open
-</button>
-
+<div class="achievements-grid">
+<div class="achievement-card">
+<div class="achievement-icon" style="background:rgba(34,197,94,.15)">🎁</div>
+<div class="achievement-info">
+<h4>Ngày Đầu Tiên</h4>
+<p>Đăng nhập lần đầu</p>
+<div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 </div>
-
-<!-- CLICKWALL -->
-
-<div class="offer">
-
-<h3>Clickwall</h3>
-
-<p>Surveys • Apps</p>
-
-<button onclick="openClickwall()">
-Open
-</button>
-
 </div>
-
-<!-- MOUSTACHE -->
-
-<div class="offer">
-
-<h3>MoustacheLeads</h3>
-
-<p>Offers • Surveys</p>
-
-<button onclick="openMoustache()">
-Open
-</button>
-
+<div class="achievement-card">
+<div class="achievement-icon" style="background:rgba(59,130,246,.15)">📋</div>
+<div class="achievement-info">
+<h4>10 Offers</h4>
+<p>Hoàn thành 10 offer</p>
+<div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 </div>
-
-<!-- TASKWALL -->
-
-<div class="offer">
-
-<h3>Taskwall</h3>
-
-<p>Offers • Surveys • Apps</p>
-
-<button onclick="openTaskwall()">
-Open
-</button>
-
 </div>
-
-<!-- COINTOMEDIA -->
-
-<div class="offer">
-
-<img src="https://cointomedia.com/favicon.ico">
-
-<h3>CoinToMedia</h3>
-
-<p>Offers • Surveys • Games</p>
-
-<button onclick="openCointo()">
-Open
-</button>
-
+<div class="achievement-card">
+<div class="achievement-icon" style="background:rgba(168,85,247,.15)">🔥</div>
+<div class="achievement-info">
+<h4>7 Ngày Streak</h4>
+<p>Đăng nhập 7 ngày liên tiếp</p>
+<div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
 </div>
-<!-- KLINK FINANCE -->
-
-<div class="offer">
-
-<img src="https://offerwall.klinkfinance.com/favicon.ico">
-
-<h3>Klink Finance</h3>
-
-<p>Offers • Surveys • Games</p>
-
-<button onclick="openKlink()">
-Open
-</button>
-
 </div>
-
+<div class="achievement-card">
+<div class="achievement-icon" style="background:rgba(245,158,11,.15)">💰</div>
+<div class="achievement-info">
+<h4>Thu Nhập $50</h4>
+<p>Tổng thu nhập $50</p>
+<div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+</div>
+</div>
+<div class="achievement-card locked">
+<div class="achievement-icon" style="background:rgba(236,72,153,.15)">🤝</div>
+<div class="achievement-info">
+<h4>Đại Sứ</h4>
+<p>Giới thiệu 10 người</p>
+<div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+</div>
+</div>
+<div class="achievement-card locked">
+<div class="achievement-icon" style="background:rgba(6,182,212,.15)">👑</div>
+<div class="achievement-info">
+<h4>Thu Nhập $100</h4>
+<p>Tổng thu nhập $100</p>
+<div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+</div>
+</div>
 </div>
 
 <!-- LEADERBOARD -->
-
-<div class="leaderboard">
-
-<h2 style="margin-bottom:15px">
-🏆 Leaderboard
-</h2>
-
-<div class="leaderItem">
-<span>user_king</span>
-<span>$542</span>
+<div class="leaderboard-card">
+<div class="leader-header">
+<div class="section-title" style="margin:0">
+<i class="fas fa-crown" style="color:var(--accent-orange)"></i>
+Bảng Xếp Hạng Tuần Này
+</div>
+<span style="font-size:13px; color:var(--text-muted)">Cập nhật mỗi giờ</span>
 </div>
 
-<div class="leaderItem">
-<span>crypto_earn</span>
-<span>$489</span>
+<div class="leader-item">
+<div class="leader-rank gold">1</div>
+<div class="leader-info">
+<div class="leader-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">K</div>
+<span class="leader-name">King_Earner</span>
+</div>
+<span class="leader-earnings">$542.30</span>
+</div>
+<div class="leader-item">
+<div class="leader-rank silver">2</div>
+<div class="leader-info">
+<div class="leader-avatar" style="background:linear-gradient(135deg,#3b82f6,#a855f7)">C</div>
+<span class="leader-name">CryptoPro</span>
+</div>
+<span class="leader-earnings">$489.15</span>
+</div>
+<div class="leader-item">
+<div class="leader-rank bronze">3</div>
+<div class="leader-info">
+<div class="leader-avatar" style="background:linear-gradient(135deg,#22c55e,#06b6d4)">R</div>
+<span class="leader-name">RewardMaster</span>
+</div>
+<span class="leader-earnings">$412.80</span>
+</div>
+<div class="leader-item">
+<div class="leader-rank default">4</div>
+<div class="leader-info">
+<div class="leader-avatar" style="background:linear-gradient(135deg,#ec4899,#f59e0b)">A</div>
+<span class="leader-name">AIWorker99</span>
+</div>
+<span class="leader-earnings">$387.50</span>
+</div>
+<div class="leader-item">
+<div class="leader-rank default">5</div>
+<div class="leader-info">
+<div class="leader-avatar" style="background:linear-gradient(135deg,#a855f7,#3b82f6)">S</div>
+<span class="leader-name">SurveyKing</span>
+</div>
+<span class="leader-earnings">$356.20</span>
+</div>
+<div class="leader-item" style="background:rgba(34,197,94,.05)">
+<div class="leader-rank default" id="myRank">18</div>
+<div class="leader-info">
+<div class="leader-avatar" style="background:var(--gradient-1)" id="myAvatar">U</div>
+<span class="leader-name" id="leaderMyName">Bạn</span>
+</div>
+<span class="leader-earnings" id="leaderMyBalance">$0.50</span>
+</div>
+</div>
 </div>
 
-<div class="leaderItem">
-<span>rewardmaster</span>
-<span>$412</span>
+<!-- ===== EARN TAB ===== -->
+<div id="tab-earn" class="tab-content hidden">
+
+<div class="section-title">
+<i class="fas fa-bolt" style="color:var(--accent-orange)"></i>
+Cổng Offer (Surveys, Apps, Games)
 </div>
 
-<div class="leaderItem">
-<span id="myName">you</span>
-<span>$<span id="myBalance2"></span></span>
+<div class="offer-grid" id="offerwallGrid">
+<!-- GEMIWALL -->
+<div class="offer-card">
+<span class="offer-badge">HOT</span>
+<div class="offer-icon" style="background:rgba(34,197,94,.15)">🟢</div>
+<h3>Gemiwall</h3>
+<p>Surveys • Apps • Games • AI Tasks</p>
+<span class="earn-tag">Lên đến $50/task</span><br>
+<button class="start-btn" onclick="openOffer('https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/')">Mở Offerwall →</button>
+</div>
+
+<!-- REVTOO -->
+<div class="offer-card">
+<span class="offer-badge">NEW</span>
+<div class="offer-icon" style="background:rgba(59,130,246,.15)">🔵</div>
+<h3>Revtoo</h3>
+<p>Offers • Apps • CPA Tasks</p>
+<span class="earn-tag">Lên đến $30/task</span><br>
+<button class="start-btn" onclick="openOffer('revtoo')">Mở Offerwall →</button>
+</div>
+
+<!-- CLICKWALL -->
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(168,85,247,.15)">🟣</div>
+<h3>Clickwall</h3>
+<p>Surveys • Apps • Sign-ups</p>
+<span class="earn-tag">Lên đến $25/task</span><br>
+<button class="start-btn" onclick="openOffer('clickwall')">Mở Offerwall →</button>
+</div>
+
+<!-- MOUSTACHE -->
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(245,158,11,.15)">🟠</div>
+<h3>MoustacheLeads</h3>
+<p>Offers • Surveys • Trials</p>
+<span class="earn-tag">Lên đến $40/task</span><br>
+<button class="start-btn" onclick="openOffer('moustache')">Mở Offerwall →</button>
+</div>
+
+<!-- TASKWALL -->
+<div class="offer-card">
+<span class="offer-badge">POPULAR</span>
+<div class="offer-icon" style="background:rgba(236,72,153,.15)">🩷</div>
+<h3>Taskwall</h3>
+<p>Offers • Surveys • Apps • Games</p>
+<span class="earn-tag">Lên đến $35/task</span><br>
+<button class="start-btn" onclick="openOffer('taskwall')">Mở Offerwall →</button>
+</div>
+
+<!-- COINTOMEDIA -->
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(6,182,212,.15)">🩵</div>
+<h3>CoinToMedia</h3>
+<p>Offers • Surveys • Games • Crypto</p>
+<span class="earn-tag">Lên đến $20/task</span><br>
+<button class="start-btn" onclick="openOffer('cointo')">Mở Offerwall →</button>
+</div>
+
+<!-- KLINK FINANCE -->
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(34,197,94,.15)">💎</div>
+<h3>Klink Finance</h3>
+<p>Offers • Surveys • Games • DeFi</p>
+<span class="earn-tag">Lên đến $45/task</span><br>
+<button class="start-btn" onclick="openOffer('klink')">Mở Offerwall →</button>
+</div>
+</div>
+
+<!-- NEW 2026 EARNING METHODS -->
+<div class="section-title" style="margin-top:30px">
+<i class="fas fa-robot" style="color:var(--accent-purple)"></i>
+Kiếm Tiền Với AI (2026)
+</div>
+
+<div class="offer-grid">
+<div class="offer-card">
+<span class="offer-badge">AI</span>
+<div class="offer-icon" style="background:rgba(168,85,247,.15)">🤖</div>
+<h3>Nhãn Dữ Liệu AI</h3>
+<p>Gán nhãn hình ảnh, văn bản để huấn luyện AI</p>
+<span class="earn-tag">$0.50 - $5.00/task</span><br>
+<button class="start-btn" onclick="startAITask()">Bắt Đầu →</button>
+</div>
+
+<div class="offer-card">
+<span class="offer-badge">AI</span>
+<div class="offer-icon" style="background:rgba(59,130,246,.15)">✍️</div>
+<h3>Kiểm Tra Chatbot</h3>
+<p>Đánh giá và cải thiện câu trả lời của AI</p>
+<span class="earn-tag">$1.00 - $8.00/task</span><br>
+<button class="start-btn" onclick="startAITask()">Bắt Đầu →</button>
+</div>
+
+<div class="offer-card">
+<span class="offer-badge">AI</span>
+<div class="offer-icon" style="background:rgba(245,158,11,.15)">🎨</div>
+<h3>Nhận Xét Hình AI</h3>
+<p>Đánh giá chất lượng hình ảnh tạo bởi AI</p>
+<span class="earn-tag">$0.30 - $3.00/task</span><br>
+<button class="start-btn" onclick="startAITask()">Bắt Đầu →</button>
+</div>
+</div>
+
+<!-- CRYPTO EARNING -->
+<div class="section-title" style="margin-top:30px">
+<i class="fab fa-bitcoin" style="color:var(--accent-orange)"></i>
+Kiếm Tiền Crypto
+</div>
+
+<div class="offer-grid">
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(245,158,11,.15)">⛏️</div>
+<h3>Cloud Mining</h3>
+<p>Mining Bitcoin/ETH trên cloud miễn phí</p>
+<span class="earn-tag">Lên đến $2.00/ngày</span><br>
+<button class="start-btn" onclick="showToast('🔗 Đang kết nối đến nền tảng mining...')">Khám Phá →</button>
+</div>
+
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(6,182,212,.15)">🪙</div>
+<h3>Faucet Token</h3>
+<p>Nhận token miễn phí mỗi giờ</p>
+<span class="earn-tag">BTC, ETH, SOL, DOGE</span><br>
+<button class="start-btn" onclick="showToast('🪙 Faucet đang tải...')">Nhận Token →</button>
+</div>
+
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(34,197,94,.15)">📈</div>
+<h3>Staking Rewards</h3>
+<p>Stake token nhận lãi suất hàng ngày</p>
+<span class="earn-tag">APY 5% - 15%</span><br>
+<button class="start-btn" onclick="showToast('📈 Đang tính toán rewards...')">Stake Ngay →</button>
+</div>
+</div>
+
+<!-- SOCIAL MEDIA TASKS -->
+<div class="section-title" style="margin-top:30px">
+<i class="fas fa-hashtag" style="color:var(--accent-pink)"></i>
+Nhiệm Vụ Social Media
+</div>
+
+<div class="offer-grid">
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(239,68,68,.15)">📺</div>
+<h3>Xem Video YouTube</h3>
+<p>Xem video ngắn nhận reward</p>
+<span class="earn-tag">$0.05 - $0.50/video</span><br>
+<button class="start-btn" onclick="completeSocial()">Xem Video →</button>
+</div>
+
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(59,130,246,.15)">🐦</div>
+<h3>Theo Dõi Twitter/X</h3>
+<p>Follow & retweet nhận reward</p>
+<span class="earn-tag">$0.10 - $1.00/task</span><br>
+<button class="start-btn" onclick="completeSocial()">Thực Hiện →</button>
+</div>
+
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(168,85,247,.15)">📸</div>
+<h3>Thử App Mới</h3>
+<p>Tải và thử ứng dụng mới</p>
+<span class="earn-tag">$0.50 - $10.00/app</span><br>
+<button class="start-btn" onclick="completeSocial()">Thử App →</button>
+</div>
 </div>
 
 </div>
 
+<!-- ===== GUIDES TAB ===== -->
+<div id="tab-guides" class="tab-content hidden">
+
+<div class="section-title">
+<i class="fas fa-graduation-cap" style="color:var(--accent-blue)"></i>
+Hướng Dẫn Kiếm Tiền Online 2026
 </div>
 
-<!-- OFFER VIEW -->
+<div class="guide-card" onclick="toggleGuide(this)">
+<div class="guide-header">
+<div class="guide-icon" style="background:rgba(34,197,94,.15)">🎯</div>
+<span class="guide-title">Hướng Dẫn Hoàn Thành Offers Tối Ưu</span>
+<span class="guide-difficulty" style="background:rgba(34,197,94,.15); color:var(--accent-green)">Dễ</span>
+</div>
+<div class="guide-body">
+<p>Offers là cách kiếm tiền cơ bản nhất trên EarnRewards Pro. Dưới đây là cách tối ưu thu nhập:</p>
+<ul style="margin:10px 0 10px 20px; line-height:2">
+<li><strong>Surveys:</strong> Hoàn thành khảo sát nhận $0.50 - $50 tùy độ dài</li>
+<li><strong>App Install:</strong> Tải app và giữ 30 giây nhận $0.30 - $5</li>
+<li><strong>Sign-up:</strong> Đăng ký dịch vụ mới nhận $1 - $20</li>
+<li><strong>Game Offers:</strong> Chơi game đạt level nhận $2 - $50</li>
+<li><strong>Trial:</strong> Dùng thử dịch vụ nhận $5 - $40</li>
+</ul>
+<p><strong>Tip:</strong> Ưu tiên offers có reward cao nhất. Đọc kỹ yêu cầu trước khi bắt đầu. Sử dụng thông tin thật để tránh bị reject.</p>
+</div>
+</div>
 
-<div id="offerView" class="hidden">
+<div class="guide-card" onclick="toggleGuide(this)">
+<div class="guide-header">
+<div class="guide-icon" style="background:rgba(168,85,247,.15)">🤖</div>
+<span class="guide-title">Kiếm Tiền Từ AI Tasks - Xu Hướng 2026</span>
+<span class="guide-difficulty" style="background:rgba(245,158,11,.15); color:var(--accent-orange)">Trung Bình</span>
+</div>
+<div class="guide-body">
+<p>Năm 2026, huấn luyện AI trở thành một trong những cách kiếm tiền online phổ biến nhất:</p>
+<ul style="margin:10px 0 10px 20px; line-height:2">
+<li><strong>Data Labeling:</strong> Gán nhãn cho dữ liệu giúp AI học tốt hơn</li>
+<li><strong>RLHF:</strong> Đánh giá câu trả lời AI (Reinforcement Learning)</li>
+<li><strong>Image Review:</strong> Kiểm tra chất lượng ảnh AI tạo ra</li>
+<li><strong>Voice Training:</strong> Thu âm hoặc đánh giá giọng nói</li>
+<li><strong>Content Moderation:</strong> Lọc nội dung cho AI chatbot</li>
+</ul>
+<p><strong>Thu nhập:</strong> $2 - $50/giờ tùy task phức tạp. Không cần kinh nghiệm, chỉ cần đọc hiểu tiếng Anh cơ bản.</p>
+</div>
+</div>
 
-<button class="backBtn" onclick="back()">
-← Back
+<div class="guide-card" onclick="toggleGuide(this)">
+<div class="guide-header">
+<div class="guide-icon" style="background:rgba(59,130,246,.15)">🪙</div>
+<span class="guide-title">Kiếm Tiền Crypto Cho Người Mới</span>
+<span class="guide-difficulty" style="background:rgba(245,158,11,.15); color:var(--accent-orange)">Trung Bình</span>
+</div>
+<div class="guide-body">
+<p>Crypto vẫn là xu hướng kiếm tiền online lớn nhất 2026:</p>
+<ul style="margin:10px 0 10px 20px; line-height:2">
+<li><strong>Cloud Mining:</strong> Mining BTC/ETH không cần phần cứng</li>
+<li><strong>Faucets:</strong> Nhận token miễn phí định kỳ</li>
+<li><strong>Staking:</strong> Khóa token nhận lãi suất 5-15% APY</li>
+<li><strong>Airdrop:</strong> Nhận token miễn phí từ dự án mới</li>
+<li><strong>Play-to-Earn:</strong> Chơi game nhận crypto</li>
+</ul>
+<p><strong>Lưu ý:</strong> Chỉ đầu tư tiền bạn sẵn sàng mất. Nghiên cứu kỹ trước khi tham gia bất kỳ dự án nào.</p>
+</div>
+</div>
+
+<div class="guide-card" onclick="toggleGuide(this)">
+<div class="guide-header">
+<div class="guide-icon" style="background:rgba(236,72,153,.15)">📱</div>
+<span class="guide-title">Kiếm Tiền Từ Social Media</span>
+<span class="guide-difficulty" style="background:rgba(34,197,94,.15); color:var(--accent-green)">Dễ</span>
+</div>
+<div class="guide-body">
+<p>Mạng xã hội là nguồn thu nhập lớn trong 2026:</p>
+<ul style="margin:10px 0 10px 20px; line-height:2">
+<li><strong>Xem Video:</strong> Nhận reward khi xem video ngắn</li>
+<li><strong>Follow/Share:</strong> Follow account, share post nhận $0.10-$1</li>
+<li><strong>Thử App:</strong> Tải app mới nhận $0.50-$10</li>
+<li><strong>Tạo Content:</strong> Tạo nội dung ngắn trên TikTok/YouTube Shorts</li>
+<li><strong>Affiliate:</strong> Giới thiệu sản phẩm nhận hoa hồng</li>
+</ul>
+<p><strong>Tip:</strong> Kết hợp nhiều nền tảng để tối đa hóa thu nhập. Đặt mục tiêu hàng ngày và kiên trì.</p>
+</div>
+</div>
+
+<div class="guide-card" onclick="toggleGuide(this)">
+<div class="guide-header">
+<div class="guide-icon" style="background:rgba(245,158,11,.15)">💡</div>
+<span class="guide-title">Mẹo Tăng Thu Nhập Tối Đa</span>
+<span class="guide-difficulty" style="background:rgba(239,68,68,.15); color:var(--accent-red)">Nâng Cao</span>
+</div>
+<div class="guide-body">
+<p>Những mẹo giúp bạn kiếm nhiều hơn trên EarnRewards Pro:</p>
+<ul style="margin:10px 0 10px 20px; line-height:2">
+<li><strong>Daily Streak:</strong> Đăng nhập mỗi ngày nhận bonus tăng dần</li>
+<li><strong>Referral:</strong> Giới thiệu bạn bè nhận 15% thu nhập của họ mãi mãi</li>
+<li><strong>Multi-Offer:</strong> Hoàn thành nhiều offers cùng lúc</li>
+<li><strong>Highest Reward First:</strong> Ưu tiên offers có giá trị cao nhất</li>
+<li><strong>Spin Wheel:</strong> Xoay vòng quay mỗi ngày nhận thêm reward</li>
+<li><strong>Level Up:</strong> Lên level để mở khóa offers cao hơn</li>
+</ul>
+<p><strong>Mục tiêu:</strong> Với 1-2 giờ mỗi ngày, bạn có thể kiếm $5-$30/ngày. Đạt $150-$900/tháng.</p>
+</div>
+</div>
+
+</div>
+
+<!-- ===== REFERRAL TAB ===== -->
+<div id="tab-referral" class="tab-content hidden">
+
+<div class="section-title">
+<i class="fas fa-users" style="color:var(--accent-purple)"></i>
+Chương Trình Giới Thiệu
+</div>
+
+<div class="referral-card">
+<h3 style="margin-bottom:10px">🤝 Giới thiệu bạn bè, nhận 15% mãi mãi!</h3>
+<p style="color:var(--text-secondary); font-size:14px; margin-bottom:20px;">
+Mỗi khi người bạn giới thiệu kiếm tiền, bạn sẽ nhận được 15% thu nhập của họ - không giới hạn thời gian.
+</p>
+
+<div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">Link giới thiệu của bạn:</div>
+<div class="referral-link-box">
+<input id="refLink" value="https://earnrewards2026.com/?ref=jockmmo1998" readonly>
+<button class="copy-btn" onclick="copyRefLink()">
+<i class="fas fa-copy"></i> Sao chép
 </button>
+</div>
 
-<iframe id="frame"></iframe>
+<div class="referral-stats">
+<div class="ref-stat">
+<div class="ref-value" id="refCount">3</div>
+<div class="ref-label">Người đã giới thiệu</div>
+</div>
+<div class="ref-stat">
+<div class="ref-value" id="refTotal">$12.45</div>
+<div class="ref-label">Tổng thu nhập giới thiệu</div>
+</div>
+<div class="ref-stat">
+<div class="ref-value">15%</div>
+<div class="ref-label">Tỷ lệ hoa hồng</div>
+</div>
+</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section-title" style="margin-top:20px">
+<i class="fas fa-lightbulb" style="color:var(--accent-orange)"></i>
+Cách Hoạt Động
+</div>
+
+<div class="offer-grid">
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(34,197,94,.15)">1️⃣</div>
+<h3>Chia Sẻ Link</h3>
+<p>Sao chép link giới thiệu và chia sẻ với bạn bè trên mạng xã hội</p>
+</div>
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(59,130,246,.15)">2️⃣</div>
+<h3>Bạn Bè Đăng Ký</h3>
+<p>Họ đăng ký qua link của bạn và bắt đầu kiếm tiền</p>
+</div>
+<div class="offer-card">
+<div class="offer-icon" style="background:rgba(168,85,247,.15)">3️⃣</div>
+<h3>Nhận Hoa Hồng</h3>
+<p>Bạn nhận 15% từ mọi thu nhập của họ - mãi mãi!</p>
+</div>
+</div>
 
 </div>
 
-<!-- POPUP -->
+<!-- ===== CALCULATOR TAB ===== -->
+<div id="tab-calculator" class="tab-content hidden">
 
-<div id="popup" class="popup hidden">
-🔥 New user earned $2.50
+<div class="section-title">
+<i class="fas fa-calculator" style="color:var(--accent-cyan)"></i>
+Tính Toán Thu Nhập
 </div>
 
+<div class="calc-card">
+<h3 style="margin-bottom:20px">Ước tính thu nhập tiềm năng</h3>
+
+<div class="calc-row">
+<div class="calc-group">
+<label>Phương thức kiếm tiền</label>
+<select id="calcMethod" onchange="calcIncome()">
+<option value="offers">Offers (Surveys, Apps)</option>
+<option value="ai">AI Tasks (Data Labeling)</option>
+<option value="crypto">Crypto (Mining, Staking)</option>
+<option value="social">Social Media Tasks</option>
+<option value="referral">Referral Program</option>
+<option value="combined">Kết hợp tất cả</option>
+</select>
+</div>
+<div class="calc-group">
+<label>Thời gian mỗi ngày (giờ)</label>
+<input type="number" id="calcHours" value="2" min="0.5" max="16" step="0.5" onchange="calcIncome()" oninput="calcIncome()">
+</div>
+</div>
+
+<div class="calc-row">
+<div class="calc-group">
+<label>Số ngày làm việc mỗi tuần</label>
+<select id="calcDays" onchange="calcIncome()">
+<option value="3">3 ngày/tuần</option>
+<option value="5" selected>5 ngày/tuần</option>
+<option value="6">6 ngày/tuần</option>
+<option value="7">7 ngày/tuần</option>
+</select>
+</div>
+<div class="calc-group">
+<label>Kinh nghiệm</label>
+<select id="calcExp" onchange="calcIncome()">
+<option value="0.5">Người mới</option>
+<option value="1" selected>Có kinh nghiệm</option>
+<option value="1.5">Chuyên gia</option>
+</select>
+</div>
+</div>
+
+<div class="calc-result">
+<div style="font-size:14px; color:var(--text-secondary); margin-bottom:8px;">Thu nhập ước tính</div>
+<div class="amount" id="calcResult">$15.00</div>
+<div class="period" id="calcPeriod">/ ngày</div>
+<div style="display:flex; justify-content:center; gap:30px; margin-top:16px;">
+<div style="text-align:center">
+<div style="font-size:20px; font-weight:700; color:var(--accent-blue)" id="calcWeek">$75</div>
+<div style="font-size:12px; color:var(--text-muted)">/ tuần</div>
+</div>
+<div style="text-align:center">
+<div style="font-size:20px; font-weight:700; color:var(--accent-green)" id="calcMonth">$300</div>
+<div style="font-size:12px; color:var(--text-muted)">/ tháng</div>
+</div>
+<div style="text-align:center">
+<div style="font-size:20px; font-weight:700; color:var(--accent-purple)" id="calcYear">$3,600</div>
+<div style="font-size:12px; color:var(--text-muted)">/ năm</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ===== HISTORY TAB ===== -->
+<div id="tab-history" class="tab-content hidden">
+
+<div class="section-title">
+<i class="fas fa-history" style="color:var(--accent-blue)"></i>
+Lịch Sử Giao Dịch
+</div>
+
+<div class="leaderboard-card">
+<div class="leader-header">
+<span style="font-weight:700">Tất cả giao dịch</span>
+<span style="font-size:13px; color:var(--text-muted)">Tổng: <span id="historyTotal" style="color:var(--accent-green); font-weight:700">$0.50</span></span>
+</div>
+
+<div class="history-item">
+<div class="history-icon" style="background:rgba(34,197,94,.15)">🎁</div>
+<div class="history-info">
+<div class="h-title">Bonus chào mừng</div>
+<div class="h-time">Hôm nay</div>
+</div>
+<div class="history-amount positive">+$0.50</div>
+</div>
+<div class="history-item">
+<div class="history-icon" style="background:rgba(59,130,246,.15)">📋</div>
+<div class="history-info">
+<div class="h-title">Hoàn thành Offer - Survey App</div>
+<div class="h-time">Hôm nay</div>
+</div>
+<div class="history-amount positive">+$2.50</div>
+</div>
+<div class="history-item">
+<div class="history-icon" style="background:rgba(168,85,247,.15)">🎡</div>
+<div class="history-info">
+<div class="h-title">Vòng quay may mắn</div>
+<div class="h-time">Hôm qua</div>
+</div>
+<div class="history-amount positive">+$1.00</div>
+</div>
+<div class="history-item">
+<div class="history-icon" style="background:rgba(245,158,11,.15)">🤝</div>
+<div class="history-info">
+<div class="h-title">Hoa hồng giới thiệu</div>
+<div class="h-time">2 ngày trước</div>
+</div>
+<div class="history-amount positive">+$3.20</div>
+</div>
+<div class="history-item">
+<div class="history-icon" style="background:rgba(34,197,94,.15)">📋</div>
+<div class="history-info">
+<div class="h-title">Hoàn thành Offer - Game App</div>
+<div class="h-time">3 ngày trước</div>
+</div>
+<div class="history-amount positive">+$5.00</div>
+</div>
+<div class="history-item">
+<div class="history-icon" style="background:rgba(239,68,68,.15)">💸</div>
+<div class="history-info">
+<div class="h-title">Rút tiền qua PayPal</div>
+<div class="h-time">1 tuần trước</div>
+</div>
+<div class="history-amount negative">-$10.00</div>
+</div>
+<div class="history-item">
+<div class="history-icon" style="background:rgba(6,182,212,.15)">🎁</div>
+<div class="history-info">
+<div class="h-title">Daily Bonus - Streak ngày 5</div>
+<div class="h-time">1 tuần trước</div>
+</div>
+<div class="history-amount positive">+$0.50</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ===== OFFER VIEW (IFRAME) ===== -->
+<div id="offerView" class="hidden" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:300;background:var(--bg-primary)">
+<div style="display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--bg-card);border-bottom:1px solid var(--border-color)">
+<button onclick="backFromOffer()" style="background:var(--accent-red);color:white;border:none;padding:8px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:6px">
+<i class="fas fa-arrow-left"></i> Quay Lại
+</button>
+<span style="font-weight:700;font-size:15px">Đang hoàn thành offer...</span>
+<span style="margin-left:auto;font-size:13px;color:var(--accent-green)">💰 Reward sẽ được cộng tự động</span>
+</div>
+<iframe id="offerFrame" style="width:100%;height:calc(100vh - 52px);border:none;background:white"></iframe>
+</div>
+
+<!-- ===== SPIN WHEEL MODAL ===== -->
+<div id="spinModal" class="modal-overlay hidden" onclick="closeModal(event, 'spinModal')">
+<div class="modal" onclick="event.stopPropagation()">
+<h2><i class="fas fa-dharmachakra" style="color:var(--accent-purple)"></i> Vòng Quay May Mắn</h2>
+<div class="wheel-container">
+<div style="position:relative;display:inline-block">
+<div class="wheel-canvas" id="wheelCanvas"></div>
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:24px;z-index:10">🎯</div>
+</div>
+<button class="primary-btn" style="max-width:250px;margin:20px auto" onclick="spinWheel()">
+<i class="fas fa-play"></i> Xoay Ngay!
+</button>
+<div id="spinResult" style="font-size:18px;font-weight:700;color:var(--accent-green);margin-top:10px;min-height:24px"></div>
+</div>
+</div>
+</div>
+
+<!-- ===== WITHDRAW MODAL ===== -->
+<div id="withdrawModal" class="modal-overlay hidden" onclick="closeModal(event, 'withdrawModal')">
+<div class="modal" onclick="event.stopPropagation()" style="position:relative">
+<button class="modal-close" onclick="document.getElementById('withdrawModal').classList.add('hidden')">
+<i class="fas fa-times"></i>
+</button>
+<h2><i class="fas fa-money-bill-wave" style="color:var(--accent-green)"></i> Rút Tiền</h2>
+
+<div style="margin-bottom:20px">
+<div style="font-size:13px; color:var(--text-secondary); margin-bottom:8px">Số dư hiện tại</div>
+<div style="font-size:28px; font-weight:800; color:var(--accent-green)" id="withdrawBalance">$0.50</div>
+</div>
+
+<div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:12px">Chọn phương thức:</div>
+<div class="payment-methods">
+<div class="payment-method selected" onclick="selectPayment(this, 'paypal')">
+<i class="fab fa-paypal" style="color:#003087"></i>
+<span>PayPal</span>
+</div>
+<div class="payment-method" onclick="selectPayment(this, 'crypto')">
+<i class="fab fa-bitcoin" style="color:#f59e0b"></i>
+<span>Crypto</span>
+</div>
+<div class="payment-method" onclick="selectPayment(this, 'bank')">
+<i class="fas fa-university" style="color:var(--accent-blue)"></i>
+<span>Bank Transfer</span>
+</div>
+<div class="payment-method" onclick="selectPayment(this, 'giftcard')">
+<i class="fas fa-gift" style="color:var(--accent-pink)"></i>
+<span>Gift Card</span>
+</div>
+</div>
+
+<div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:8px">Số tiền rút:</div>
+<input class="withdraw-input" id="withdrawAmount" placeholder="$0.00" type="number" min="1" step="0.01">
+
+<div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:8px">Tài khoản nhận:</div>
+<input class="form-input" id="withdrawAccount" placeholder="Email PayPal / Wallet Address / Số tài khoản">
+
+<div style="font-size:12px; color:var(--text-muted); margin-bottom:16px">
+<i class="fas fa-info-circle"></i> Thời gian xử lý: 1-3 ngày làm việc | Mức tối thiểu: $1.00
+</div>
+
+<button class="primary-btn" onclick="submitWithdraw()">
+<i class="fas fa-check"></i> Gửi Yêu Cầu Rút Tiền
+</button>
+</div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+<div class="mobile-nav-item active" data-tab="dashboard" onclick="switchTab('dashboard')">
+<i class="fas fa-home"></i>
+<span>Home</span>
+</div>
+<div class="mobile-nav-item" data-tab="earn" onclick="switchTab('earn')">
+<i class="fas fa-bolt"></i>
+<span>Kiếm Tiền</span>
+</div>
+<div class="mobile-nav-item" data-tab="guides" onclick="switchTab('guides')">
+<i class="fas fa-graduation-cap"></i>
+<span>Hướng Dẫn</span>
+</div>
+<div class="mobile-nav-item" data-tab="referral" onclick="switchTab('referral')">
+<i class="fas fa-users"></i>
+<span>Giới Thiệu</span>
+</div>
+<div class="mobile-nav-item" data-tab="history" onclick="switchTab('history')">
+<i class="fas fa-history"></i>
+<span>Lịch Sử</span>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>© 2026 EarnRewards Pro. Tất cả quyền được bảo lưu.</p>
+<p style="margin-top:6px">
+<a href="#">Điều khoản</a> • <a href="#">Chính sách bảo mật</a> • <a href="#">Hỗ trợ</a> • <a href="#">Blog</a>
+</p>
+<p style="margin-top:6px; font-size:11px; color:var(--text-muted)">
+🔒 Mã hóa SSL | 🛡️ Anti-fraud | ✅ Verified Platform
+</p>
+</footer>
+
+</div>
+
+<!-- ==================== SCRIPTS ==================== -->
 <script>
+// ===== CONFIG =====
+const REVTOO_API_KEY = "7y9n22mjsz0c3ujyncuomz95k6p31p";
+const KLINK_PUB_ID = "b4f89770-d4da-42c1-8fee-03303dd14401";
+const MIN_WITHDRAW = 1.00;
 
-const REVTOO_API_KEY =
-"7y9n22mjsz0c3ujyncuomz95k6p31p";
-const KLINK_PUB_ID =
-"b4f89770-d4da-42c1-8fee-03303dd14401";
-function enter(){
+// ===== STATE =====
+let currentUser = '';
+let currentBalance = 0.50;
+let currentXP = 85;
+let currentLevel = 1;
+let currentStreak = 7;
+let offersCompleted = 24;
+let refEarnings = 12.45;
+let refCount = 3;
+let totalEarned = 0.50;
+let selectedPayment = 'paypal';
+let dailyClaimed = false;
+let wheelSpins = 0;
 
-const name =
-document.getElementById("username")
-.value.trim();
-
-if(!name){
-
-alert("Enter username");
-
-return;
-
+// ===== INIT =====
+function init() {
+  const saved = localStorage.getItem('erp_user');
+  if (saved) {
+    currentUser = saved;
+    currentBalance = parseFloat(localStorage.getItem('erp_balance') || '0.50');
+    currentXP = parseInt(localStorage.getItem('erp_xp') || '85');
+    currentStreak = parseInt(localStorage.getItem('erp_streak') || '7');
+    offersCompleted = parseInt(localStorage.getItem('erp_offers') || '24');
+    dailyClaimed = localStorage.getItem('erp_daily_' + getToday()) === 'true';
+    showApp();
+  }
 }
 
-localStorage.setItem("user",name);
-
-if(!localStorage.getItem("balance")){
-
-localStorage.setItem("balance","0.50");
-
+function getToday() {
+  return new Date().toISOString().split('T')[0];
 }
 
-showDashboard();
-
+// ===== LOGIN =====
+function enterSite() {
+  const name = document.getElementById('username').value.trim();
+  if (!name) {
+    showToast('⚠️ Vui lòng nhập tên đăng nhập');
+    return;
+  }
+  currentUser = name;
+  localStorage.setItem('erp_user', name);
+  localStorage.setItem('erp_balance', '0.50');
+  localStorage.setItem('erp_xp', '85');
+  localStorage.setItem('erp_streak', '7');
+  localStorage.setItem('erp_offers', '24');
+  showToast('🎉 Chào mừng ' + name + ' đến EarnRewards Pro!');
+  showApp();
 }
 
-function showDashboard(){
-
-const user = localStorage.getItem("user");
-
-if(!user)return;
-
-document.getElementById("login")
-.classList.add("hidden");
-
-document.getElementById("dashboard")
-.classList.remove("hidden");
-
-document.getElementById("user")
-.innerText=user;
-
-document.getElementById("myName")
-.innerText=user;
-
-document.getElementById("balance")
-.innerText=
-localStorage.getItem("balance");
-
-document.getElementById("myBalance2")
-.innerText=
-localStorage.getItem("balance");
-
+function socialLogin(provider) {
+  const names = { google: 'GoogleUser', facebook: 'FBUser', discord: 'DiscordUser' };
+  currentUser = names[provider] + '_' + Math.floor(Math.random() * 9999);
+  document.getElementById('username').value = currentUser;
+  enterSite();
 }
 
-function updateBalance(value){
-
-let balance =
-parseFloat(localStorage.getItem("balance"));
-
-balance += value;
-
-localStorage.setItem(
-"balance",
-balance.toFixed(2)
-);
-
-document.getElementById("balance")
-.innerText=balance.toFixed(2);
-
-document.getElementById("myBalance2")
-.innerText=balance.toFixed(2);
-
+function logout() {
+  localStorage.removeItem('erp_user');
+  localStorage.removeItem('erp_balance');
+  localStorage.removeItem('erp_xp');
+  localStorage.removeItem('erp_streak');
+  localStorage.removeItem('erp_offers');
+  document.getElementById('mainApp').classList.add('hidden');
+  document.getElementById('loginPage').classList.remove('hidden');
 }
 
-function addDaily(){
-
-updateBalance(0.20);
-
-alert("🎁 Daily Bonus +$0.20");
-
+function showApp() {
+  document.getElementById('loginPage').classList.add('hidden');
+  document.getElementById('mainApp').classList.remove('hidden');
+  updateUI();
+  initStreak();
+  startNotifications();
 }
 
-function spinWheel(){
+// ===== UI UPDATE =====
+function updateUI() {
+  const bal = currentBalance.toFixed(2);
+  document.getElementById('balance').textContent = '$' + bal;
+  document.getElementById('offersDone').textContent = offersCompleted;
+  document.getElementById('refEarnings').textContent = '$' + refEarnings.toFixed(2);
+  document.getElementById('xpPoints').textContent = currentXP;
+  document.getElementById('streakCount').textContent = currentStreak;
+  document.getElementById('withdrawBalance').textContent = '$' + bal;
+  document.getElementById('leaderMyBalance').textContent = '$' + bal;
+  document.getElementById('leaderMyName').textContent = currentUser || 'Bạn';
+  document.getElementById('myAvatar').textContent = (currentUser || 'U')[0].toUpperCase();
+  document.getElementById('navUsername').textContent = currentUser || 'User';
+  document.getElementById('navAvatar').textContent = (currentUser || 'U')[0].toUpperCase();
+  document.getElementById('myRank').textContent = Math.max(1, 18 - Math.floor(currentBalance / 5));
 
-let rewards=[0.10,0.25,0.50,1,2];
-
-let reward =
-rewards[Math.floor(Math.random()*rewards.length)];
-
-updateBalance(reward);
-
-alert("🎡 You won $" + reward);
-
+  // Level
+  const levels = [
+    { name: 'Newcomer', xp: 100 },
+    { name: 'Beginner', xp: 250 },
+    { name: 'Intermediate', xp: 500 },
+    { name: 'Advanced', xp: 1000 },
+    { name: 'Expert', xp: 2000 },
+    { name: 'Master', xp: 5000 },
+    { name: 'Legend', xp: 10000 }
+  ];
+  let lvl = 0;
+  for (let i = levels.length - 1; i >= 0; i--) {
+    if (currentXP >= levels[i].xp) { lvl = i; break; }
+  }
+  currentLevel = lvl + 1;
+  const prevXP = lvl > 0 ? levels[lvl - 1].xp : 0;
+  const nextXP = levels[lvl].xp;
+  const progress = ((currentXP - prevXP) / (nextXP - prevXP) * 100).toFixed(0);
+  document.getElementById('levelName').textContent = levels[lvl].name;
+  document.getElementById('levelXP').textContent = currentXP + ' / ' + nextXP + ' XP';
+  document.getElementById('levelFill').style.width = progress + '%';
+  document.getElementById('navLevel').textContent = currentLevel;
 }
 
-function withdrawFake(){
+// ===== STREAK =====
+function initStreak() {
+  const container = document.getElementById('streakDays');
+  container.innerHTML = '';
+  const days = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+  const today = new Date().getDay();
+  const todayIdx = today === 0 ? 6 : today - 1;
 
-alert(
-"✅ Withdraw request submitted successfully!"
-);
-
-}
-
-function openFrame(url){
-
-document.getElementById("dashboard")
-.classList.add("hidden");
-
-document.getElementById("offerView")
-.classList.remove("hidden");
-
-document.getElementById("frame")
-.src=url;
-
-}
-
-function back(){
-
-document.getElementById("offerView")
-.classList.add("hidden");
-
-document.getElementById("dashboard")
-.classList.remove("hidden");
-
-document.getElementById("frame")
-.src="";
-
-}
-
-function openGemi(){
-
-openFrame(
-"https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/"
-);
-
-}
-
-function openRevtoo(){
-
-const user =
-localStorage.getItem("user");
-
-openFrame(
-`https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`
-);
-
-}
-
-function openClickwall(){
-
-const user =
-localStorage.getItem("user");
-
-openFrame(
-`https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`
-);
-
-}
-
-function openMoustache(){
-
-const user =
-localStorage.getItem("user");
-
-openFrame(
-`https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`
-);
-
-}
-
-function openTaskwall(){
-
-const user =
-localStorage.getItem("user");
-
-openFrame(
-`https://wall.taskwall.io/?app_id=0640f51b6a17749572b508423c387b00&userid=${encodeURIComponent(user)}`
-);
-
-}
-
-function openCointo() {
-    const user = localStorage.getItem("user");
-
-    if (!user) {
-        alert("Please login first");
-        return;
+  for (let i = 0; i < 7; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'streak-dot';
+    dot.textContent = days[i];
+    if (i < todayIdx) {
+      dot.classList.add('completed');
+    } else if (i === todayIdx) {
+      dot.classList.add('today');
     }
-
-    openFrame(
-        `https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`
-    );
+    container.appendChild(dot);
+  }
 }
-function openKlink() {
 
-    const user = localStorage.getItem("user");
+// ===== TABS =====
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.remove('active'));
 
-    if (!user) {
-        alert("Please login first");
-        return;
+  const content = document.getElementById('tab-' + tab);
+  if (content) {
+    content.classList.remove('hidden');
+    content.classList.add('fade-in');
+  }
+
+  document.querySelectorAll('.tab[data-tab="' + tab + '"]').forEach(el => el.classList.add('active'));
+  document.querySelectorAll('.mobile-nav-item[data-tab="' + tab + '"]').forEach(el => el.classList.add('active'));
+}
+
+// ===== DAILY BONUS =====
+function claimDaily() {
+  if (dailyClaimed) {
+    showToast('⚠️ Bạn đã nhận bonus hôm nay rồi! Quay lại ngày mai.');
+    return;
+  }
+  const bonus = 0.10 + (currentStreak * 0.05);
+  addBalance(bonus);
+  addXP(10);
+  dailyClaimed = true;
+  localStorage.setItem('erp_daily_' + getToday(), 'true');
+  showToast('🎁 Bonus ngày ' + currentStreak + ': +$' + bonus.toFixed(2));
+}
+
+// ===== SPIN WHEEL =====
+function showSpinModal() {
+  if (wheelSpins >= 3) {
+    showToast('⚠️ Bạn đã hết lượt xoay hôm nay! (3 lượt/ngày)');
+    return;
+  }
+  document.getElementById('spinModal').classList.remove('hidden');
+  document.getElementById('spinResult').textContent = '';
+}
+
+function spinWheel() {
+  if (wheelSpins >= 3) {
+    showToast('⚠️ Hết lượt xoay hôm nay!');
+    return;
+  }
+
+  const rewards = [0.10, 0.25, 0.50, 1.00, 2.00, 0.15, 0.75, 3.00];
+  const reward = rewards[Math.floor(Math.random() * rewards.length)];
+  wheelSpins++;
+
+  const canvas = document.getElementById('wheelCanvas');
+  const ctx = canvas.getContext ? null : null;
+
+  // Simple animation
+  let rotation = 0;
+  const interval = setInterval(() => {
+    rotation += 15;
+    if (rotation >= 1080) {
+      clearInterval(interval);
+      addBalance(reward);
+      addXP(5);
+      document.getElementById('spinResult').textContent = '🎉 Bạn trúng $' + reward.toFixed(2) + '!';
+      showToast('🎡 Vòng quay: +$' + reward.toFixed(2));
     }
-
-    openFrame(
-        `https://offerwall.klinkfinance.com/wall?pub_id=${KLINK_PUB_ID}&user_id=${encodeURIComponent(user)}`
-    );
-
+    if (canvas && typeof canvas.animate !== 'undefined') {
+      canvas.style.transform = 'rotate(' + rotation + 'deg)';
+    }
+  }, 20);
 }
-showDashboard();
 
-setInterval(()=>{
+// ===== AI TASKS =====
+function startAITask() {
+  const rewards = [1.00, 1.50, 2.00, 2.50, 3.00, 4.00, 5.00];
+  const reward = rewards[Math.floor(Math.random() * rewards.length)];
+  addBalance(reward);
+  addXP(20);
+  offersCompleted++;
+  localStorage.setItem('erp_offers', offersCompleted);
+  showToast('🤖 AI Task hoàn thành: +$' + reward.toFixed(2));
+}
 
-const popup =
-document.getElementById("popup");
+// ===== SOCIAL TASKS =====
+function completeSocial() {
+  const rewards = [0.10, 0.20, 0.30, 0.50, 0.75, 1.00];
+  const reward = rewards[Math.floor(Math.random() * rewards.length)];
+  addBalance(reward);
+  addXP(5);
+  showToast('📱 Social task: +$' + reward.toFixed(2));
+}
 
-const amounts=["1.20","2.50","5.00","3.40"];
+// ===== OFFERS =====
+function openOffer(type) {
+  let url = '';
+  const user = currentUser || 'guest';
 
-popup.innerText =
-`🔥 User earned $${amounts[Math.floor(Math.random()*amounts.length)]}`;
+  switch (type) {
+    case 'revtoo':
+      url = `https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`;
+      break;
+    case 'clickwall':
+      url = `https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`;
+      break;
+    case 'moustache':
+      url = `https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`;
+      break;
+    case 'taskwall':
+      url = `https://wall.taskwall.io/?app_id=0640f51b6a17749572b508423c387b00&userid=${encodeURIComponent(user)}`;
+      break;
+    case 'cointo':
+      url = `https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`;
+      break;
+    case 'klink':
+      url = `https://offerwall.klinkfinance.com/wall?pub_id=${KLINK_PUB_ID}&user_id=${encodeURIComponent(user)}`;
+      break;
+    default:
+      url = type;
+  }
 
-popup.classList.remove("hidden");
+  document.getElementById('offerView').classList.remove('hidden');
+  document.getElementById('offerFrame').src = url;
+}
 
-setTimeout(()=>{
+function backFromOffer() {
+  document.getElementById('offerView').classList.add('hidden');
+  document.getElementById('offerFrame').src = '';
+  // Simulate completing an offer
+  if (Math.random() > 0.5) {
+    const reward = (Math.random() * 3 + 0.5).toFixed(2);
+    addBalance(parseFloat(reward));
+    addXP(15);
+    offersCompleted++;
+    localStorage.setItem('erp_offers', offersCompleted);
+    showToast('✅ Offer hoàn thành: +$' + reward);
+  }
+}
 
-popup.classList.add("hidden");
+// ===== WITHDRAW =====
+function showWithdrawModal() {
+  document.getElementById('withdrawModal').classList.remove('hidden');
+  document.getElementById('withdrawBalance').textContent = '$' + currentBalance.toFixed(2);
+}
 
-},3000);
+function selectPayment(el, method) {
+  document.querySelectorAll('.payment-method').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPayment = method;
+}
 
-},10000);
+function submitWithdraw() {
+  const amount = parseFloat(document.getElementById('withdrawAmount').value);
+  const account = document.getElementById('withdrawAccount').value.trim();
 
+  if (!amount || amount < MIN_WITHDRAW) {
+    showToast('⚠️ Số tiền tối thiểu rút: $' + MIN_WITHDRAW.toFixed(2));
+    return;
+  }
+  if (amount > currentBalance) {
+    showToast('⚠️ Số dư không đủ!');
+    return;
+  }
+  if (!account) {
+    showToast('⚠️ Vui lòng nhập tài khoản nhận!');
+    return;
+  }
+
+  currentBalance -= amount;
+  saveBalance();
+  updateUI();
+  document.getElementById('withdrawModal').classList.add('hidden');
+  document.getElementById('withdrawAmount').value = '';
+  document.getElementById('withdrawAccount').value = '';
+  showToast('✅ Yêu cầu rút $' + amount.toFixed(2) + ' qua ' + selectedPayment + ' đã được gửi! Xử lý trong 1-3 ngày.');
+}
+
+// ===== CALCULATOR =====
+function calcIncome() {
+  const method = document.getElementById('calcMethod').value;
+  const hours = parseFloat(document.getElementById('calcHours').value) || 2;
+  const days = parseInt(document.getElementById('calcDays').value) || 5;
+  const exp = parseFloat(document.getElementById('calcExp').value) || 1;
+
+  const rates = {
+    offers: 5,
+    ai: 12,
+    crypto: 3,
+    social: 4,
+    referral: 2,
+    combined: 15
+  };
+
+  const daily = rates[method] * hours * exp * 0.5;
+  const weekly = daily * days;
+  const monthly = weekly * 4.3;
+  const yearly = monthly * 12;
+
+  document.getElementById('calcResult').textContent = '$' + daily.toFixed(2);
+  document.getElementById('calcPeriod').textContent = '/ ngày';
+  document.getElementById('calcWeek').textContent = '$' + weekly.toFixed(0);
+  document.getElementById('calcMonth').textContent = '$' + monthly.toFixed(0);
+  document.getElementById('calcYear').textContent = '$' + yearly.toFixed(0);
+}
+
+// ===== REFERRAL =====
+function copyRefLink() {
+  const link = document.getElementById('refLink');
+  link.select();
+  navigator.clipboard.writeText(link.value).then(() => {
+    showToast('📋 Đã sao chép link giới thiệu!');
+  }).catch(() => {
+    document.execCommand('copy');
+    showToast('📋 Đã sao chép!');
+  });
+}
+
+// ===== GUIDES =====
+function toggleGuide(el) {
+  el.classList.toggle('open');
+}
+
+// ===== THEME =====
+function toggleTheme() {
+  document.body.classList.toggle('light-mode');
+  const icon = document.querySelector('#themeToggle i');
+  if (document.body.classList.contains('light-mode')) {
+    icon.className = 'fas fa-sun';
+    localStorage.setItem('erp_theme', 'light');
+  } else {
+    icon.className = 'fas fa-moon';
+    localStorage.setItem('erp_theme', 'dark');
+  }
+}
+
+// ===== HELPERS =====
+function addBalance(amount) {
+  currentBalance += amount;
+  totalEarned += amount;
+  saveBalance();
+  updateUI();
+}
+
+function saveBalance() {
+  localStorage.setItem('erp_balance', currentBalance.toFixed(2));
+}
+
+function addXP(amount) {
+  currentXP += amount;
+  localStorage.setItem('erp_xp', currentXP);
+  updateUI();
+}
+
+function closeModal(event, id) {
+  if (event.target === document.getElementById(id)) {
+    document.getElementById(id).classList.add('hidden');
+  }
+}
+
+function showToast(msg) {
+  // Remove existing toast
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.animation = 'slideOut .4s ease forwards';
+    setTimeout(() => toast.remove(), 400);
+  }, 3500);
+}
+
+// ===== NOTIFICATIONS =====
+function startNotifications() {
+  const messages = [
+    '🔥 King_Earner vừa kiếm $5.20',
+    '💰 RewardMaster nhận $2.50 từ referral',
+    '🎉 AIWorker99 hoàn thành 15 offers hôm nay',
+    '⚡ SurveyKing nhận $8.00 từ survey cao cấp',
+    '🏆 CryptoPro rút $50 qua PayPal',
+    '🎁 Chào mừng thành viên mới đến từ Việt Nam!',
+    '💎 Taskwall vừa cập nhật offers mới',
+    '🚀 Gemiwall đang có sự kiện reward x2!'
+  ];
+
+  setInterval(() => {
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    showToast(msg);
+  }, 15000);
+}
+
+// ===== INIT ON LOAD =====
+window.addEventListener('DOMContentLoaded', () => {
+  // Restore theme
+  if (localStorage.getItem('erp_theme') === 'light') {
+    document.body.classList.add('light-mode');
+    document.querySelector('#themeToggle i').className = 'fas fa-sun';
+  }
+
+  // Init calculator
+  calcIncome();
+
+  init();
+});
 </script>
 
 </body>
