@@ -445,6 +445,21 @@ Open
 </button>
 
 </div>
+<!-- KLINK FINANCE -->
+
+<div class="offer">
+
+<img src="https://offerwall.klinkfinance.com/favicon.ico">
+
+<h3>Klink Finance</h3>
+
+<p>Offers • Surveys • Games</p>
+
+<button onclick="openKlink()">
+Open
+</button>
+
+</div>
 
 </div>
 
@@ -502,7 +517,8 @@ Open
 
 const REVTOO_API_KEY =
 "7y9n22mjsz0c3ujyncuomz95k6p31p";
-
+const KLINK_PUB_ID =
+"b4f89770-d4da-42c1-8fee-03303dd14401";
 function enter(){
 
 const name =
@@ -696,7 +712,20 @@ function openCointo() {
         `https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`
     );
 }
+function openKlink() {
 
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first");
+        return;
+    }
+
+    openFrame(
+        `https://offerwall.klinkfinance.com/wall?pub_id=${KLINK_PUB_ID}&user_id=${encodeURIComponent(user)}`
+    );
+
+}
 showDashboard();
 
 setInterval(()=>{
