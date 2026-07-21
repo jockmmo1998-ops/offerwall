@@ -95,7 +95,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .action-btn.withdraw{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;}
 
 /* ===== SECTION TITLE ===== */
-.section-title{font-size:22px;font-weight:800;margin:32px 0 16px;display:flex;align-items:center;gap:10px;}
+.section-title{font-size:22px;font-weight:800;margin:32px 0 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.section-title span{display:flex;align-items:center;gap:10px;}
 .section-title i{color:var(--accent);font-size:20px;}
 
 /* ===== OFFERWALL GRID ===== */
@@ -128,6 +129,31 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .leader-amount{font-weight:800;color:var(--accent);font-size:16px;}
 .leader-bar{height:4px;background:var(--bg2);border-radius:4px;margin-top:8px;overflow:hidden;}
 .leader-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--blue));transition:width .6s ease;}
+
+/* ===== REWARDS SECTION ===== */
+.reward-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:all .3s;display:flex;flex-direction:column;gap:16px;}
+.reward-card:hover{border-color:var(--accent);box-shadow:0 10px 30px var(--glow);}
+.reward-header{display:flex;align-items:center;gap:12px;}
+.reward-logo{width:50px;height:50px;background:var(--bg2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.reward-info h3{font-size:18px;font-weight:700;}
+.reward-info p{font-size:13px;color:var(--text2);}
+.reward-input{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;color:var(--text);width:100%;outline:none;}
+.reward-input:focus{border-color:var(--accent);}
+.reward-btn{background:var(--accent);color:#000;border:none;padding:12px;border-radius:10px;font-weight:700;cursor:pointer;transition:all .2s;}
+.reward-btn:hover{background:var(--accent2);}
+.reward-btn:disabled{background:var(--border);color:var(--text2);cursor:not-allowed;}
+
+/* ===== ADMIN PANEL ===== */
+.admin-table-container{overflow-x:auto;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:20px;}
+.admin-table{width:100%;border-collapse:collapse;min-width:600px;}
+.admin-table th{text-align:left;padding:12px;border-bottom:2px solid var(--border);color:var(--text2);font-size:13px;text-transform:uppercase;}
+.admin-table td{padding:12px;border-bottom:1px solid var(--border);font-size:14px;}
+.status-badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;}
+.status-pending{background:rgba(245,158,11,0.2);color:var(--orange);}
+.status-paid{background:rgba(34,197,94,0.2);color:var(--accent);}
+.pay-btn{background:var(--blue);color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;}
+.fast-pay-btn{background:var(--accent);color:#000;border:none;padding:10px 20px;border-radius:20px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s;}
+.fast-pay-btn:hover{transform:scale(1.05);box-shadow:0 5px 15px var(--glow);}
 
 /* ===== OFFER VIEW (IFRAME) ===== */
 #offerView{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:var(--bg);padding:0;}
@@ -193,15 +219,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     <span>Earn<em>Rewards</em></span>
   </div>
   <nav class="sidebar-nav">
-    <a href="#" class="active" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Home</a>
-    <a href="#" onclick="showSection('earn')"><i class="fas fa-dollar-sign"></i> Earn</a>
-    <a href="#" onclick="showSection('offers')"><i class="fas fa-gift"></i> Offers</a>
-    <a href="#" onclick="showSection('surveys')"><i class="fas fa-clipboard-list"></i> Surveys <span class="badge">3</span></a>
-    <a href="#" onclick="showSection('leaderboard')"><i class="fas fa-trophy"></i> Leaderboard</a>
-    <a href="#" onclick="showSection('referrals')"><i class="fas fa-users"></i> Referrals</a>
-    <a href="#" onclick="showSection('rewards')"><i class="fas fa-gift"></i> Rewards</a>
-    <a href="#" onclick="showSection('profile')"><i class="fas fa-user"></i> Profile</a>
-    <a href="#" onclick="showSection('support')"><i class="fas fa-headset"></i> Support</a>
+    <a href="#" class="active" id="nav-dashboard" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Home</a>
+    <a href="#" id="nav-earn" onclick="showSection('earn')"><i class="fas fa-dollar-sign"></i> Earn</a>
+    <a href="#" id="nav-offers" onclick="showSection('offers')"><i class="fas fa-gift"></i> Offers</a>
+    <a href="#" id="nav-leaderboard" onclick="showSection('leaderboard')"><i class="fas fa-trophy"></i> Leaderboard</a>
+    <a href="#" id="nav-rewards" onclick="showSection('rewards')"><i class="fas fa-wallet"></i> Withdraw</a>
+    <a href="#" id="nav-admin" onclick="showSection('admin')"><i class="fas fa-user-shield"></i> Admin Panel</a>
   </nav>
 </aside>
 
@@ -242,23 +265,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 </div>
 
 <!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
+<div id="dashboard" class="section">
 
   <!-- LIVE TICKER -->
   <div class="live-ticker">
     <div class="live-dot"></div>
     <div class="ticker-scroll" id="tickerScroll">
-      <span class="ticker-item">🦅 ChaoticRavenz earned <span class="amount">$2.70</span></span>
-      <span class="ticker-item">👻 SilentWraiths earned <span class="amount">$2.70</span></span>
-      <span class="ticker-item">🧙 MysticMagelord earned <span class="amount">$3.38</span></span>
-      <span class="ticker-item">🔮 SinisterMagez earned <span class="amount">$3.38</span></span>
-      <span class="ticker-item">⚡ SavageWarlock earned <span class="amount">$2.57</span></span>
-      <span class="ticker-item">🗡️ CrimsonDagger earned <span class="amount">$1.40</span></span>
-      <span class="ticker-item">😈 VileVillainz earned <span class="amount">$4.20</span></span>
-      <span class="ticker-item">🎭 Zanderholt earned <span class="amount">$1.95</span></span>
-      <span class="ticker-item">🧛 DemonicVampyre earned <span class="amount">$5.10</span></span>
-      <span class="ticker-item">🐍 ViciousVipers earned <span class="amount">$2.85</span></span>
-      <!-- duplicate for infinite scroll -->
       <span class="ticker-item">🦅 ChaoticRavenz earned <span class="amount">$2.70</span></span>
       <span class="ticker-item">👻 SilentWraiths earned <span class="amount">$2.70</span></span>
       <span class="ticker-item">🧙 MysticMagelord earned <span class="amount">$3.38</span></span>
@@ -283,7 +295,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     <div class="stat">
       <i class="fas fa-wallet stat-icon" style="color:var(--accent)"></i>
       <h3>Balance</h3>
-      <div class="big green"><span class="prefix">$</span><span id="balance">0.50</span></div>
+      <div class="big green"><span class="prefix">$</span><span class="balance-text">0.50</span></div>
     </div>
     <div class="stat">
       <i class="fas fa-check-circle stat-icon" style="color:var(--blue)"></i>
@@ -306,94 +318,147 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   <div class="actions">
     <button class="action-btn daily" onclick="addDaily()"><i class="fas fa-gift"></i> Daily Bonus</button>
     <button class="action-btn spin" onclick="spinWheel()"><i class="fas fa-sync-alt"></i> Spin Wheel</button>
-    <button class="action-btn withdraw" onclick="withdrawFake()"><i class="fas fa-money-bill-wave"></i> Withdraw</button>
+    <button class="action-btn withdraw" onclick="showSection('rewards')"><i class="fas fa-money-bill-wave"></i> Withdraw</button>
   </div>
 
   <!-- OFFERWALLS -->
-  <div class="section-title"><i class="fas fa-fire"></i> Featured Offers</div>
+  <div class="section-title"><span><i class="fas fa-fire"></i> Featured Offers</span></div>
   <div class="offer-grid">
-
     <div class="offer-card">
       <div class="offer-icon g"><i class="fas fa-island-tropical"></i>🏝️</div>
       <h3>Family Island</h3>
-      <div class="tags">Complete offers on EarnRewards Pro and earn a lot!</div>
+      <div class="tags">Complete offers and earn big!</div>
       <button class="open-btn" onclick="openGemi()"><i class="fas fa-external-link-alt"></i> Start Earning</button>
     </div>
-
     <div class="offer-card">
       <div class="offer-icon b">🎩</div>
       <h3>Monopoly Go</h3>
-      <div class="tags">Complete offers on EarnRewards Pro and earn a lot!</div>
+      <div class="tags">Roll the dice and earn rewards!</div>
       <button class="open-btn" onclick="openRevtoo()"><i class="fas fa-external-link-alt"></i> Start Earning</button>
     </div>
-
     <div class="offer-card">
       <div class="offer-icon o">🎲</div>
       <h3>Dice Dreams</h3>
-      <div class="tags">Complete offers on EarnRewards Pro and earn a lot!</div>
+      <div class="tags">Build your kingdom and earn cash!</div>
       <button class="open-btn" onclick="openClickwall()"><i class="fas fa-external-link-alt"></i> Start Earning</button>
     </div>
-
   </div>
 
-  <!-- OFFERWALLS -->
-  <div class="section-title"><i class="fas fa-th-large"></i> Offerwalls</div>
+  <div class="section-title"><span><i class="fas fa-th-large"></i> Offerwalls</span></div>
   <div class="offer-grid">
-
     <div class="offer-card">
-      <div class="offer-icon g"><img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png" style="width:48px;height:48px;object-fit:contain;border-radius:8px;"></div>
+      <div class="offer-icon g"><i class="fas fa-chart-bar"></i></div>
       <h3>Gemiwall</h3>
       <div class="tags">Surveys &bull; Apps &bull; Games</div>
       <button class="open-btn" onclick="openGemi()"><i class="fas fa-external-link-alt"></i> Open</button>
     </div>
-
     <div class="offer-card">
       <div class="offer-icon b"><i class="fas fa-chart-line"></i></div>
       <h3>Revtoo</h3>
-      <div class="tags">Offers &bull; Apps</div>
       <button class="open-btn" onclick="openRevtoo()"><i class="fas fa-external-link-alt"></i> Open</button>
     </div>
-
     <div class="offer-card">
       <div class="offer-icon p"><i class="fas fa-mouse-pointer"></i></div>
       <h3>Clickwall</h3>
-      <div class="tags">Surveys &bull; Apps</div>
       <button class="open-btn" onclick="openClickwall()"><i class="fas fa-external-link-alt"></i> Open</button>
     </div>
+  </div>
+</div>
 
-    <div class="offer-card">
-      <div class="offer-icon o"><i class="fas fa-user-tie"></i></div>
-      <h3>MoustacheLeads</h3>
-      <div class="tags">Offers &bull; Surveys</div>
-      <button class="open-btn" onclick="openMoustache()"><i class="fas fa-external-link-alt"></i> Open</button>
+<!-- REWARDS / WITHDRAW SECTION -->
+<div id="rewards" class="section hidden">
+  <div class="section-title"><span><i class="fas fa-wallet"></i> Withdraw Rewards</span></div>
+  <div class="hero" style="padding: 10px 0 30px;">
+    <p class="subtitle">Your Balance: <strong class="green">$<span class="balance-text">0.50</span></strong> &middot; Min. Withdraw: <strong>$0.50</strong></p>
+  </div>
+  
+  <div class="offer-grid">
+    <!-- LTC -->
+    <div class="reward-card">
+      <div class="reward-header">
+        <div class="reward-logo" style="color:#345d9d;"><i class="fas fa-coins"></i></div>
+        <div class="reward-info">
+          <h3>Litecoin (LTC)</h3>
+          <p>Direct to your LTC wallet</p>
+        </div>
+      </div>
+      <input type="text" id="ltc_address" class="reward-input" placeholder="Enter LTC Wallet Address">
+      <button class="reward-btn" id="btn-ltc" onclick="submitWithdraw('LTC', 'ltc_address')">Withdraw LTC</button>
     </div>
 
-    <div class="offer-card">
-      <div class="offer-icon b"><i class="fas fa-tasks"></i></div>
-      <h3>Taskwall</h3>
-      <div class="tags">Offers &bull; Surveys &bull; Apps</div>
-      <button class="open-btn" onclick="openTaskwall()"><i class="fas fa-external-link-alt"></i> Open</button>
+    <!-- Binance -->
+    <div class="reward-card">
+      <div class="reward-header">
+        <div class="reward-logo" style="color:#f3ba2f;"><i class="fab fa-bitcoin"></i></div>
+        <div class="reward-info">
+          <h3>Binance (USDT/BNB)</h3>
+          <p>Via Binance Pay ID or Email</p>
+        </div>
+      </div>
+      <input type="text" id="binance_id" class="reward-input" placeholder="Enter Binance Pay ID or Email">
+      <button class="reward-btn" id="btn-binance" onclick="submitWithdraw('Binance', 'binance_id')">Withdraw Binance</button>
     </div>
-
-    <div class="offer-card">
-      <div class="offer-icon g"><img src="https://cointomedia.com/favicon.ico" style="width:40px;height:40px;object-fit:contain;border-radius:8px;"></div>
-      <h3>CoinToMedia</h3>
-      <div class="tags">Offers &bull; Surveys &bull; Games</div>
-      <button class="open-btn" onclick="openCointo()"><i class="fas fa-external-link-alt"></i> Open</button>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon p"><img src="https://offerwall.klinkfinance.com/favicon.ico" style="width:40px;height:40px;object-fit:contain;border-radius:8px;"></div>
-      <h3>Klink Finance</h3>
-      <div class="tags">Offers &bull; Surveys &bull; Games</div>
-      <button class="open-btn" onclick="openKlink()"><i class="fas fa-external-link-alt"></i> Open</button>
-    </div>
-
   </div>
 
-  <!-- LEADERBOARD -->
-  <div class="leaderboard">
-    <div class="section-title" style="margin-top:0"><i class="fas fa-trophy"></i> Leaderboard</div>
+  <div class="section-title" style="margin-top:40px;"><span><i class="fas fa-history"></i> My Withdrawals</span></div>
+  <div class="admin-table-container">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Details</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="userWithdrawalList">
+        <!-- User history here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ADMIN PANEL SECTION -->
+<div id="admin" class="section hidden">
+  <div class="section-title">
+    <span><i class="fas fa-user-shield"></i> Withdrawal Management</span>
+    <button class="fast-pay-btn" onclick="fastPayAll()"><i class="fas fa-bolt"></i> Pay Fast All</button>
+  </div>
+  
+  <div class="stats" style="margin-bottom: 20px;">
+    <div class="stat">
+      <h3>Pending Payments</h3>
+      <div class="big orange" id="pendingCount">0</div>
+    </div>
+    <div class="stat">
+      <h3>Total Paid</h3>
+      <div class="big green" id="totalPaid">$0.00</div>
+    </div>
+  </div>
+
+  <div class="admin-table-container">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Method</th>
+          <th>Address/ID</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="adminWithdrawalList">
+        <!-- Admin management here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- LEADERBOARD SECTION -->
+<div id="leaderboard" class="section hidden">
+  <div class="leaderboard" style="margin-top:0;">
+    <div class="section-title" style="margin-top:0"><span><i class="fas fa-trophy"></i> Global Leaderboard</span></div>
     <div class="leader-item">
       <div class="leader-rank gold">1</div>
       <div style="flex:1"><div class="leader-name">user_king</div><div class="leader-bar"><div class="leader-bar-fill" style="width:100%"></div></div></div>
@@ -415,20 +480,21 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
       <div class="leader-amount" id="myBalance2">$0.50</div>
     </div>
   </div>
+</div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="sidebar-logo" style="justify-content:center;border:none;padding:0;margin:0 0 10px;">
-      <i class="fas fa-coins"></i>
-      <span>Earn<em>Rewards</em> Pro</span>
-    </div>
-    <p>&copy; EarnRewards Pro. All rights reserved &copy; 2026</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-discord"></i></a>
-      <a href="#"><i class="fab fa-telegram"></i></a>
-    </div>
+<!-- FOOTER -->
+<div class="footer">
+  <div class="sidebar-logo" style="justify-content:center;border:none;padding:0;margin:0 0 10px;">
+    <i class="fas fa-coins"></i>
+    <span>Earn<em>Rewards</em> Pro</span>
   </div>
+  <p>&copy; EarnRewards Pro. All rights reserved &copy; 2026</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-discord"></i></a>
+    <a href="#"><i class="fab fa-telegram"></i></a>
+  </div>
+</div>
 
 </div>
 </div>
@@ -452,15 +518,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 <nav class="mobile-nav">
   <div class="mobile-nav-inner">
     <a href="#" class="active" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Home</a>
-    <a href="#" onclick="showSection('offers')"><i class="fas fa-gift"></i> Offers</a>
+    <a href="#" onclick="showSection('rewards')"><i class="fas fa-wallet"></i> Rewards</a>
     <a href="#" onclick="showSection('leaderboard')"><i class="fas fa-trophy"></i> Rank</a>
-    <a href="#" onclick="showSection('rewards')"><i class="fas fa-gift"></i> Rewards</a>
-    <a href="#" onclick="showSection('profile')"><i class="fas fa-user"></i> Profile</a>
+    <a href="#" onclick="showSection('admin')"><i class="fas fa-user-shield"></i> Admin</a>
   </div>
 </nav>
 
 <script>
-/* ===== ORIGINAL FUNCTIONS - KEEP ALL LOGIC ===== */
 const REVTOO_API_KEY = "7y9n22mjsz0c3ujyncuomz95k6p31p";
 const KLINK_PUB_ID = "b4f89770-d4da-42c1-8fee-03303dd14401";
 
@@ -469,6 +533,7 @@ function enter(){
   if(!name){alert("Enter username");return;}
   localStorage.setItem("user",name);
   if(!localStorage.getItem("balance")){localStorage.setItem("balance","0.50");}
+  if(!localStorage.getItem("withdrawals")){localStorage.setItem("withdrawals", JSON.stringify([]));}
   showDashboard();
 }
 
@@ -477,21 +542,21 @@ function showDashboard(){
   if(!user) return;
   document.getElementById("login").classList.add("hidden");
   document.getElementById("dashboard").classList.remove("hidden");
-  document.getElementById("user").innerText = user;
-  document.getElementById("myName").innerText = user;
-  document.getElementById("balance").innerText = localStorage.getItem("balance");
+  document.querySelectorAll(".balance-text").forEach(el => el.innerText = localStorage.getItem("balance"));
   document.getElementById("myBalance2").innerText = "$" + localStorage.getItem("balance");
+  document.getElementById("myName").innerText = user;
+  updateUI();
 }
 
 function updateBalance(value){
   let balance = parseFloat(localStorage.getItem("balance"));
   balance += value;
   localStorage.setItem("balance", balance.toFixed(2));
-  document.getElementById("balance").innerText = balance.toFixed(2);
+  document.querySelectorAll(".balance-text").forEach(el => el.innerText = balance.toFixed(2));
   document.getElementById("myBalance2").innerText = "$" + balance.toFixed(2);
-  /* update bar */
   let pct = Math.min((balance / 542) * 100, 100);
   document.getElementById("myBar").style.width = pct + "%";
+  updateUI();
 }
 
 function addDaily(){
@@ -506,8 +571,162 @@ function spinWheel(){
   showToast("🎡 You won $" + reward + "!");
 }
 
-function withdrawFake(){
-  showToast("✅ Withdraw request submitted successfully!");
+/* ===== WITHDRAWAL LOGIC ===== */
+function submitWithdraw(method, inputId){
+  const address = document.getElementById(inputId).value.trim();
+  const balance = parseFloat(localStorage.getItem("balance"));
+  const user = localStorage.getItem("user");
+
+  if(!address){
+    alert("Please enter your " + method + " address/ID");
+    return;
+  }
+
+  if(balance < 0.50){
+    alert("Minimum withdrawal is $0.50. You need $" + (0.50 - balance).toFixed(2) + " more.");
+    return;
+  }
+
+  const withdrawAmount = balance;
+  const request = {
+    id: Date.now(),
+    user: user,
+    method: method,
+    address: address,
+    amount: withdrawAmount.toFixed(2),
+    status: 'Pending',
+    date: new Date().toLocaleString()
+  };
+
+  let withdrawals = JSON.parse(localStorage.getItem("withdrawals") || "[]");
+  withdrawals.push(request);
+  localStorage.setItem("withdrawals", JSON.stringify(withdrawals));
+
+  // Reset balance after withdraw
+  localStorage.setItem("balance", "0.00");
+  document.getElementById(inputId).value = "";
+  
+  showDashboard();
+  showToast("✅ Withdrawal request submitted!");
+  renderWithdrawals();
+}
+
+function renderWithdrawals(){
+  const withdrawals = JSON.parse(localStorage.getItem("withdrawals") || "[]");
+  const user = localStorage.getItem("user");
+  
+  // User list
+  const userList = document.getElementById("userWithdrawalList");
+  userList.innerHTML = "";
+  withdrawals.filter(w => w.user === user).reverse().forEach(w => {
+    userList.innerHTML += `
+      <tr>
+        <td>${w.method}</td>
+        <td style="font-size:11px; color:var(--text2)">${w.address}</td>
+        <td class="green">$${w.amount}</td>
+        <td><span class="status-badge ${w.status === 'Pending' ? 'status-pending' : 'status-paid'}">${w.status}</span></td>
+      </tr>
+    `;
+  });
+
+  // Admin list
+  const adminList = document.getElementById("adminWithdrawalList");
+  adminList.innerHTML = "";
+  let pendingCount = 0;
+  let totalPaid = 0;
+
+  withdrawals.reverse().forEach(w => {
+    if(w.status === 'Pending') pendingCount++;
+    if(w.status === 'Paid') totalPaid += parseFloat(w.amount);
+
+    adminList.innerHTML += `
+      <tr>
+        <td>${w.user}</td>
+        <td>${w.method}</td>
+        <td style="font-size:11px;">${w.address}</td>
+        <td class="green">$${w.amount}</td>
+        <td><span class="status-badge ${w.status === 'Pending' ? 'status-pending' : 'status-paid'}">${w.status}</span></td>
+        <td>
+          ${w.status === 'Pending' ? `<button class="pay-btn" onclick="payUser(${w.id})">Pay Now</button>` : '---'}
+        </td>
+      </tr>
+    `;
+  });
+
+  document.getElementById("pendingCount").innerText = pendingCount;
+  document.getElementById("totalPaid").innerText = "$" + totalPaid.toFixed(2);
+}
+
+function payUser(id){
+  let withdrawals = JSON.parse(localStorage.getItem("withdrawals") || "[]");
+  const index = withdrawals.findIndex(w => w.id === id);
+  if(index !== -1){
+    withdrawals[index].status = 'Paid';
+    localStorage.setItem("withdrawals", JSON.stringify(withdrawals));
+    showToast("💸 Payment processed successfully!");
+    renderWithdrawals();
+  }
+}
+
+function fastPayAll(){
+  let withdrawals = JSON.parse(localStorage.getItem("withdrawals") || "[]");
+  let count = 0;
+  withdrawals.forEach(w => {
+    if(w.status === 'Pending'){
+      w.status = 'Paid';
+      count++;
+    }
+  });
+  if(count === 0){
+    showToast("No pending payments found.");
+    return;
+  }
+  localStorage.setItem("withdrawals", JSON.stringify(withdrawals));
+  showToast(`⚡ Fast Paid ${count} users!`);
+  renderWithdrawals();
+}
+
+function updateUI(){
+  const balance = parseFloat(localStorage.getItem("balance") || "0");
+  const btnLtc = document.getElementById("btn-ltc");
+  const btnBinance = document.getElementById("btn-binance");
+  
+  if(btnLtc && btnBinance){
+    if(balance < 0.50){
+      btnLtc.disabled = true;
+      btnBinance.disabled = true;
+      btnLtc.innerText = "Min. $0.50 Required";
+      btnBinance.innerText = "Min. $0.50 Required";
+    } else {
+      btnLtc.disabled = false;
+      btnBinance.disabled = false;
+      btnLtc.innerText = "Withdraw LTC";
+      btnBinance.innerText = "Withdraw Binance";
+    }
+  }
+  renderWithdrawals();
+}
+
+/* ===== NAVIGATION ===== */
+function showSection(sectionId){
+  document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+  document.getElementById(sectionId).classList.remove('hidden');
+  
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById('nav-' + sectionId).classList.add('active');
+  
+  window.scrollTo({top:0, behavior:'smooth'});
+  closeSidebar();
+}
+
+function toggleSidebar(){
+  document.getElementById("sidebar").classList.toggle("open");
+  document.getElementById("sidebarOverlay").classList.toggle("show");
+}
+
+function closeSidebar(){
+  document.getElementById("sidebar").classList.remove("open");
+  document.getElementById("sidebarOverlay").classList.remove("show");
 }
 
 function openFrame(url, title){
@@ -523,73 +742,19 @@ function back(){
   document.getElementById("frame").src = "";
 }
 
-function openGemi(){
-  openFrame("https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/", "Gemiwall");
-}
-
+function openGemi(){ openFrame("https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/", "Gemiwall"); }
 function openRevtoo(){
   const user = localStorage.getItem("user");
   openFrame(`https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`, "Revtoo");
 }
-
 function openClickwall(){
   const user = localStorage.getItem("user");
   openFrame(`https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`, "Clickwall");
 }
 
-function openMoustache(){
-  const user = localStorage.getItem("user");
-  openFrame(`https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`, "MoustacheLeads");
-}
-
-function openTaskwall(){
-  const user = localStorage.getItem("user");
-  openFrame(`https://wall.taskwall.io/?app_id=0640f51b6a17749572b508423c387b00&userid=${encodeURIComponent(user)}`, "Taskwall");
-}
-
-function openCointo(){
-  const user = localStorage.getItem("user");
-  if(!user){alert("Please login first");return;}
-  openFrame(`https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`, "CoinToMedia");
-}
-
-function openKlink(){
-  const user = localStorage.getItem("user");
-  if(!user){alert("Please login first");return;}
-  openFrame(`https://offerwall.klinkfinance.com/wall?pub_id=${KLINK_PUB_ID}&user_id=${encodeURIComponent(user)}`, "Klink Finance");
-}
-
-/* ===== NEW UI FUNCTIONS ===== */
-function toggleSidebar(){
-  document.getElementById("sidebar").classList.toggle("open");
-  document.getElementById("sidebarOverlay").classList.toggle("show");
-}
-
-function showSection(section){
-  /* For now just scroll to dashboard */
-  window.scrollTo({top:0, behavior:'smooth'});
-  closeSidebar();
-}
-
-function closeSidebar(){
-  document.getElementById("sidebar").classList.remove("open");
-  document.getElementById("sidebarOverlay").classList.remove("show");
-}
-
-function showNotice(){
-  showToast("🔔 No new notices at this time.");
-}
-
-function openSignup(){
-  document.getElementById("login").classList.remove("hidden");
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("offerView").classList.add("hidden");
-  window.scrollTo({top:0, behavior:'smooth'});
-}
-
-function openLogin(){
-  openSignup();
-}
+function showNotice(){ showToast("🔔 No new notices at this time."); }
+function openSignup(){ document.getElementById("login").classList.remove("hidden"); document.querySelectorAll('.section').forEach(s => s.classList.add('hidden')); }
+function openLogin(){ openSignup(); }
 
 function showToast(msg){
   const popup = document.getElementById("popup");
@@ -599,7 +764,12 @@ function showToast(msg){
 }
 
 /* INIT */
-showDashboard();
+const user = localStorage.getItem("user");
+if(user){
+  showDashboard();
+} else {
+  document.getElementById("login").classList.remove("hidden");
+}
 
 /* POPUP AUTO */
 setInterval(()=>{
@@ -612,11 +782,6 @@ setInterval(()=>{
   setTimeout(()=>{popup.classList.add("hidden");}, 3500);
 }, 12000);
 
-/* RANDOM OFFER COUNT */
-setInterval(()=>{
-  const count = 145 + Math.floor(Math.random()*20);
-  document.getElementById("offerCount").innerText = count;
-}, 30000);
 </script>
 </body>
 </html>
