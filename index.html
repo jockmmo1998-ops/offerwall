@@ -1,902 +1,2199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EarnRewards Pro | Make Money Online 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EarnRewards Pro 2026 - Kiếm Tiền Online</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{--bg:#0a0e17;--bg2:#111827;--bg3:#1a2332;--accent:#22c55e;--accent2:#16a34a;--text:#e2e8f0;--text2:#94a3b8;--border:#1f2937;--card:#0d1320;--sidebar:#0c1019;--glow:rgba(34,197,94,0.15);--blue:#3b82f6;--purple:#a855f7;--orange:#f59e0b;--red:#ef4444;--radius:16px;--radius2:12px;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;min-height:100vh;}
-.hidden{display:none !important;}
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #111827;
+  --bg-card: rgba(15, 23, 42, 0.7);
+  --bg-hover: rgba(30, 41, 59, 0.8);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-green: #22c55e;
+  --accent-blue: #3b82f6;
+  --accent-purple: #a855f7;
+  --accent-orange: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-pink: #ec4899;
+  --accent-cyan: #06b6d4;
+  --border-color: rgba(30, 41, 59, 0.6);
+  --gradient-1: linear-gradient(135deg, #22c55e, #06b6d4);
+  --gradient-2: linear-gradient(135deg, #3b82f6, #a855f7);
+  --gradient-3: linear-gradient(135deg, #f59e0b, #ef4444);
+  --gradient-4: linear-gradient(135deg, #ec4899, #a855f7);
+  --shadow: 0 20px 60px rgba(0,0,0,.5);
+  --shadow-sm: 0 4px 20px rgba(0,0,0,.3);
+  --shadow-glow: 0 0 30px rgba(34, 197, 94, 0.15);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-lg: 24px;
+  --glass: rgba(255,255,255,0.03);
+}
 
-/* ===== SIDEBAR ===== */
-.sidebar{position:fixed;left:0;top:0;bottom:0;width:220px;background:var(--sidebar);border-right:1px solid var(--border);padding:20px 0;z-index:1000;display:flex;flex-direction:column;transition:transform .3s ease;}
-.sidebar-logo{padding:0 20px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.sidebar-logo i{font-size:24px;color:var(--accent);}
-.sidebar-logo span{font-size:18px;font-weight:800;color:var(--text);letter-spacing:0.5px;}
-.sidebar-logo span em{font-style:normal;color:var(--accent);}
-.sidebar-nav{flex:1;overflow-y:auto;padding:10px 0;}
-.sidebar-nav a{display:flex;align-items:center;gap:12px;padding:12px 20px;color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:all .2s;border-left:3px solid transparent;}
-.sidebar-nav a:hover,.sidebar-nav a.active{color:var(--accent);background:var(--glow);border-left-color:var(--accent);}
-.sidebar-nav a i{width:20px;text-align:center;font-size:16px;}
-.sidebar-nav a .badge{margin-left:auto;background:var(--accent);color:#000;font-size:10px;font-weight:700;padding:2px 6px;border-radius:8px;}
+.light-mode {
+  --bg-primary: #f0f4f8;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255,255,255,0.8);
+  --bg-hover: rgba(248,250,252,0.9);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border-color: rgba(226,232,240,0.8);
+  --shadow: 0 20px 60px rgba(0,0,0,.08);
+  --shadow-sm: 0 4px 20px rgba(0,0,0,.05);
+  --shadow-glow: 0 0 30px rgba(34,197,94,0.08);
+  --glass: rgba(0,0,0,0.02);
+}
 
-/* ===== TOPBAR ===== */
-.topbar{position:fixed;top:0;left:220px;right:0;height:60px;background:rgba(10,14,23,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:999;}
-.topbar-left{display:flex;align-items:center;gap:16px;}
-.hamburger{display:none;background:none;border:none;color:var(--text);font-size:22px;cursor:pointer;}
-.topbar-right{display:flex;align-items:center;gap:12px;}
-.notice-btn{background:var(--accent);color:#000;border:none;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;}
-.notice-btn:hover{background:var(--accent2);transform:scale(1.05);}
-.topbar-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;}
-.topbar-btn:hover{border-color:var(--accent);color:var(--accent);}
-.topbar-btn.primary{background:var(--accent);color:#000;border:none;}
-.topbar-btn.primary:hover{background:var(--accent2);}
-.user-display{display:flex;align-items:center;gap:8px;color:var(--text);font-size:14px;font-weight:600;}
-.user-display .avatar{width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#000;font-weight:700;font-size:14px;}
-.logout-btn{background:none;border:1px solid var(--red);color:var(--red);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;}
-.logout-btn:hover{background:var(--red);color:#fff;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ===== MAIN CONTENT ===== */
-.main{margin-left:220px;padding-top:60px;min-height:100vh;}
-.content{max-width:1100px;margin:0 auto;padding:30px 24px;}
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+  min-height: 100vh;
+}
 
-/* ===== LIVE TICKER ===== */
-.live-ticker{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;overflow:hidden;position:relative;}
-.live-ticker .live-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 1.5s infinite;flex-shrink:0;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-.ticker-scroll{display:flex;gap:32px;animation:scrollTicker 20s linear infinite;white-space:nowrap;}
-.ticker-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);}
-.ticker-item .amount{color:var(--accent);font-weight:700;}
-@keyframes scrollTicker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.hidden { display: none !important; }
 
-/* ===== AUTH PAGES ===== */
-.auth-page{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
-.auth-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px 40px;width:100%;max-width:440px;text-align:center;box-shadow:0 25px 80px rgba(0,0,0,0.5);}
-.auth-card .logo-area{margin-bottom:24px;}
-.auth-card .logo-area i{font-size:40px;color:var(--accent);}
-.auth-card .logo-area h1{font-size:28px;font-weight:900;margin-top:8px;}
-.auth-card .logo-area h1 em{font-style:normal;color:var(--accent);}
-.auth-card .logo-area p{color:var(--text2);font-size:14px;margin-top:8px;}
-.auth-input{width:100%;padding:14px 18px;border-radius:var(--radius2);border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:15px;margin-top:14px;outline:none;transition:border-color .2s;}
-.auth-input:focus{border-color:var(--accent);}
-.auth-input::placeholder{color:var(--text2);}
-.auth-submit{width:100%;padding:15px;border:none;border-radius:var(--radius2);background:var(--accent);color:#000;font-size:16px;font-weight:700;cursor:pointer;margin-top:18px;transition:all .2s;}
-.auth-submit:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,197,94,0.3);}
-.auth-divider{color:var(--text2);font-size:13px;margin:18px 0;}
-.auth-link{color:var(--accent);cursor:pointer;font-size:13px;margin-top:16px;display:inline-block;}
-.auth-link:hover{text-decoration:underline;}
-.social-login{display:flex;gap:10px;}
-.social-btn{flex:1;padding:12px;border:1px solid var(--border);border-radius:var(--radius2);background:var(--bg2);color:var(--text);font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;}
-.social-btn:hover{border-color:var(--accent);color:var(--accent);}
-.auth-error{color:var(--red);font-size:13px;margin-top:10px;min-height:18px;}
-.auth-success{color:var(--accent);font-size:13px;margin-top:10px;min-height:18px;}
+.container {
+  max-width: 1320px;
+  margin: auto;
+  padding: 20px;
+}
 
-/* ===== HERO ===== */
-.hero{text-align:center;padding:30px 0 20px;}
-.hero h1{font-size:36px;font-weight:900;line-height:1.2;}
-.hero h1 em{font-style:normal;color:var(--accent);}
-.hero .subtitle{color:var(--text2);font-size:15px;margin-top:12px;}
-.hero .subtitle strong{color:var(--accent);}
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-/* ===== STATS ===== */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:28px 0;}
-.stat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden;transition:all .3s;}
-.stat:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 30px var(--glow);}
-.stat .stat-icon{position:absolute;top:16px;right:16px;font-size:28px;opacity:0.15;}
-.stat h3{font-size:13px;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;font-weight:600;}
-.stat .big{font-size:30px;font-weight:900;}
-.stat .big .prefix{font-size:20px;opacity:0.7;}
-.green{color:var(--accent);}.blue{color:var(--blue);}.purple{color:var(--purple);}.orange{color:var(--orange);}.red{color:var(--red);}
+/* ===== ANIMATED BACKGROUND ===== */
+.bg-animation {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-animation .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: float 20s ease-in-out infinite;
+}
+.bg-animation .orb:nth-child(1) { width: 400px; height: 400px; background: var(--accent-blue); top: -100px; left: -100px; animation-delay: 0s; }
+.bg-animation .orb:nth-child(2) { width: 350px; height: 350px; background: var(--accent-purple); top: 50%; right: -80px; animation-delay: -5s; }
+.bg-animation .orb:nth-child(3) { width: 300px; height: 300px; background: var(--accent-green); bottom: -80px; left: 30%; animation-delay: -10s; }
 
-/* ===== ACTION BUTTONS ===== */
-.actions{display:flex;gap:12px;margin:24px 0;flex-wrap:wrap;}
-.action-btn{padding:13px 24px;border:none;border-radius:var(--radius2);font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s;color:#fff;}
-.action-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.3);}
-.action-btn.daily{background:linear-gradient(135deg,#3b82f6,#2563eb);}
-.action-btn.spin{background:linear-gradient(135deg,#a855f7,#7c3aed);}
-.action-btn.withdraw{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+.light-mode .bg-animation .orb { opacity: 0.06; }
+
+/* ===== LOGIN PAGE ===== */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-wrapper {
+  display: flex;
+  gap: 0;
+  max-width: 900px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  animation: loginAppear .6s ease;
+}
+
+@keyframes loginAppear {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.login-left {
+  flex: 1;
+  background: var(--gradient-2);
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: rotateBg 15s linear infinite;
+}
+
+@keyframes rotateBg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.login-left .brand-icon { font-size: 64px; margin-bottom: 16px; position: relative; z-index: 1; }
+.login-left h1 { font-size: 32px; font-weight: 900; position: relative; z-index: 1; margin-bottom: 10px; }
+.login-left p { font-size: 15px; opacity: 0.9; position: relative; z-index: 1; line-height: 1.6; }
+.login-left .features { margin-top: 30px; text-align: left; position: relative; z-index: 1; }
+.login-left .features li { list-style: none; padding: 6px 0; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.login-left .features li i { color: rgba(255,255,255,0.9); }
+
+.login-right {
+  flex: 1;
+  background: var(--bg-secondary);
+  padding: 50px 40px;
+  border: 1px solid var(--border-color);
+  border-left: none;
+}
+
+.login-right h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+.login-right .subtitle { color: var(--text-secondary); font-size: 14px; margin-bottom: 28px; }
+
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.form-group label i { margin-right: 6px; }
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-color);
+  background: var(--glass);
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  transition: all .25s;
+  outline: none;
+  backdrop-filter: blur(10px);
+}
+.form-input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+.form-input::placeholder { color: var(--text-muted); }
+
+.input-wrapper { position: relative; }
+.input-wrapper .toggle-pass {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--gradient-1);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all .25s;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.primary-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background: linear-gradient(transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg) translateX(-100%);
+  transition: .6s;
+}
+.primary-btn:hover::after { transform: rotate(45deg) translateX(100%); }
+.primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(34,197,94,0.35); }
+
+.secondary-btn {
+  width: 100%;
+  padding: 13px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all .2s;
+  margin-top: 10px;
+}
+.secondary-btn:hover { background: var(--bg-hover); border-color: var(--accent-blue); }
+
+.form-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 13px; }
+.form-row a { color: var(--accent-blue); text-decoration: none; }
+.form-row a:hover { text-decoration: underline; }
+.form-row label { display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-secondary); }
+
+.error-msg {
+  color: var(--accent-red);
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+.error-msg.show { display: flex; }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all .3s;
+}
+.light-mode .navbar { background: rgba(255,255,255,0.95); }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+.nav-logo .logo-icon { font-size: 30px; -webkit-text-fill-color: initial; }
+
+.nav-right { display: flex; align-items: center; gap: 14px; }
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--glass);
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+.nav-user .avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--gradient-2);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px;
+}
+
+.nav-btn {
+  background: var(--glass);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 9px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all .2s;
+  backdrop-filter: blur(10px);
+}
+.nav-btn:hover { background: var(--bg-hover); transform: translateY(-1px); }
+.nav-btn.admin-btn { background: linear-gradient(135deg, #f59e0b, #ef4444); border-color: transparent; color: white; }
+
+/* ===== TABS ===== */
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  padding: 18px 0 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: var(--glass);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all .25s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+.tab:hover { background: var(--bg-hover); color: var(--text-primary); }
+.tab.active {
+  background: var(--gradient-1);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(34,197,94,0.25);
+}
+
+/* ===== STATS GRID ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--bg-card);
+  padding: 22px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  transition: all .35s;
+  backdrop-filter: blur(10px);
+}
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--accent-blue);
+}
+.stat-card .stat-icon { font-size: 28px; margin-bottom: 10px; }
+.stat-card .stat-label { font-size: 13px; color: var(--text-secondary); font-weight: 500; margin-bottom: 6px; }
+.stat-card .stat-value { font-size: 28px; font-weight: 800; }
+.stat-card .stat-change { font-size: 12px; margin-top: 6px; display: flex; align-items: center; gap: 4px; }
+.stat-change.up { color: var(--accent-green); }
+.stat-change.down { color: var(--accent-red); }
+.stat-card .glow {
+  position: absolute; top: -20px; right: -20px;
+  width: 80px; height: 80px; border-radius: 50%; opacity: .12;
+}
 
 /* ===== SECTION TITLE ===== */
-.section-title{font-size:22px;font-weight:800;margin:32px 0 16px;display:flex;align-items:center;gap:10px;}
-.section-title i{color:var(--accent);font-size:20px;}
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-/* ===== OFFERWALL GRID ===== */
-.offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
-.offer-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;transition:all .3s;position:relative;overflow:hidden;}
-.offer-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--blue));opacity:0;transition:opacity .3s;}
-.offer-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 12px 40px var(--glow);}
-.offer-card:hover::before{opacity:1;}
-.offer-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:28px;}
-.offer-icon.g{background:rgba(34,197,94,0.12);color:var(--accent);}
-.offer-icon.b{background:rgba(59,130,246,0.12);color:var(--blue);}
-.offer-icon.p{background:rgba(168,85,247,0.12);color:var(--purple);}
-.offer-icon.o{background:rgba(245,158,11,0.12);color:var(--orange);}
-.offer-card h3{font-size:17px;font-weight:700;margin-bottom:6px;}
-.offer-card .tags{color:var(--text2);font-size:13px;margin-bottom:16px;}
-.offer-card .open-btn{width:100%;padding:12px;border:none;border-radius:var(--radius2);background:var(--accent);color:#000;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;}
-.offer-card .open-btn:hover{background:var(--accent2);box-shadow:0 4px 16px rgba(34,197,94,0.3);}
+/* ===== OFFER GRID ===== */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.offer-card {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all .35s;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.offer-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--gradient-1);
+  opacity: 0; transition: opacity .3s;
+}
+.offer-card:hover::before { opacity: 1; }
+.offer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-blue);
+}
+.offer-card .offer-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--accent-orange); color: white;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 700;
+}
+.offer-card .offer-icon {
+  width: 64px; height: 64px; margin: 0 auto 14px;
+  border-radius: 16px; display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+}
+.offer-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.offer-card p { color: var(--text-secondary); font-size: 13px; margin-bottom: 14px; line-height: 1.5; }
+.offer-card .earn-tag {
+  display: inline-block;
+  background: rgba(34,197,94,0.12); color: var(--accent-green);
+  padding: 4px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; margin-bottom: 14px;
+}
+.offer-card .start-btn {
+  width: 100%; padding: 12px;
+  background: var(--gradient-2); color: white; border: none;
+  border-radius: var(--radius-sm); font-weight: 700; font-size: 14px;
+  cursor: pointer; transition: all .2s;
+}
+.offer-card .start-btn:hover { opacity: .9; transform: scale(1.02); }
+
+/* ===== ACTION BUTTONS ===== */
+.action-row { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.action-btn {
+  padding: 12px 22px; border: none; border-radius: var(--radius-sm);
+  font-weight: 700; font-size: 14px; cursor: pointer;
+  transition: all .2s; display: flex; align-items: center; gap: 8px;
+  color: white;
+}
+.action-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.action-btn.daily { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.action-btn.spin { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.action-btn.withdraw { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.action-btn.ai-task { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.action-btn.social { background: linear-gradient(135deg, #ec4899, #be185d); }
+
+/* ===== STREAK / LEVEL ===== */
+.streak-bar {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 20px;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+}
+.streak-days { display: flex; gap: 6px; }
+.streak-dot {
+  width: 34px; height: 34px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  background: var(--glass); border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+.streak-dot.completed {
+  background: rgba(34,197,94,0.15);
+  border-color: var(--accent-green); color: var(--accent-green);
+}
+.streak-dot.today {
+  background: var(--gradient-1); color: white; border-color: transparent;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+}
+.level-info { flex: 1; min-width: 200px; }
+.level-info .level-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.level-info .level-name { font-weight: 700; font-size: 15px; }
+.level-info .level-xp { font-size: 13px; color: var(--text-secondary); }
+.level-bar { height: 10px; background: var(--glass); border-radius: 5px; overflow: hidden; }
+.level-bar .fill { height: 100%; background: var(--gradient-2); border-radius: 5px; transition: width .5s; }
 
 /* ===== LEADERBOARD ===== */
-.leaderboard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:28px;}
-.leader-item{display:flex;align-items:center;padding:14px 0;border-bottom:1px solid var(--border);transition:background .2s;}
-.leader-item:hover{background:var(--glow);border-radius:8px;padding:14px 12px;}
-.leader-item:last-child{border:none;}
-.leader-rank{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-right:14px;flex-shrink:0;}
-.leader-rank.gold{background:linear-gradient(135deg,#f59e0b,#d97706);color:#000;}
-.leader-rank.silver{background:linear-gradient(135deg,#94a3b8,#64748b);color:#000;}
-.leader-rank.bronze{background:linear-gradient(135deg,#b45309,#92400e);color:#fff;}
-.leader-rank.normal{background:var(--bg2);color:var(--text2);}
-.leader-name{flex:1;font-weight:600;font-size:15px;}
-.leader-amount{font-weight:800;color:var(--accent);font-size:16px;}
-.leader-bar{height:4px;background:var(--bg2);border-radius:4px;margin-top:8px;overflow:hidden;}
-.leader-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--blue));transition:width .6s ease;}
+.leaderboard-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+.leader-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.leader-item {
+  display: flex; align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border-color);
+  transition: background .2s;
+}
+.leader-item:hover { background: var(--bg-hover); }
+.leader-item:last-child { border-bottom: none; }
+.leader-rank {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 14px; margin-right: 14px;
+}
+.leader-rank.gold { background: rgba(245,158,11,0.2); color: #f59e0b; }
+.leader-rank.silver { background: rgba(148,163,184,0.2); color: #94a3b8; }
+.leader-rank.bronze { background: rgba(180,83,9,0.2); color: #b45309; }
+.leader-rank.default { background: var(--bg-hover); color: var(--text-muted); }
+.leader-info { flex: 1; display: flex; align-items: center; gap: 12px; }
+.leader-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px;
+}
+.leader-name { font-weight: 600; font-size: 14px; }
+.leader-earnings { font-weight: 700; color: var(--accent-green); font-size: 15px; }
 
-/* ===== OFFER VIEW (IFRAME) ===== */
-#offerView{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:var(--bg);padding:0;}
-.iframe-toolbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--bg2);border-bottom:1px solid var(--border);}
-.iframe-toolbar .back{background:var(--red);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-weight:600;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:6px;}
-.iframe-toolbar .back:hover{opacity:0.9;}
-.iframe-toolbar .iframe-title{font-weight:600;font-size:14px;}
-#frame{width:100%;height:calc(100vh - 50px);border:none;background:#fff;}
+/* ===== ACHIEVEMENTS ===== */
+.achievements-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px; margin-bottom: 24px;
+}
+.achievement-card {
+  background: var(--bg-card); padding: 20px;
+  border-radius: var(--radius); border: 1px solid var(--border-color);
+  display: flex; align-items: center; gap: 16px;
+  transition: all .3s; backdrop-filter: blur(10px);
+}
+.achievement-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+.achievement-card.locked { opacity: .5; filter: grayscale(0.8); }
+.achievement-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; flex-shrink: 0;
+}
+.achievement-info h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.achievement-info p { font-size: 12px; color: var(--text-secondary); }
+.achievement-info .progress-bar {
+  height: 6px; background: var(--glass);
+  border-radius: 3px; margin-top: 8px; overflow: hidden;
+}
+.achievement-info .progress-fill {
+  height: 100%; border-radius: 3px;
+  background: var(--gradient-1); transition: width .5s;
+}
 
-/* ===== POPUP ===== */
-.popup{position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--accent);border-radius:14px;padding:14px 22px;z-index:9999;animation:slideIn .4s ease;font-size:14px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(0,0,0,0.4);}
-@keyframes slideIn{from{transform:translateX(120%);opacity:0;}to{transform:translateX(0);opacity:1;}}
+/* ===== GUIDES ===== */
+.guide-card {
+  background: var(--bg-card); border-radius: var(--radius);
+  border: 1px solid var(--border-color); overflow: hidden;
+  margin-bottom: 16px; transition: all .3s; backdrop-filter: blur(10px);
+}
+.guide-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+.guide-card .guide-header {
+  padding: 20px 24px; display: flex; align-items: center;
+  gap: 16px; cursor: pointer;
+}
+.guide-card .guide-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.guide-card .guide-title { flex: 1; font-weight: 700; font-size: 15px; }
+.guide-card .guide-difficulty {
+  font-size: 12px; padding: 4px 10px;
+  border-radius: 20px; font-weight: 600;
+}
+.guide-card .guide-body {
+  padding: 0 24px 20px; color: var(--text-secondary);
+  font-size: 14px; line-height: 1.7; display: none;
+}
+.guide-card.open .guide-body { display: block; }
+
+/* ===== REFERRAL ===== */
+.referral-card {
+  background: var(--bg-card); border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color); padding: 30px;
+  margin-bottom: 24px; backdrop-filter: blur(10px);
+}
+.referral-link-box { display: flex; gap: 10px; margin: 16px 0; }
+.referral-link-box input {
+  flex: 1; padding: 12px 16px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color); background: var(--glass);
+  color: var(--text-primary); font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; outline: none;
+}
+.copy-btn {
+  padding: 12px 20px; background: var(--accent-blue); color: white;
+  border: none; border-radius: var(--radius-sm);
+  font-weight: 600; cursor: pointer; transition: all .2s; white-space: nowrap;
+}
+.copy-btn:hover { background: #2563eb; }
+.referral-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-top: 20px;
+}
+.ref-stat { text-align: center; padding: 16px; background: var(--glass); border-radius: var(--radius-sm); }
+.ref-stat .ref-value { font-size: 24px; font-weight: 800; color: var(--accent-green); }
+.ref-stat .ref-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+/* ===== CALCULATOR ===== */
+.calc-card {
+  background: var(--bg-card); border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color); padding: 30px;
+  margin-bottom: 24px; backdrop-filter: blur(10px);
+}
+.calc-row { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.calc-group { flex: 1; min-width: 200px; }
+.calc-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; }
+.calc-group select, .calc-group input {
+  width: 100%; padding: 12px 16px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color); background: var(--glass);
+  color: var(--text-primary); font-size: 14px; font-family: 'Inter', sans-serif;
+  outline: none;
+}
+.calc-result { background: var(--glass); border-radius: var(--radius-sm); padding: 20px; text-align: center; }
+.calc-result .amount {
+  font-size: 36px; font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.calc-result .period { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+
+/* ===== HISTORY ===== */
+.history-item {
+  display: flex; align-items: center;
+  padding: 14px 0; border-bottom: 1px solid var(--border-color);
+}
+.history-item:last-child { border-bottom: none; }
+.history-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 14px; font-size: 18px;
+}
+.history-info { flex: 1; }
+.history-info .h-title { font-weight: 600; font-size: 14px; }
+.history-info .h-time { font-size: 12px; color: var(--text-muted); }
+.history-amount { font-weight: 700; font-size: 15px; }
+.history-amount.positive { color: var(--accent-green); }
+.history-amount.negative { color: var(--accent-red); }
+
+/* ===== WITHDRAW MODAL ===== */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+  z-index: 200; display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal {
+  background: var(--bg-secondary); border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color); padding: 30px;
+  width: 100%; max-width: 500px; max-height: 80vh;
+  overflow-y: auto; box-shadow: var(--shadow);
+  animation: modalIn .3s ease;
+}
+@keyframes modalIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal h2 { font-size: 20px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--bg-hover); border: none; color: var(--text-primary);
+  width: 36px; height: 36px; border-radius: 10px;
+  cursor: pointer; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+}
+.payment-methods { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+.payment-method {
+  padding: 16px; border-radius: var(--radius-sm);
+  border: 2px solid var(--border-color); background: var(--glass);
+  cursor: pointer; text-align: center; transition: all .2s;
+}
+.payment-method:hover, .payment-method.selected {
+  border-color: var(--accent-blue);
+  background: rgba(59,130,246,0.1);
+}
+.payment-method i { font-size: 28px; margin-bottom: 8px; display: block; }
+.payment-method span { font-size: 13px; font-weight: 600; }
+.withdraw-input {
+  width: 100%; padding: 14px 18px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color); background: var(--glass);
+  color: var(--text-primary); font-size: 18px; font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 14px; outline: none;
+}
+.withdraw-input:focus { border-color: var(--accent-blue); }
+
+/* ===== SPIN WHEEL ===== */
+.wheel-container { text-align: center; padding: 30px; }
+.wheel-canvas {
+  width: 300px; height: 300px; margin: 0 auto 20px;
+  border-radius: 50%; border: 4px solid var(--border-color);
+  position: relative;
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed; bottom: 20px; right: 20px;
+  background: var(--bg-secondary); padding: 14px 22px;
+  border-radius: var(--radius-sm); border: 1px solid var(--accent-green);
+  box-shadow: var(--shadow); z-index: 9999;
+  font-weight: 600; font-size: 14px;
+  animation: slideIn .4s ease;
+  display: flex; align-items: center; gap: 10px;
+}
+@keyframes slideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(120%); opacity: 0; } }
 
 /* ===== FOOTER ===== */
-.footer{margin-top:60px;padding:30px 0;border-top:1px solid var(--border);text-align:center;color:var(--text2);font-size:13px;}
-.footer .social-icons{display:flex;justify-content:center;gap:16px;margin-top:12px;}
-.footer .social-icons a{width:36px;height:36px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);text-decoration:none;transition:all .2s;}
-.footer .social-icons a:hover{border-color:var(--accent);color:var(--accent);}
+.footer {
+  text-align: center; padding: 30px 20px;
+  color: var(--text-muted); font-size: 13px;
+  border-top: 1px solid var(--border-color); margin-top: 40px;
+}
+.footer a { color: var(--accent-blue); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
 
 /* ===== MOBILE NAV ===== */
-.mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--sidebar);border-top:1px solid var(--border);padding:8px 0;z-index:1000;}
-.mobile-nav-inner{display:flex;justify-content:space-around;}
-.mobile-nav-inner a{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--text2);text-decoration:none;font-size:10px;font-weight:600;padding:6px;transition:color .2s;}
-.mobile-nav-inner a.active,.mobile-nav-inner a:hover{color:var(--accent);}
-.mobile-nav-inner a i{font-size:18px;}
-
-/* ===== OVERLAY ===== */
-.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:999;}
+.mobile-nav {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--bg-card); border-top: 1px solid var(--border-color);
+  padding: 10px; z-index: 100; justify-content: space-around;
+  backdrop-filter: blur(20px);
+}
+.mobile-nav-item {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 4px; font-size: 10px; color: var(--text-muted);
+  cursor: pointer; padding: 6px 12px;
+  border-radius: 10px; transition: all .2s;
+}
+.mobile-nav-item.active { color: var(--accent-blue); background: rgba(59,130,246,0.1); }
+.mobile-nav-item i { font-size: 20px; }
 
 /* ===== ADMIN PANEL ===== */
-.admin-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:28px;}
-.admin-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px;}
-.admin-stat{background:var(--bg2);border-radius:var(--radius2);padding:18px;text-align:center;}
-.admin-stat .num{font-size:28px;font-weight:900;color:var(--accent);}
-.admin-stat .label{font-size:12px;color:var(--text2);text-transform:uppercase;margin-top:4px;}
-.user-table{width:100%;border-collapse:collapse;}
-.user-table th{text-align:left;padding:12px;font-size:12px;text-transform:uppercase;color:var(--text2);border-bottom:2px solid var(--border);letter-spacing:0.5px;}
-.user-table td{padding:12px;border-bottom:1px solid var(--border);font-size:14px;}
-.user-table tr:hover{background:var(--glow);}
-.user-table .user-avatar{width:28px;height:28px;border-radius:50%;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:#000;font-weight:700;font-size:12px;margin-right:8px;}
-.user-table .status{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;}
-.status.active{background:rgba(34,197,94,0.15);color:var(--accent);}
-.status.banned{background:rgba(239,68,68,0.15);color:var(--red);}
-.admin-actions{display:flex;gap:8px;justify-content:flex-end;}
-.admin-actions button{padding:5px 12px;border-radius:6px;border:none;font-size:11px;font-weight:600;cursor:pointer;}
-.btn-edit{background:var(--blue);color:#fff;}
-.btn-ban{background:var(--red);color:#fff;}
-.btn-delete{background:var(--text2);color:#000;}
-.admin-search{display:flex;gap:10px;margin-bottom:20px;}
-.admin-search input{flex:1;padding:10px 16px;border-radius:var(--radius2);border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:14px;outline:none;}
-.admin-search input:focus{border-color:var(--accent);}
+.admin-page {
+  background: var(--bg-secondary);
+  min-height: 100vh;
+}
+.admin-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 28px; border-bottom: 1px solid var(--border-color);
+  background: var(--bg-card); backdrop-filter: blur(20px);
+  position: sticky; top: 0; z-index: 100;
+}
+.admin-header h2 { font-size: 20px; font-weight: 800; }
+.admin-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px; padding: 24px;
+}
+.admin-stat {
+  background: var(--bg-card); padding: 20px; border-radius: var(--radius);
+  border: 1px solid var(--border-color); text-align: center;
+  backdrop-filter: blur(10px);
+}
+.admin-stat .val { font-size: 32px; font-weight: 800; color: var(--accent-green); }
+.admin-stat .lbl { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
 
-/* ===== PROFILE PAGE ===== */
-.profile-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;text-align:center;}
-.profile-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--blue));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;font-weight:900;color:#000;}
-.profile-name{font-size:22px;font-weight:800;}
-.profile-email{color:var(--text2);font-size:14px;margin-top:4px;}
-.profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
-.profile-stat{background:var(--bg2);border-radius:var(--radius2);padding:16px;}
-.profile-stat .val{font-size:22px;font-weight:900;color:var(--accent);}
-.profile-stat .lbl{font-size:11px;color:var(--text2);text-transform:uppercase;margin-top:4px;}
-.profile-ref{margin-top:24px;background:var(--bg2);border-radius:var(--radius2);padding:18px;}
-.profile-ref label{font-size:12px;color:var(--text2);text-transform:uppercase;display:block;margin-bottom:8px;}
-.profile-ref .ref-code{background:var(--bg);padding:12px;border-radius:8px;font-family:monospace;font-size:16px;color:var(--accent);word-break:break-all;}
-.profile-ref .copy-btn{margin-top:10px;padding:8px 16px;background:var(--accent);color:#000;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:13px;}
+.user-table-wrap {
+  padding: 0 24px 24px;
+}
+.user-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--bg-card); border-radius: var(--radius);
+  border: 1px solid var(--border-color); overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.user-table th {
+  padding: 14px 16px; text-align: left;
+  font-size: 13px; font-weight: 600; color: var(--text-secondary);
+  background: var(--glass); border-bottom: 1px solid var(--border-color);
+}
+.user-table td {
+  padding: 14px 16px; font-size: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+.user-table tr:hover td { background: var(--glass); }
+.user-table .user-avatar-cell {
+  display: flex; align-items: center; gap: 10px;
+}
+.user-table .user-avatar-cell .avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--gradient-2); display: flex; align-items: center;
+  justify-content: center; font-weight: 700; font-size: 13px;
+}
+.badge {
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 600;
+}
+.badge.active { background: rgba(34,197,94,0.15); color: var(--accent-green); }
+.badge.banned { background: rgba(239,68,68,0.15); color: var(--accent-red); }
+.action-cell { display: flex; gap: 8px; }
+.action-cell button {
+  padding: 6px 12px; border: none; border-radius: 8px;
+  font-size: 12px; font-weight: 600; cursor: pointer;
+  transition: all .2s;
+}
+.btn-ban { background: rgba(239,68,68,0.15); color: var(--accent-red); }
+.btn-ban:hover { background: var(--accent-red); color: white; }
+.btn-unban { background: rgba(34,197,94,0.15); color: var(--accent-green); }
+.btn-unban:hover { background: var(--accent-green); color: white; }
+.btn-delete { background: rgba(148,163,184,0.15); color: var(--text-muted); }
+.btn-delete:hover { background: var(--accent-red); color: white; }
+.btn-reset { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+.btn-reset:hover { background: var(--accent-blue); color: white; }
+
+.add-user-section {
+  padding: 0 24px 24px;
+}
+.add-user-card {
+  background: var(--bg-card); border-radius: var(--radius);
+  border: 1px solid var(--border-color); padding: 24px;
+  backdrop-filter: blur(10px);
+}
+.add-user-card h3 { margin-bottom: 16px; font-size: 16px; }
+.add-user-form { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 12px; align-items: end; }
+.add-user-form .form-group { margin-bottom: 0; }
 
 /* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-.sidebar{transform:translateX(-100%);}
-.sidebar.open{transform:translateX(0);}
-.sidebar-overlay.show{display:block;}
-.topbar{left:0;}
-.main{margin-left:0;}
-.content{padding:20px 16px;}
-.mobile-nav{display:block;}
-.main{padding-bottom:70px;}
-.hamburger{display:block;}
-.hero h1{font-size:26px;}
-.stats{grid-template-columns:1fr 1fr;}
-.offer-grid{grid-template-columns:1fr 1fr;}
-.profile-stats{grid-template-columns:1fr;}
+@media (max-width: 768px) {
+  .navbar { padding: 12px 16px; }
+  .nav-logo { font-size: 18px; }
+  .nav-user { display: none; }
+  .mobile-nav { display: flex; }
+  .container { padding-bottom: 80px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .offer-grid { grid-template-columns: 1fr; }
+  .action-row { flex-direction: column; }
+  .action-btn { justify-content: center; }
+  .referral-stats { grid-template-columns: 1fr; }
+  .payment-methods { grid-template-columns: 1fr; }
+  .leader-item { padding: 12px 16px; }
+  .modal { padding: 20px; margin: 10px; }
+  .calc-row { flex-direction: column; }
+  .login-wrapper { flex-direction: column; }
+  .login-left { padding: 30px 20px; }
+  .login-right { padding: 30px 20px; border-left: 1px solid var(--border-color); border-top: none; }
+  .add-user-form { grid-template-columns: 1fr; }
+  .user-table { font-size: 12px; }
+  .user-table th, .user-table td { padding: 10px 8px; }
 }
-@media(max-width:500px){
-.stats{grid-template-columns:1fr;}
-.offer-grid{grid-template-columns:1fr;}
-.actions{flex-direction:column;}
-.auth-card{padding:32px 24px;}
+
+/* ===== ANIMATIONS ===== */
+.fade-in { animation: fadeIn .4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+[data-tooltip] { position: relative; }
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute; bottom: 100%; left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-hover); color: var(--text-primary);
+  padding: 6px 12px; border-radius: 8px;
+  font-size: 12px; white-space: nowrap;
+  z-index: 1000; border: 1px solid var(--border-color);
 }
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR OVERLAY (mobile) -->
-<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<!-- ANIMATED BACKGROUND -->
+<div class="bg-animation">
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
 
-<!-- SIDEBAR -->
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-logo">
-    <i class="fas fa-coins"></i>
-    <span>Earn<em>Rewards</em></span>
+<!-- ==================== LOGIN PAGE ==================== -->
+<div id="loginPage" class="login-page">
+<div class="login-wrapper">
+  <!-- LEFT SIDE -->
+  <div class="login-left">
+    <span class="brand-icon">💰</span>
+    <h1>EarnRewards Pro</h1>
+    <p>Nền tảng kiếm tiền online<br>hiện đại nhất 2026</p>
+    <ul class="features">
+      <li><i class="fas fa-check-circle"></i> Kiếm tiền từ Surveys & Offers</li>
+      <li><i class="fas fa-check-circle"></i> AI Tasks - Xu hướng 2026</li>
+      <li><i class="fas fa-check-circle"></i> Crypto Mining & Staking</li>
+      <li><i class="fas fa-check-circle"></i> Rút tiền qua PayPal, Crypto</li>
+      <li><i class="fas fa-check-circle"></i> Chương trình giới thiệu 15%</li>
+    </ul>
   </div>
-  <nav class="sidebar-nav">
-    <a href="#" class="active" id="navHome" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Home</a>
-    <a href="#" id="navEarn" onclick="showSection('dashboard')"><i class="fas fa-dollar-sign"></i> Earn</a>
-    <a href="#" id="navOffers" onclick="showSection('dashboard')"><i class="fas fa-gift"></i> Offers</a>
-    <a href="#" id="navSurveys" onclick="showSection('dashboard')"><i class="fas fa-clipboard-list"></i> Surveys <span class="badge">3</span></a>
-    <a href="#" id="navLeaderboard" onclick="showSection('dashboard')"><i class="fas fa-trophy"></i> Leaderboard</a>
-    <a href="#" id="navProfile" onclick="showSection('profile')"><i class="fas fa-user"></i> Profile</a>
-    <a href="#" id="navAdmin" onclick="showSection('admin')" class="hidden"><i class="fas fa-shield-halved"></i> Admin <span class="badge">!</span></a>
-    <a href="#" id="navReferrals" onclick="showSection('dashboard')"><i class="fas fa-users"></i> Referrals</a>
-    <a href="#" id="navRewards" onclick="showSection('dashboard')"><i class="fas fa-gift"></i> Rewards</a>
-    <a href="#" id="navSupport" onclick="showSection('dashboard')"><i class="fas fa-headset"></i> Support</a>
-  </nav>
-</aside>
 
-<!-- TOPBAR -->
-<header class="topbar">
-  <div class="topbar-left">
-    <button class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
-    <button class="notice-btn" onclick="showNotice()"><i class="fas fa-bell"></i> Notice</button>
-  </div>
-  <div class="topbar-right" id="topbarRight">
-    <button class="topbar-btn primary" onclick="openSignup()">Sign Up</button>
-    <button class="topbar-btn" onclick="openLogin()">Sign In</button>
-  </div>
-</header>
+  <!-- RIGHT SIDE -->
+  <div class="login-right">
+    <h2>Đăng Nhập</h2>
+    <p class="subtitle">Nhập thông tin để truy cập hệ thống</p>
 
-<!-- MAIN -->
-<div class="main">
-<div class="content">
-
-<!-- LOGIN PAGE -->
-<div id="loginPage" class="auth-page">
-  <div class="auth-card">
-    <div class="logo-area">
-      <i class="fas fa-coins"></i>
-      <h1>Earn<em>Rewards</em> Pro</h1>
-      <p>Sign in to your account and start earning.</p>
+    <div class="form-group">
+      <label><i class="fas fa-user"></i> Tên đăng nhập</label>
+      <div class="input-wrapper">
+        <input class="form-input" id="username" placeholder="Nhập tên đăng nhập..." autocomplete="off">
+      </div>
     </div>
-    <input class="auth-input" id="loginUsername" placeholder="Username or Email" type="text">
-    <input class="auth-input" id="loginPassword" placeholder="Password" type="password">
-    <div class="auth-error" id="loginError"></div>
-    <button class="auth-submit" onclick="doLogin()">
-      <i class="fas fa-right-to-bracket"></i> Sign In
+
+    <div class="form-group">
+      <label><i class="fas fa-lock"></i> Mật khẩu</label>
+      <div class="input-wrapper">
+        <input class="form-input" id="password" type="password" placeholder="Nhập mật khẩu...">
+        <button class="toggle-pass" onclick="togglePassword()">
+          <i class="fas fa-eye" id="passToggle"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label><input type="checkbox" checked> Ghi nhớ đăng nhập</label>
+      <a href="#">Quên mật khẩu?</a>
+    </div>
+
+    <div class="error-msg" id="loginError">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="loginErrorMsg"></span>
+    </div>
+
+    <button class="primary-btn" onclick="login()">
+      <i class="fas fa-sign-in-alt"></i>&nbsp; Đăng Nhập
     </button>
-    <div class="auth-divider">or sign in with</div>
-    <div class="social-login">
-      <button class="social-btn" onclick="socialLogin('Google')"><i class="fab fa-google"></i> Google</button>
-      <button class="social-btn" onclick="socialLogin('Discord')"><i class="fab fa-discord"></i> Discord</button>
+
+    <button class="secondary-btn" onclick="showRegister()">
+      <i class="fas fa-user-plus"></i>&nbsp; Tạo tài khoản mới
+    </button>
+
+    <div style="text-align:center; margin-top:20px;">
+      <button style="background:none; border:none; color:var(--accent-blue); font-size:13px; cursor:pointer; font-weight:600;" onclick="loginAsAdmin()">
+        <i class="fas fa-shield-alt"></i> Đăng nhập Admin
+      </button>
     </div>
-    <br>
-    <span class="auth-link" onclick="openSignup()">Don't have an account? Sign Up</span>
+  </div>
+</div>
+</div>
+
+<!-- ==================== REGISTER PAGE ==================== -->
+<div id="registerPage" class="login-page hidden">
+<div class="login-wrapper">
+  <div class="login-left">
+    <span class="brand-icon">🚀</span>
+    <h1>Bắt Đầu Ngay</h1>
+    <p>Chỉ 30 giây để đăng ký<br>và bắt đầu kiếm tiền</p>
+    <ul class="features">
+      <li><i class="fas fa-check-circle"></i> Hoàn toàn miễn phí</li>
+      <li><i class="fas fa-check-circle"></i> Không cần xác minh email</li>
+      <li><i class="fas fa-check-circle"></i> Nhận ngay bonus $0.50</li>
+      <li><i class="fas fa-check-circle"></i> Rút tiền từ $1.00</li>
+    </ul>
+  </div>
+  <div class="login-right">
+    <h2>Tạo Tài Khoản</h2>
+    <p class="subtitle">Đăng ký nhanh không cần xác minh</p>
+
+    <div class="form-group">
+      <label><i class="fas fa-user"></i> Tên đăng nhập</label>
+      <input class="form-input" id="regUsername" placeholder="Chọn tên đăng nhập...">
+    </div>
+
+    <div class="form-group">
+      <label><i class="fas fa-lock"></i> Mật khẩu</label>
+      <div class="input-wrapper">
+        <input class="form-input" id="regPassword" type="password" placeholder="Tạo mật khẩu...">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label><i class="fas fa-lock"></i> Xác nhận mật khẩu</label>
+      <input class="form-input" id="regConfirm" type="password" placeholder="Nhập lại mật khẩu...">
+    </div>
+
+    <div class="form-group">
+      <label><i class="fas fa-gift"></i> Mã giới thiệu (tuỳ chọn)</label>
+      <input class="form-input" id="regRefCode" placeholder="Nhập mã giới thiệu...">
+    </div>
+
+    <div class="error-msg" id="registerError">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="registerErrorMsg"></span>
+    </div>
+
+    <button class="primary-btn" onclick="register()">
+      <i class="fas fa-rocket"></i>&nbsp; Tạo Tài Khoản
+    </button>
+
+    <button class="secondary-btn" onclick="showLogin()">
+      <i class="fas fa-arrow-left"></i>&nbsp; Quay lại đăng nhập
+    </button>
+  </div>
+</div>
+</div>
+
+<!-- ==================== MAIN APP ==================== -->
+<div id="mainApp" class="hidden">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo" onclick="switchTab('dashboard')">
+    <span class="logo-icon">💰</span>
+    <span>EarnRewards Pro</span>
+  </div>
+  <div class="nav-right">
+    <div class="nav-user">
+      <div class="avatar" id="navAvatar">U</div>
+      <span id="navUsername">User</span>
+      <span style="margin-left:8px; color:var(--accent-green); font-size:13px;">Lv.<span id="navLevel">1</span></span>
+    </div>
+    <button class="nav-btn" onclick="switchTab('dashboard')" id="appBtn" data-tooltip="Trang chủ">
+      <i class="fas fa-home"></i>
+    </button>
+    <button class="nav-btn" onclick="logout()" data-tooltip="Đăng xuất">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <div class="tab active" data-tab="dashboard" onclick="switchTab('dashboard')">
+    <i class="fas fa-home"></i> Dashboard
+  </div>
+  <div class="tab" data-tab="earn" onclick="switchTab('earn')">
+    <i class="fas fa-bolt"></i> Kiếm Tiền
+  </div>
+  <div class="tab" data-tab="guides" onclick="switchTab('guides')">
+    <i class="fas fa-graduation-cap"></i> Hướng Dẫn
+  </div>
+  <div class="tab" data-tab="referral" onclick="switchTab('referral')">
+    <i class="fas fa-users"></i> Giới Thiệu
+  </div>
+  <div class="tab" data-tab="calculator" onclick="switchTab('calculator')">
+    <i class="fas fa-calculator"></i> Tính Toán
+  </div>
+  <div class="tab" data-tab="history" onclick="switchTab('history')">
+    <i class="fas fa-history"></i> Lịch Sử
   </div>
 </div>
 
-<!-- SIGNUP PAGE -->
-<div id="signupPage" class="auth-page hidden">
-  <div class="auth-card">
-    <div class="logo-area">
-      <i class="fas fa-coins"></i>
-      <h1>Join <em>EarnRewards</em></h1>
-      <p>Create your free account and start earning today.</p>
+<!-- ===== DASHBOARD TAB ===== -->
+<div id="tab-dashboard" class="tab-content fade-in">
+
+<!-- STREAK & LEVEL -->
+<div class="streak-bar">
+  <div>
+    <div style="font-size:13px; color:var(--text-secondary); margin-bottom:8px;">🔥 Streak hàng ngày</div>
+    <div class="streak-days" id="streakDays"></div>
+  </div>
+  <div class="level-info">
+    <div class="level-header">
+      <span class="level-name" id="levelName">Newcomer</span>
+      <span class="level-xp" id="levelXP">0 / 100 XP</span>
     </div>
-    <input class="auth-input" id="signupUsername" placeholder="Choose a username" type="text">
-    <input class="auth-input" id="signupEmail" placeholder="Your email (optional)" type="email">
-    <input class="auth-input" id="signupPassword" placeholder="Create a password" type="password">
-    <input class="auth-input" id="signupConfirm" placeholder="Confirm password" type="password">
-    <div class="auth-error" id="signupError"></div>
-    <div class="auth-success" id="signupSuccess"></div>
-    <button class="auth-submit" onclick="doSignup()">
-      <i class="fas fa-rocket"></i> Create Account
-    </button>
-    <div class="auth-divider">or sign up with</div>
-    <div class="social-login">
-      <button class="social-btn" onclick="socialLogin('Google')"><i class="fab fa-google"></i> Google</button>
-      <button class="social-btn" onclick="socialLogin('Discord')"><i class="fab fa-discord"></i> Discord</button>
+    <div class="level-bar">
+      <div class="fill" id="levelFill" style="width:0%"></div>
     </div>
-    <br>
-    <span class="auth-link" onclick="openLogin()">Already have an account? Sign In</span>
+    <div style="font-size:12px; color:var(--text-muted); margin-top:6px;">
+      Hoàn thành nhiệm vụ để lên level ⬆️
+    </div>
   </div>
 </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
+<!-- STATS -->
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="glow" style="background:var(--accent-green)"></div>
+    <div class="stat-icon">💵</div>
+    <div class="stat-label">Số dư</div>
+    <div class="stat-value green" id="balance">$0.50</div>
+    <div class="stat-change up">↑ +$0.20 hôm nay</div>
+  </div>
+  <div class="stat-card">
+    <div class="glow" style="background:var(--accent-blue)"></div>
+    <div class="stat-icon">📋</div>
+    <div class="stat-label">Offers Hoàn Thành</div>
+    <div class="stat-value blue" id="offersDone">24</div>
+    <div class="stat-change up">↑ 3 tuần này</div>
+  </div>
+  <div class="stat-card">
+    <div class="glow" style="background:var(--accent-purple)"></div>
+    <div class="stat-icon">🤝</div>
+    <div class="stat-label">Thu Nhập Giới Thiệu</div>
+    <div class="stat-value purple" id="refEarnings">$12.45</div>
+    <div class="stat-change up">↑ 2 người mới</div>
+  </div>
+  <div class="stat-card">
+    <div class="glow" style="background:var(--accent-orange)"></div>
+    <div class="stat-icon">🏆</div>
+    <div class="stat-label">Bảng Xếp Hạng</div>
+    <div class="stat-value orange" id="rank">#18</div>
+    <div class="stat-change up">↑ 5 bậc tuần này</div>
+  </div>
+  <div class="stat-card">
+    <div class="glow" style="background:var(--accent-pink)"></div>
+    <div class="stat-icon">⭐</div>
+    <div class="stat-label">Điểm XP</div>
+    <div class="stat-value" style="color:var(--accent-pink)" id="xpPoints">85</div>
+    <div class="stat-change up">↑ +15 hôm nay</div>
+  </div>
+  <div class="stat-card">
+    <div class="glow" style="background:var(--accent-cyan)"></div>
+    <div class="stat-icon">🎯</div>
+    <div class="stat-label">Streak</div>
+    <div class="stat-value" style="color:var(--accent-cyan)" id="streakCount">7</div>
+    <div class="stat-change up">↑ Tốt nhất!</div>
+  </div>
+</div>
 
-  <!-- LIVE TICKER -->
-  <div class="live-ticker">
-    <div class="live-dot"></div>
-    <div class="ticker-scroll" id="tickerScroll">
-      <span class="ticker-item">🦅 ChaoticRavenz earned <span class="amount">$2.70</span></span>
-      <span class="ticker-item">👻 SilentWraiths earned <span class="amount">$2.70</span></span>
-      <span class="ticker-item">🧙 MysticMagelord earned <span class="amount">$3.38</span></span>
-      <span class="ticker-item">🔮 SinisterMagez earned <span class="amount">$3.38</span></span>
-      <span class="ticker-item">⚡ SavageWarlock earned <span class="amount">$2.57</span></span>
-      <span class="ticker-item">🗡️ CrimsonDagger earned <span class="amount">$1.40</span></span>
-      <span class="ticker-item">😈 VileVillainz earned <span class="amount">$4.20</span></span>
-      <span class="ticker-item">🎭 Zanderholt earned <span class="amount">$1.95</span></span>
-      <span class="ticker-item">🧛 DemonicVampyre earned <span class="amount">$5.10</span></span>
-      <span class="ticker-item">🐍 ViciousVipers earned <span class="amount">$2.85</span></span>
-      <span class="ticker-item">🦅 ChaoticRavenz earned <span class="amount">$2.70</span></span>
-      <span class="ticker-item">👻 SilentWraiths earned <span class="amount">$2.70</span></span>
-      <span class="ticker-item">🧙 MysticMagelord earned <span class="amount">$3.38</span></span>
-      <span class="ticker-item">🔮 SinisterMagez earned <span class="amount">$3.38</span></span>
-      <span class="ticker-item">⚡ SavageWarlock earned <span class="amount">$2.57</span></span>
-      <span class="ticker-item">🗡️ CrimsonDagger earned <span class="amount">$1.40</span></span>
-      <span class="ticker-item">😈 VileVillainz earned <span class="amount">$4.20</span></span>
-      <span class="ticker-item">🎭 Zanderholt earned <span class="amount">$1.95</span></span>
-      <span class="ticker-item">🧛 DemonicVampyre earned <span class="amount">$5.10</span></span>
-      <span class="ticker-item">🐍 ViciousVipers earned <span class="amount">$2.85</span></span>
+<!-- ACTION BUTTONS -->
+<div class="action-row">
+  <button class="action-btn daily" onclick="claimDaily()">
+    <i class="fas fa-gift"></i> Nhận Thưởng Ngày
+  </button>
+  <button class="action-btn spin" onclick="showSpinModal()">
+    <i class="fas fa-dharmachakra"></i> Vòng Quay May Mắn
+  </button>
+  <button class="action-btn withdraw" onclick="showWithdrawModal()">
+    <i class="fas fa-money-bill-wave"></i> Rút Tiền
+  </button>
+  <button class="action-btn ai-task" onclick="startAITask()">
+    <i class="fas fa-robot"></i> Nhiệm Vụ AI
+  </button>
+  <button class="action-btn social" onclick="completeSocial()">
+    <i class="fas fa-hashtag"></i> Nhiệm Vụ Social
+  </button>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<div class="section-title">
+  <i class="fas fa-trophy" style="color:var(--accent-orange)"></i>
+  Thành Tích
+</div>
+<div class="achievements-grid">
+  <div class="achievement-card">
+    <div class="achievement-icon" style="background:rgba(34,197,94,.15)">🎁</div>
+    <div class="achievement-info">
+      <h4>Ngày Đầu Tiên</h4>
+      <p>Đăng nhập lần đầu</p>
+      <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
     </div>
   </div>
-
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Welcome back, <em id="welcomeUser">user</em>!</h1>
-    <p class="subtitle">Earn up to <strong>$77.00</strong> per offer &middot; <strong id="offerCount">154</strong> available offers now</p>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat">
-      <i class="fas fa-wallet stat-icon" style="color:var(--accent)"></i>
-      <h3>Balance</h3>
-      <div class="big green"><span class="prefix">$</span><span id="balance">0.50</span></div>
-    </div>
-    <div class="stat">
-      <i class="fas fa-check-circle stat-icon" style="color:var(--blue)"></i>
-      <h3>Offers Completed</h3>
-      <div class="big blue">24</div>
-    </div>
-    <div class="stat">
-      <i class="fas fa-user-plus stat-icon" style="color:var(--purple)"></i>
-      <h3>Referral Earnings</h3>
-      <div class="big purple"><span class="prefix">$</span>12.45</div>
-    </div>
-    <div class="stat">
-      <i class="fas fa-trophy stat-icon" style="color:var(--orange)"></i>
-      <h3>Leaderboard Rank</h3>
-      <div class="big orange">#18</div>
+  <div class="achievement-card">
+    <div class="achievement-icon" style="background:rgba(59,130,246,.15)">📋</div>
+    <div class="achievement-info">
+      <h4>10 Offers</h4>
+      <p>Hoàn thành 10 offer</p>
+      <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
     </div>
   </div>
-
-  <!-- ACTIONS -->
-  <div class="actions">
-    <button class="action-btn daily" onclick="addDaily()"><i class="fas fa-gift"></i> Daily Bonus</button>
-    <button class="action-btn spin" onclick="spinWheel()"><i class="fas fa-sync-alt"></i> Spin Wheel</button>
-    <button class="action-btn withdraw" onclick="withdrawFake()"><i class="fas fa-money-bill-wave"></i> Withdraw</button>
+  <div class="achievement-card">
+    <div class="achievement-icon" style="background:rgba(168,85,247,.15)">🔥</div>
+    <div class="achievement-info">
+      <h4>7 Ngày Streak</h4>
+      <p>Đăng nhập 7 ngày liên tiếp</p>
+      <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    </div>
   </div>
+  <div class="achievement-card">
+    <div class="achievement-icon" style="background:rgba(245,158,11,.15)">💰</div>
+    <div class="achievement-info">
+      <h4>Thu Nhập $50</h4>
+      <p>Tổng thu nhập $50</p>
+      <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+    </div>
+  </div>
+  <div class="achievement-card locked">
+    <div class="achievement-icon" style="background:rgba(236,72,153,.15)">🤝</div>
+    <div class="achievement-info">
+      <h4>Đại Sứ</h4>
+      <p>Giới thiệu 10 người</p>
+      <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+    </div>
+  </div>
+  <div class="achievement-card locked">
+    <div class="achievement-icon" style="background:rgba(6,182,212,.15)">👑</div>
+    <div class="achievement-info">
+      <h4>Thu Nhập $100</h4>
+      <p>Tổng thu nhập $100</p>
+      <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+    </div>
+  </div>
+</div>
 
-  <!-- FEATURED OFFERS -->
-  <div class="section-title"><i class="fas fa-fire"></i> Featured Offers</div>
+<!-- LEADERBOARD -->
+<div class="leaderboard-card">
+  <div class="leader-header">
+    <div class="section-title" style="margin:0">
+      <i class="fas fa-crown" style="color:var(--accent-orange)"></i>
+      Bảng Xếp Hạng Tuần Này
+    </div>
+    <span style="font-size:13px; color:var(--text-muted)">Cập nhật mỗi giờ</span>
+  </div>
+  <div class="leader-item">
+    <div class="leader-rank gold">1</div>
+    <div class="leader-info">
+      <div class="leader-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">K</div>
+      <span class="leader-name">King_Earner</span>
+    </div>
+    <span class="leader-earnings">$542.30</span>
+  </div>
+  <div class="leader-item">
+    <div class="leader-rank silver">2</div>
+    <div class="leader-info">
+      <div class="leader-avatar" style="background:linear-gradient(135deg,#3b82f6,#a855f7)">C</div>
+      <span class="leader-name">CryptoPro</span>
+    </div>
+    <span class="leader-earnings">$489.15</span>
+  </div>
+  <div class="leader-item">
+    <div class="leader-rank bronze">3</div>
+    <div class="leader-info">
+      <div class="leader-avatar" style="background:linear-gradient(135deg,#22c55e,#06b6d4)">R</div>
+      <span class="leader-name">RewardMaster</span>
+    </div>
+    <span class="leader-earnings">$412.80</span>
+  </div>
+  <div class="leader-item">
+    <div class="leader-rank default">4</div>
+    <div class="leader-info">
+      <div class="leader-avatar" style="background:linear-gradient(135deg,#ec4899,#f59e0b)">A</div>
+      <span class="leader-name">AIWorker99</span>
+    </div>
+    <span class="leader-earnings">$387.50</span>
+  </div>
+  <div class="leader-item">
+    <div class="leader-rank default">5</div>
+    <div class="leader-info">
+      <div class="leader-avatar" style="background:linear-gradient(135deg,#a855f7,#3b82f6)">S</div>
+      <span class="leader-name">SurveyKing</span>
+    </div>
+    <span class="leader-earnings">$356.20</span>
+  </div>
+  <div class="leader-item" style="background:rgba(34,197,94,.05)">
+    <div class="leader-rank default" id="myRank">18</div>
+    <div class="leader-info">
+      <div class="leader-avatar" style="background:var(--gradient-1)" id="myAvatar">U</div>
+      <span class="leader-name" id="leaderMyName">Bạn</span>
+    </div>
+    <span class="leader-earnings" id="leaderMyBalance">$0.50</span>
+  </div>
+</div>
+</div>
+
+<!-- ===== EARN TAB ===== -->
+<div id="tab-earn" class="tab-content hidden">
+  <div class="section-title">
+    <i class="fas fa-bolt" style="color:var(--accent-orange)"></i>
+    Cổng Offer (Surveys, Apps, Games)
+  </div>
   <div class="offer-grid">
     <div class="offer-card">
-      <div class="offer-icon g">🏝️</div>
-      <h3>Family Island</h3>
-      <div class="tags">Complete offers on EarnRewards Pro and earn a lot!</div>
-      <button class="open-btn" onclick="openGemi()"><i class="fas fa-external-link-alt"></i> Start Earning</button>
-    </div>
-    <div class="offer-card">
-      <div class="offer-icon b">🎩</div>
-      <h3>Monopoly Go</h3>
-      <div class="tags">Complete offers on EarnRewards Pro and earn a lot!</div>
-      <button class="open-btn" onclick="openRevtoo()"><i class="fas fa-external-link-alt"></i> Start Earning</button>
-    </div>
-    <div class="offer-card">
-      <div class="offer-icon o">🎲</div>
-      <h3>Dice Dreams</h3>
-      <div class="tags">Complete offers on EarnRewards Pro and earn a lot!</div>
-      <button class="open-btn" onclick="openClickwall()"><i class="fas fa-external-link-alt"></i> Start Earning</button>
-    </div>
-  </div>
-
-  <!-- OFFERWALLS -->
-  <div class="section-title"><i class="fas fa-th-large"></i> Offerwalls</div>
-  <div class="offer-grid">
-    <div class="offer-card">
-      <div class="offer-icon g"><img src="https://gemiad.s3.eu-central-1.amazonaws.com/logos/Asset_1.png" style="width:48px;height:48px;object-fit:contain;border-radius:8px;"></div>
+      <span class="offer-badge">HOT</span>
+      <div class="offer-icon" style="background:rgba(34,197,94,.15)">🟢</div>
       <h3>Gemiwall</h3>
-      <div class="tags">Surveys &bull; Apps &bull; Games</div>
-      <button class="open-btn" onclick="openGemi()"><i class="fas fa-external-link-alt"></i> Open</button>
+      <p>Surveys • Apps • Games • AI Tasks</p>
+      <span class="earn-tag">Lên đến $50/task</span><br>
+      <button class="start-btn" onclick="openOffer('https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/')">Mở Offerwall →</button>
     </div>
     <div class="offer-card">
-      <div class="offer-icon b"><i class="fas fa-chart-line"></i></div>
+      <span class="offer-badge">NEW</span>
+      <div class="offer-icon" style="background:rgba(59,130,246,.15)">🔵</div>
       <h3>Revtoo</h3>
-      <div class="tags">Offers &bull; Apps</div>
-      <button class="open-btn" onclick="openRevtoo()"><i class="fas fa-external-link-alt"></i> Open</button>
+      <p>Offers • Apps • CPA Tasks</p>
+      <span class="earn-tag">Lên đến $30/task</span><br>
+      <button class="start-btn" onclick="openOffer('revtoo')">Mở Offerwall →</button>
     </div>
     <div class="offer-card">
-      <div class="offer-icon p"><i class="fas fa-mouse-pointer"></i></div>
+      <div class="offer-icon" style="background:rgba(168,85,247,.15)">🟣</div>
       <h3>Clickwall</h3>
-      <div class="tags">Surveys &bull; Apps</div>
-      <button class="open-btn" onclick="openClickwall()"><i class="fas fa-external-link-alt"></i> Open</button>
+      <p>Surveys • Apps • Sign-ups</p>
+      <span class="earn-tag">Lên đến $25/task</span><br>
+      <button class="start-btn" onclick="openOffer('clickwall')">Mở Offerwall →</button>
     </div>
     <div class="offer-card">
-      <div class="offer-icon o"><i class="fas fa-user-tie"></i></div>
+      <div class="offer-icon" style="background:rgba(245,158,11,.15)">🟠</div>
       <h3>MoustacheLeads</h3>
-      <div class="tags">Offers &bull; Surveys</div>
-      <button class="open-btn" onclick="openMoustache()"><i class="fas fa-external-link-alt"></i> Open</button>
+      <p>Offers • Surveys • Trials</p>
+      <span class="earn-tag">Lên đến $40/task</span><br>
+      <button class="start-btn" onclick="openOffer('moustache')">Mở Offerwall →</button>
     </div>
     <div class="offer-card">
-      <div class="offer-icon b"><i class="fas fa-tasks"></i></div>
+      <span class="offer-badge">POPULAR</span>
+      <div class="offer-icon" style="background:rgba(236,72,153,.15)">🩷</div>
       <h3>Taskwall</h3>
-      <div class="tags">Offers &bull; Surveys &bull; Apps</div>
-      <button class="open-btn" onclick="openTaskwall()"><i class="fas fa-external-link-alt"></i> Open</button>
+      <p>Offers • Surveys • Apps • Games</p>
+      <span class="earn-tag">Lên đến $35/task</span><br>
+      <button class="start-btn" onclick="openOffer('taskwall')">Mở Offerwall →</button>
     </div>
     <div class="offer-card">
-      <div class="offer-icon g"><img src="https://cointomedia.com/favicon.ico" style="width:40px;height:40px;object-fit:contain;border-radius:8px;"></div>
+      <div class="offer-icon" style="background:rgba(6,182,212,.15)">🩵</div>
       <h3>CoinToMedia</h3>
-      <div class="tags">Offers &bull; Surveys &bull; Games</div>
-      <button class="open-btn" onclick="openCointo()"><i class="fas fa-external-link-alt"></i> Open</button>
+      <p>Offers • Surveys • Games • Crypto</p>
+      <span class="earn-tag">Lên đến $20/task</span><br>
+      <button class="start-btn" onclick="openOffer('cointo')">Mở Offerwall →</button>
     </div>
     <div class="offer-card">
-      <div class="offer-icon p"><img src="https://offerwall.klinkfinance.com/favicon.ico" style="width:40px;height:40px;object-fit:contain;border-radius:8px;"></div>
+      <div class="offer-icon" style="background:rgba(34,197,94,.15)">💎</div>
       <h3>Klink Finance</h3>
-      <div class="tags">Offers &bull; Surveys &bull; Games</div>
-      <button class="open-btn" onclick="openKlink()"><i class="fas fa-external-link-alt"></i> Open</button>
+      <p>Offers • Surveys • Games • DeFi</p>
+      <span class="earn-tag">Lên đến $45/task</span><br>
+      <button class="start-btn" onclick="openOffer('klink')">Mở Offerwall →</button>
     </div>
   </div>
 
-  <!-- LEADERBOARD -->
-  <div class="leaderboard">
-    <div class="section-title" style="margin-top:0"><i class="fas fa-trophy"></i> Leaderboard</div>
-    <div class="leader-item">
-      <div class="leader-rank gold">1</div>
-      <div style="flex:1"><div class="leader-name">user_king</div><div class="leader-bar"><div class="leader-bar-fill" style="width:100%"></div></div></div>
-      <div class="leader-amount">$542</div>
+  <div class="section-title" style="margin-top:30px">
+    <i class="fas fa-robot" style="color:var(--accent-purple)"></i>
+    Kiếm Tiền Với AI (2026)
+  </div>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <span class="offer-badge">AI</span>
+      <div class="offer-icon" style="background:rgba(168,85,247,.15)">🤖</div>
+      <h3>Nhãn Dữ Liệu AI</h3>
+      <p>Gán nhãn hình ảnh, văn bản để huấn luyện AI</p>
+      <span class="earn-tag">$0.50 - $5.00/task</span><br>
+      <button class="start-btn" onclick="startAITask()">Bắt Đầu →</button>
     </div>
-    <div class="leader-item">
-      <div class="leader-rank silver">2</div>
-      <div style="flex:1"><div class="leader-name">crypto_earn</div><div class="leader-bar"><div class="leader-bar-fill" style="width:90%"></div></div></div>
-      <div class="leader-amount">$489</div>
+    <div class="offer-card">
+      <span class="offer-badge">AI</span>
+      <div class="offer-icon" style="background:rgba(59,130,246,.15)">✍️</div>
+      <h3>Kiểm Tra Chatbot</h3>
+      <p>Đánh giá và cải thiện câu trả lời của AI</p>
+      <span class="earn-tag">$1.00 - $8.00/task</span><br>
+      <button class="start-btn" onclick="startAITask()">Bắt Đầu →</button>
     </div>
-    <div class="leader-item">
-      <div class="leader-rank bronze">3</div>
-      <div style="flex:1"><div class="leader-name">rewardmaster</div><div class="leader-bar"><div class="leader-bar-fill" style="width:76%"></div></div></div>
-      <div class="leader-amount">$412</div>
-    </div>
-    <div class="leader-item">
-      <div class="leader-rank normal" id="userRankNum">18</div>
-      <div style="flex:1"><div class="leader-name" id="myName">you</div><div class="leader-bar"><div class="leader-bar-fill" style="width:5%" id="myBar"></div></div></div>
-      <div class="leader-amount" id="myBalance2">$0.50</div>
+    <div class="offer-card">
+      <span class="offer-badge">AI</span>
+      <div class="offer-icon" style="background:rgba(245,158,11,.15)">🎨</div>
+      <h3>Nhận Xét Hình AI</h3>
+      <p>Đánh giá chất lượng hình ảnh tạo bởi AI</p>
+      <span class="earn-tag">$0.30 - $3.00/task</span><br>
+      <button class="start-btn" onclick="startAITask()">Bắt Đầu →</button>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="sidebar-logo" style="justify-content:center;border:none;padding:0;margin:0 0 10px;">
-      <i class="fas fa-coins"></i>
-      <span>Earn<em>Rewards</em> Pro</span>
+  <div class="section-title" style="margin-top:30px">
+    <i class="fab fa-bitcoin" style="color:var(--accent-orange)"></i>
+    Kiếm Tiền Crypto
+  </div>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(245,158,11,.15)">⛏️</div>
+      <h3>Cloud Mining</h3>
+      <p>Mining Bitcoin/ETH trên cloud miễn phí</p>
+      <span class="earn-tag">Lên đến $2.00/ngày</span><br>
+      <button class="start-btn" onclick="showToast('🔗 Đang kết nối đến nền tảng mining...')">Khám Phá →</button>
     </div>
-    <p>&copy; EarnRewards Pro. All rights reserved &copy; 2026</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-discord"></i></a>
-      <a href="#"><i class="fab fa-telegram"></i></a>
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(6,182,212,.15)">🪙</div>
+      <h3>Faucet Token</h3>
+      <p>Nhận token miễn phí mỗi giờ</p>
+      <span class="earn-tag">BTC, ETH, SOL, DOGE</span><br>
+      <button class="start-btn" onclick="showToast('🪙 Faucet đang tải...')">Nhận Token →</button>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(34,197,94,.15)">📈</div>
+      <h3>Staking Rewards</h3>
+      <p>Stake token nhận lãi suất hàng ngày</p>
+      <span class="earn-tag">APY 5% - 15%</span><br>
+      <button class="start-btn" onclick="showToast('📈 Đang tính toán rewards...')">Stake Ngay →</button>
     </div>
   </div>
 
+  <div class="section-title" style="margin-top:30px">
+    <i class="fas fa-hashtag" style="color:var(--accent-pink)"></i>
+    Nhiệm Vụ Social Media
+  </div>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(239,68,68,.15)">📺</div>
+      <h3>Xem Video YouTube</h3>
+      <p>Xem video ngắn nhận reward</p>
+      <span class="earn-tag">$0.05 - $0.50/video</span><br>
+      <button class="start-btn" onclick="completeSocial()">Xem Video →</button>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(59,130,246,.15)">🐦</div>
+      <h3>Theo Dõi Twitter/X</h3>
+      <p>Follow & retweet nhận reward</p>
+      <span class="earn-tag">$0.10 - $1.00/task</span><br>
+      <button class="start-btn" onclick="completeSocial()">Thực Hiện →</button>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(168,85,247,.15)">📸</div>
+      <h3>Thử App Mới</h3>
+      <p>Tải và thử ứng dụng mới</p>
+      <span class="earn-tag">$0.50 - $10.00/app</span><br>
+      <button class="start-btn" onclick="completeSocial()">Thử App →</button>
+    </div>
+  </div>
 </div>
-</div>
 
-<!-- PROFILE PAGE -->
-<div id="profilePage" class="hidden">
-  <div class="profile-card">
-    <div class="profile-avatar" id="profileAvatar">U</div>
-    <div class="profile-name" id="profileName">User</div>
-    <div class="profile-email" id="profileEmail">user@earnrewards.pro</div>
-    <div class="profile-stats">
-      <div class="profile-stat">
-        <div class="val" id="profileBalance">$0.50</div>
-        <div class="lbl">Balance</div>
-      </div>
-      <div class="profile-stat">
-        <div class="val">24</div>
-        <div class="lbl">Offers Done</div>
-      </div>
-      <div class="profile-stat">
-        <div class="val">$12.45</div>
-        <div class="lbl">Referral</div>
-      </div>
+<!-- ===== GUIDES TAB ===== -->
+<div id="tab-guides" class="tab-content hidden">
+  <div class="section-title">
+    <i class="fas fa-graduation-cap" style="color:var(--accent-blue)"></i>
+    Hướng Dẫn Kiếm Tiền Online 2026
+  </div>
+  <div class="guide-card" onclick="toggleGuide(this)">
+    <div class="guide-header">
+      <div class="guide-icon" style="background:rgba(34,197,94,.15)">🎯</div>
+      <span class="guide-title">Hướng Dẫn Hoàn Thành Offers Tối Ưu</span>
+      <span class="guide-difficulty" style="background:rgba(34,197,94,.15); color:var(--accent-green)">Dễ</span>
     </div>
-    <div class="profile-ref">
-      <label>Your Referral Code</label>
-      <div class="ref-code" id="refCode">EAR-XXXXXX</div>
-      <button class="copy-btn" onclick="copyRef()"><i class="fas fa-copy"></i> Copy Referral Link</button>
+    <div class="guide-body">
+      <p>Offers là cách kiếm tiền cơ bản nhất. Dưới đây là cách tối ưu thu nhập:</p>
+      <ul style="margin:10px 0 10px 20px; line-height:2">
+        <li><strong>Surveys:</strong> Hoàn thành khảo sát nhận $0.50 - $50</li>
+        <li><strong>App Install:</strong> Tải app và giữ 30 giây nhận $0.30 - $5</li>
+        <li><strong>Sign-up:</strong> Đăng ký dịch vụ mới nhận $1 - $20</li>
+        <li><strong>Game Offers:</strong> Chơi game đạt level nhận $2 - $50</li>
+        <li><strong>Trial:</strong> Dùng thử dịch vụ nhận $5 - $40</li>
+      </ul>
+      <p><strong>Tip:</strong> Ưu tiên offers có reward cao nhất. Đọc kỹ yêu cầu trước khi bắt đầu.</p>
     </div>
-    <br>
-    <button class="topbar-btn" onclick="showSection('dashboard')" style="margin-top:10px;"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
+  </div>
+  <div class="guide-card" onclick="toggleGuide(this)">
+    <div class="guide-header">
+      <div class="guide-icon" style="background:rgba(168,85,247,.15)">🤖</div>
+      <span class="guide-title">Kiếm Tiền Từ AI Tasks - Xu Hướng 2026</span>
+      <span class="guide-difficulty" style="background:rgba(245,158,11,.15); color:var(--accent-orange)">Trung Bình</span>
+    </div>
+    <div class="guide-body">
+      <p>Năm 2026, huấn luyện AI là một trong những cách kiếm tiền phổ biến nhất:</p>
+      <ul style="margin:10px 0 10px 20px; line-height:2">
+        <li><strong>Data Labeling:</strong> Gán nhãn cho dữ liệu giúp AI học tốt hơn</li>
+        <li><strong>RLHF:</strong> Đánh giá câu trả lời AI</li>
+        <li><strong>Image Review:</strong> Kiểm tra chất lượng ảnh AI</li>
+        <li><strong>Voice Training:</strong> Thu âm hoặc đánh giá giọng nói</li>
+      </ul>
+      <p><strong>Thu nhập:</strong> $2 - $50/giờ tùy task. Không cần kinh nghiệm.</p>
+    </div>
+  </div>
+  <div class="guide-card" onclick="toggleGuide(this)">
+    <div class="guide-header">
+      <div class="guide-icon" style="background:rgba(59,130,246,.15)">🪙</div>
+      <span class="guide-title">Kiếm Tiền Crypto Cho Người Mới</span>
+      <span class="guide-difficulty" style="background:rgba(245,158,11,.15); color:var(--accent-orange)">Trung Bình</span>
+    </div>
+    <div class="guide-body">
+      <ul style="margin:10px 0 10px 20px; line-height:2">
+        <li><strong>Cloud Mining:</strong> Mining BTC/ETH không cần phần cứng</li>
+        <li><strong>Faucets:</strong> Nhận token miễn phí định kỳ</li>
+        <li><strong>Staking:</strong> Khóa token nhận lãi suất 5-15% APY</li>
+        <li><strong>Airdrop:</strong> Nhận token miễn phí từ dự án mới</li>
+      </ul>
+    </div>
+  </div>
+  <div class="guide-card" onclick="toggleGuide(this)">
+    <div class="guide-header">
+      <div class="guide-icon" style="background:rgba(236,72,153,.15)">📱</div>
+      <span class="guide-title">Kiếm Tiền Từ Social Media</span>
+      <span class="guide-difficulty" style="background:rgba(34,197,94,.15); color:var(--accent-green)">Dễ</span>
+    </div>
+    <div class="guide-body">
+      <ul style="margin:10px 0 10px 20px; line-height:2">
+        <li><strong>Xem Video:</strong> Nhận reward khi xem video ngắn</li>
+        <li><strong>Follow/Share:</strong> Follow account, share post nhận $0.10-$1</li>
+        <li><strong>Thử App:</strong> Tải app mới nhận $0.50-$10</li>
+        <li><strong>Tạo Content:</strong> Tạo nội dung ngắn trên TikTok/YouTube</li>
+      </ul>
+    </div>
+  </div>
+  <div class="guide-card" onclick="toggleGuide(this)">
+    <div class="guide-header">
+      <div class="guide-icon" style="background:rgba(245,158,11,.15)">💡</div>
+      <span class="guide-title">Mẹo Tăng Thu Nhập Tối Đa</span>
+      <span class="guide-difficulty" style="background:rgba(239,68,68,.15); color:var(--accent-red)">Nâng Cao</span>
+    </div>
+    <div class="guide-body">
+      <ul style="margin:10px 0 10px 20px; line-height:2">
+        <li><strong>Daily Streak:</strong> Đăng nhập mỗi ngày nhận bonus tăng dần</li>
+        <li><strong>Referral:</strong> Giới thiệu bạn bè nhận 15% thu nhập mãi mãi</li>
+        <li><strong>Multi-Offer:</strong> Hoàn thành nhiều offers cùng lúc</li>
+        <li><strong>Spin Wheel:</strong> Xoay vòng quay mỗi ngày nhận thêm reward</li>
+        <li><strong>Level Up:</strong> Lên level để mở khóa offers cao hơn</li>
+      </ul>
+      <p><strong>Mục tiêu:</strong> Với 1-2 giờ mỗi ngày, kiếm $5-$30/ngày.</p>
+    </div>
   </div>
 </div>
 
-<!-- ADMIN PANEL -->
+<!-- ===== REFERRAL TAB ===== -->
+<div id="tab-referral" class="tab-content hidden">
+  <div class="section-title">
+    <i class="fas fa-users" style="color:var(--accent-purple)"></i>
+    Chương Trình Giới Thiệu
+  </div>
+  <div class="referral-card">
+    <h3 style="margin-bottom:10px">🤝 Giới thiệu bạn bè, nhận 15% mãi mãi!</h3>
+    <p style="color:var(--text-secondary); font-size:14px; margin-bottom:20px;">
+      Mỗi khi người bạn giới thiệu kiếm tiền, bạn sẽ nhận được 15% thu nhập của họ - không giới hạn thời gian.
+    </p>
+    <div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:6px;">Link giới thiệu của bạn:</div>
+    <div class="referral-link-box">
+      <input id="refLink" value="https://earnrewards2026.com/?ref=jockmmo1998" readonly>
+      <button class="copy-btn" onclick="copyRefLink()"><i class="fas fa-copy"></i> Sao chép</button>
+    </div>
+    <div class="referral-stats">
+      <div class="ref-stat">
+        <div class="ref-value">3</div>
+        <div class="ref-label">Người đã giới thiệu</div>
+      </div>
+      <div class="ref-stat">
+        <div class="ref-value">$12.45</div>
+        <div class="ref-label">Tổng thu nhập giới thiệu</div>
+      </div>
+      <div class="ref-stat">
+        <div class="ref-value">15%</div>
+        <div class="ref-label">Tỷ lệ hoa hồng</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-title" style="margin-top:20px">
+    <i class="fas fa-lightbulb" style="color:var(--accent-orange)"></i>
+    Cách Hoạt Động
+  </div>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(34,197,94,.15)">1️⃣</div>
+      <h3>Chia Sẻ Link</h3>
+      <p>Sao chép link giới thiệu và chia sẻ với bạn bè</p>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(59,130,246,.15)">2️⃣</div>
+      <h3>Bạn Bè Đăng Ký</h3>
+      <p>Họ đăng ký qua link của bạn và bắt đầu kiếm tiền</p>
+    </div>
+    <div class="offer-card">
+      <div class="offer-icon" style="background:rgba(168,85,247,.15)">3️⃣</div>
+      <h3>Nhận Hoa Hồng</h3>
+      <p>Bạn nhận 15% từ mọi thu nhập của họ - mãi mãi!</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CALCULATOR TAB ===== -->
+<div id="tab-calculator" class="tab-content hidden">
+  <div class="section-title">
+    <i class="fas fa-calculator" style="color:var(--accent-cyan)"></i>
+    Tính Toán Thu Nhập
+  </div>
+  <div class="calc-card">
+    <h3 style="margin-bottom:20px">Ước tính thu nhập tiềm năng</h3>
+    <div class="calc-row">
+      <div class="calc-group">
+        <label>Phương thức kiếm tiền</label>
+        <select id="calcMethod" onchange="calcIncome()">
+          <option value="offers">Offers (Surveys, Apps)</option>
+          <option value="ai">AI Tasks (Data Labeling)</option>
+          <option value="crypto">Crypto (Mining, Staking)</option>
+          <option value="social">Social Media Tasks</option>
+          <option value="referral">Referral Program</option>
+          <option value="combined">Kết hợp tất cả</option>
+        </select>
+      </div>
+      <div class="calc-group">
+        <label>Thời gian mỗi ngày (giờ)</label>
+        <input type="number" id="calcHours" value="2" min="0.5" max="16" step="0.5" onchange="calcIncome()" oninput="calcIncome()">
+      </div>
+    </div>
+    <div class="calc-row">
+      <div class="calc-group">
+        <label>Số ngày làm việc mỗi tuần</label>
+        <select id="calcDays" onchange="calcIncome()">
+          <option value="3">3 ngày/tuần</option>
+          <option value="5" selected>5 ngày/tuần</option>
+          <option value="6">6 ngày/tuần</option>
+          <option value="7">7 ngày/tuần</option>
+        </select>
+      </div>
+      <div class="calc-group">
+        <label>Kinh nghiệm</label>
+        <select id="calcExp" onchange="calcIncome()">
+          <option value="0.5">Người mới</option>
+          <option value="1" selected>Có kinh nghiệm</option>
+          <option value="1.5">Chuyên gia</option>
+        </select>
+      </div>
+    </div>
+    <div class="calc-result">
+      <div style="font-size:14px; color:var(--text-secondary); margin-bottom:8px;">Thu nhập ước tính</div>
+      <div class="amount" id="calcResult">$15.00</div>
+      <div class="period" id="calcPeriod">/ ngày</div>
+      <div style="display:flex; justify-content:center; gap:30px; margin-top:16px;">
+        <div style="text-align:center">
+          <div style="font-size:20px; font-weight:700; color:var(--accent-blue)" id="calcWeek">$75</div>
+          <div style="font-size:12px; color:var(--text-muted)">/ tuần</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:20px; font-weight:700; color:var(--accent-green)" id="calcMonth">$300</div>
+          <div style="font-size:12px; color:var(--text-muted)">/ tháng</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:20px; font-weight:700; color:var(--accent-purple)" id="calcYear">$3,600</div>
+          <div style="font-size:12px; color:var(--text-muted)">/ năm</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HISTORY TAB ===== -->
+<div id="tab-history" class="tab-content hidden">
+  <div class="section-title">
+    <i class="fas fa-history" style="color:var(--accent-blue)"></i>
+    Lịch Sử Giao Dịch
+  </div>
+  <div class="leaderboard-card">
+    <div class="leader-header">
+      <span style="font-weight:700">Tất cả giao dịch</span>
+      <span style="font-size:13px; color:var(--text-muted)">Tổng: <span id="historyTotal" style="color:var(--accent-green); font-weight:700">$0.50</span></span>
+    </div>
+    <div class="history-item">
+      <div class="history-icon" style="background:rgba(34,197,94,.15)">🎁</div>
+      <div class="history-info">
+        <div class="h-title">Bonus chào mừng</div>
+        <div class="h-time">Hôm nay</div>
+      </div>
+      <div class="history-amount positive">+$0.50</div>
+    </div>
+    <div class="history-item">
+      <div class="history-icon" style="background:rgba(59,130,246,.15)">📋</div>
+      <div class="history-info">
+        <div class="h-title">Hoàn thành Offer - Survey App</div>
+        <div class="h-time">Hôm nay</div>
+      </div>
+      <div class="history-amount positive">+$2.50</div>
+    </div>
+    <div class="history-item">
+      <div class="history-icon" style="background:rgba(168,85,247,.15)">🎡</div>
+      <div class="history-info">
+        <div class="h-title">Vòng quay may mắn</div>
+        <div class="h-time">Hôm qua</div>
+      </div>
+      <div class="history-amount positive">+$1.00</div>
+    </div>
+    <div class="history-item">
+      <div class="history-icon" style="background:rgba(245,158,11,.15)">🤝</div>
+      <div class="history-info">
+        <div class="h-title">Hoa hồng giới thiệu</div>
+        <div class="h-time">2 ngày trước</div>
+      </div>
+      <div class="history-amount positive">+$3.20</div>
+    </div>
+    <div class="history-item">
+      <div class="history-icon" style="background:rgba(34,197,94,.15)">📋</div>
+      <div class="history-info">
+        <div class="h-title">Hoàn thành Offer - Game App</div>
+        <div class="h-time">3 ngày trước</div>
+      </div>
+      <div class="history-amount positive">+$5.00</div>
+    </div>
+    <div class="history-item">
+      <div class="history-icon" style="background:rgba(239,68,68,.15)">💸</div>
+      <div class="history-info">
+        <div class="h-title">Rút tiền qua PayPal</div>
+        <div class="h-time">1 tuần trước</div>
+      </div>
+      <div class="history-amount negative">-$10.00</div>
+    </div>
+    <div class="history-item">
+      <div class="history-icon" style="background:rgba(6,182,212,.15)">🎁</div>
+      <div class="history-info">
+        <div class="h-title">Daily Bonus - Streak ngày 5</div>
+        <div class="h-time">1 tuần trước</div>
+      </div>
+      <div class="history-amount positive">+$0.50</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- container end -->
+
+<!-- ===== OFFER VIEW (IFRAME) ===== -->
+<div id="offerView" class="hidden" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:300;background:var(--bg-primary)">
+  <div style="display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--bg-card);border-bottom:1px solid var(--border-color)">
+    <button onclick="backFromOffer()" style="background:var(--accent-red);color:white;border:none;padding:8px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:6px">
+      <i class="fas fa-arrow-left"></i> Quay Lại
+    </button>
+    <span style="font-weight:700;font-size:15px">Đang hoàn thành offer...</span>
+    <span style="margin-left:auto;font-size:13px;color:var(--accent-green)">💰 Reward sẽ được cộng tự động</span>
+  </div>
+  <iframe id="offerFrame" style="width:100%;height:calc(100vh - 52px);border:none;background:white"></iframe>
+</div>
+
+<!-- ===== SPIN WHEEL MODAL ===== -->
+<div id="spinModal" class="modal-overlay hidden" onclick="closeModal(event, 'spinModal')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <h2><i class="fas fa-dharmachakra" style="color:var(--accent-purple)"></i> Vòng Quay May Mắn</h2>
+    <div class="wheel-container">
+      <div style="position:relative;display:inline-block">
+        <div class="wheel-canvas" id="wheelCanvas"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:24px;z-index:10">🎯</div>
+      </div>
+      <button class="primary-btn" style="max-width:250px;margin:20px auto" onclick="spinWheel()">
+        <i class="fas fa-play"></i> Xoay Ngay!
+      </button>
+      <div id="spinResult" style="font-size:18px;font-weight:700;color:var(--accent-green);margin-top:10px;min-height:24px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WITHDRAW MODAL ===== -->
+<div id="withdrawModal" class="modal-overlay hidden" onclick="closeModal(event, 'withdrawModal')">
+  <div class="modal" onclick="event.stopPropagation()" style="position:relative">
+    <button class="modal-close" onclick="document.getElementById('withdrawModal').classList.add('hidden')">
+      <i class="fas fa-times"></i>
+    </button>
+    <h2><i class="fas fa-money-bill-wave" style="color:var(--accent-green)"></i> Rút Tiền</h2>
+    <div style="margin-bottom:20px">
+      <div style="font-size:13px; color:var(--text-secondary); margin-bottom:8px">Số dư hiện tại</div>
+      <div style="font-size:28px; font-weight:800; color:var(--accent-green)" id="withdrawBalance">$0.50</div>
+    </div>
+    <div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:12px">Chọn phương thức:</div>
+    <div class="payment-methods">
+      <div class="payment-method selected" onclick="selectPayment(this, 'paypal')">
+        <i class="fab fa-paypal" style="color:#003087"></i><span>PayPal</span>
+      </div>
+      <div class="payment-method" onclick="selectPayment(this, 'crypto')">
+        <i class="fab fa-bitcoin" style="color:#f59e0b"></i><span>Crypto</span>
+      </div>
+      <div class="payment-method" onclick="selectPayment(this, 'bank')">
+        <i class="fas fa-university" style="color:var(--accent-blue)"></i><span>Bank Transfer</span>
+      </div>
+      <div class="payment-method" onclick="selectPayment(this, 'giftcard')">
+        <i class="fas fa-gift" style="color:var(--accent-pink)"></i><span>Gift Card</span>
+      </div>
+    </div>
+    <div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:8px">Số tiền rút:</div>
+    <input class="withdraw-input" id="withdrawAmount" placeholder="$0.00" type="number" min="1" step="0.01">
+    <div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:8px">Tài khoản nhận:</div>
+    <input class="form-input" id="withdrawAccount" placeholder="Email PayPal / Wallet Address / Số tài khoản">
+    <div style="font-size:12px; color:var(--text-muted); margin-bottom:16px">
+      <i class="fas fa-info-circle"></i> Thời gian xử lý: 1-3 ngày làm việc | Mức tối thiểu: $1.00
+    </div>
+    <button class="primary-btn" onclick="submitWithdraw()">
+      <i class="fas fa-check"></i> Gửi Yêu Cầu Rút Tiền
+    </button>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <div class="mobile-nav-item active" data-tab="dashboard" onclick="switchTab('dashboard')">
+    <i class="fas fa-home"></i><span>Home</span>
+  </div>
+  <div class="mobile-nav-item" data-tab="earn" onclick="switchTab('earn')">
+    <i class="fas fa-bolt"></i><span>Kiếm Tiền</span>
+  </div>
+  <div class="mobile-nav-item" data-tab="guides" onclick="switchTab('guides')">
+    <i class="fas fa-graduation-cap"></i><span>Hướng Dẫn</span>
+  </div>
+  <div class="mobile-nav-item" data-tab="referral" onclick="switchTab('referral')">
+    <i class="fas fa-users"></i><span>Giới Thiệu</span>
+  </div>
+  <div class="mobile-nav-item" data-tab="history" onclick="switchTab('history')">
+    <i class="fas fa-history"></i><span>Lịch Sử</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 EarnRewards Pro. Tất cả quyền được bảo lưu.</p>
+  <p style="margin-top:6px">
+    <a href="#">Điều khoản</a> • <a href="#">Chính sách bảo mật</a> • <a href="#">Hỗ trợ</a>
+  </p>
+</footer>
+
+</div><!-- mainApp end -->
+
+<!-- ==================== ADMIN PAGE ==================== -->
 <div id="adminPage" class="hidden">
-  <div class="admin-panel">
-    <div class="section-title" style="margin-top:0"><i class="fas fa-shield-halved"></i> Admin Panel</div>
-    <div class="admin-stats">
-      <div class="admin-stat">
-        <div class="num" id="adminTotalUsers">0</div>
-        <div class="label">Total Users</div>
-      </div>
-      <div class="admin-stat">
-        <div class="num" id="adminActiveUsers">0</div>
-        <div class="label">Active Users</div>
-      </div>
-      <div class="admin-stat">
-        <div class="num" id="adminTotalEarned">$0</div>
-        <div class="label">Total Earned</div>
-      </div>
-      <div class="admin-stat">
-        <div class="num" id="adminTodayReg">0</div>
-        <div class="label">Today's Signups</div>
+<div class="admin-page">
+  <div class="admin-header">
+    <h2>🛡️ Admin Panel - Quản Lý User</h2>
+    <div style="display:flex; gap:12px; align-items:center;">
+      <span style="font-size:14px; color:var(--text-secondary)">
+        <i class="fas fa-shield-alt"></i> Admin Mode
+      </span>
+      <button class="nav-btn" onclick="backToMain()" style="background:var(--accent-blue); color:white; border:none;">
+        <i class="fas fa-arrow-left"></i> Quay lại
+      </button>
+    </div>
+  </div>
+
+  <div class="admin-stats" id="adminStats">
+    <!-- filled by JS -->
+  </div>
+
+  <div class="add-user-section">
+    <div class="add-user-card">
+      <h3><i class="fas fa-user-plus" style="color:var(--accent-green)"></i> Thêm User Mới</h3>
+      <div class="add-user-form">
+        <div class="form-group">
+          <label>Tên đăng nhập</label>
+          <input class="form-input" id="newUsername" placeholder="Username...">
+        </div>
+        <div class="form-group">
+          <label>Mật khẩu</label>
+          <input class="form-input" id="newPassword" placeholder="Password..." type="text">
+        </div>
+        <div class="form-group">
+          <label>Vai trò</label>
+          <select class="form-input" id="newRole">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <button class="primary-btn" style="margin:0; width:auto; padding:12px 24px;" onclick="addUser()">
+          <i class="fas fa-plus"></i> Thêm
+        </button>
       </div>
     </div>
-    <div class="admin-search">
-      <input type="text" id="adminSearch" placeholder="Search users by name or email..." oninput="filterUsers()">
+  </div>
+
+  <div class="user-table-wrap">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h3 style="font-size:16px; font-weight:700;">Danh Sách Người Dùng</h3>
+      <input class="form-input" id="searchUser" placeholder="🔍 Tìm kiếm user..." style="max-width:250px; margin:0;" oninput="renderUserTable()">
     </div>
     <div style="overflow-x:auto;">
-      <table class="user-table" id="userTable">
+      <table class="user-table">
         <thead>
           <tr>
+            <th>#</th>
             <th>User</th>
-            <th>Email</th>
-            <th>Balance</th>
-            <th>Joined</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th>Mật khẩu</th>
+            <th>Số dư</th>
+            <th>XP</th>
+            <th>Offers</th>
+            <th>Vai trò</th>
+            <th>Trạng thái</th>
+            <th>Ngày tạo</th>
+            <th>Hành động</th>
           </tr>
         </thead>
         <tbody id="userTableBody">
         </tbody>
       </table>
     </div>
-    <br>
-    <button class="topbar-btn" onclick="showSection('dashboard')" style="margin-top:10px;"><i class="fas fa-arrow-left"></i> Back to Dashboard</button>
   </div>
 </div>
-
-<!-- OFFER VIEW (IFRAME) -->
-<div id="offerView" class="hidden">
-  <div class="iframe-toolbar">
-    <button class="back" onclick="back()"><i class="fas fa-arrow-left"></i> Back</button>
-    <span class="iframe-title" id="iframeTitle">Offerwall</span>
-  </div>
-  <iframe id="frame"></iframe>
 </div>
 
-<!-- POPUP -->
-<div id="popup" class="popup hidden">
-  <i class="fas fa-fire" style="color:var(--accent)"></i>
-  <span id="popupText">🔥 New user earned $2.50</span>
-</div>
-
-<!-- MOBILE NAV -->
-<nav class="mobile-nav">
-  <div class="mobile-nav-inner">
-    <a href="#" class="active" onclick="showSection('dashboard')"><i class="fas fa-home"></i> Home</a>
-    <a href="#" onclick="showSection('dashboard')"><i class="fas fa-gift"></i> Offers</a>
-    <a href="#" onclick="showSection('profile')"><i class="fas fa-user"></i> Profile</a>
-    <a href="#" onclick="showSection('admin')" id="mobileAdmin" class="hidden"><i class="fas fa-shield-halved"></i> Admin</a>
-  </div>
-</nav>
-
+<!-- ==================== SCRIPTS ==================== -->
 <script>
-/* ===== USER MANAGEMENT SYSTEM ===== */
-const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "admin2026";
+// ===== CONFIG =====
+const REVTOO_API_KEY = "7y9n22mjsz0c3ujyncuomz95k6p31p";
+const KLINK_PUB_ID = "b4f89770-d4da-42c1-8fee-03303dd14401";
+const MIN_WITHDRAW = 1.00;
 
-function getUsers(){
-  let users = JSON.parse(localStorage.getItem("users") || "[]");
-  return users;
+// ===== DATABASE (localStorage) =====
+function getUsers() {
+  const data = localStorage.getItem('erp_users');
+  if (data) return JSON.parse(data);
+  // Default users
+  const defaults = [
+    { id: 1, username: 'admin', password: 'admin123', role: 'admin', status: 'active', balance: 150.00, xp: 2500, offers: 120, createdAt: '2025-01-01', streak: 30 },
+    { id: 2, username: 'user1', password: 'user123', role: 'user', status: 'active', balance: 0.50, xp: 85, offers: 24, createdAt: '2026-06-15', streak: 7 },
+    { id: 3, username: 'King_Earner', password: 'king123', role: 'user', status: 'active', balance: 542.30, xp: 8000, offers: 200, createdAt: '2025-03-10', streak: 25 },
+    { id: 4, username: 'CryptoPro', password: 'crypto456', role: 'user', status: 'active', balance: 489.15, xp: 6500, offers: 180, createdAt: '2025-04-22', streak: 20 },
+    { id: 5, username: 'RewardMaster', password: 'reward789', role: 'user', status: 'active', balance: 412.80, xp: 5200, offers: 150, createdAt: '2025-05-01', streak: 18 },
+    { id: 6, username: 'banned_user', password: 'ban123', role: 'user', status: 'banned', balance: 0, xp: 10, offers: 2, createdAt: '2026-07-01', streak: 0 }
+  ];
+  localStorage.setItem('erp_users', JSON.stringify(defaults));
+  return defaults;
 }
 
-function saveUsers(users){
-  localStorage.setItem("users", JSON.stringify(users));
+function saveUsers(users) {
+  localStorage.setItem('erp_users', JSON.stringify(users));
 }
 
-function doSignup(){
-  const username = document.getElementById("signupUsername").value.trim();
-  const email = document.getElementById("signupEmail").value.trim();
-  const password = document.getElementById("signupPassword").value;
-  const confirm = document.getElementById("signupConfirm").value;
-  const errorEl = document.getElementById("signupError");
-  const successEl = document.getElementById("signupSuccess");
-  errorEl.innerText = "";
-  successEl.innerText = "";
+// ===== STATE =====
+let currentUser = null;
+let currentRole = 'user';
+let currentBalance = 0.50;
+let currentXP = 85;
+let currentLevel = 1;
+let currentStreak = 7;
+let offersCompleted = 24;
+let refEarnings = 12.45;
+let refCount = 3;
+let totalEarned = 0.50;
+let selectedPayment = 'paypal';
+let dailyClaimed = false;
+let wheelSpins = 0;
+let currentUserData = null;
 
-  if(!username){errorEl.innerText = "Please enter a username";return;}
-  if(username.length < 3){errorEl.innerText = "Username must be at least 3 characters";return;}
-  if(!password){errorEl.innerText = "Please enter a password";return;}
-  if(password.length < 4){errorEl.innerText = "Password must be at least 4 characters";return;}
-  if(password !== confirm){errorEl.innerText = "Passwords do not match";return;}
-
-  let users = getUsers();
-  const exists = users.find(u => u.username.toLowerCase() === username.toLowerCase());
-  if(exists){errorEl.innerText = "Username already taken";return;}
-
-  const newUser = {
-    id: Date.now(),
-    username: username,
-    email: email || "",
-    password: password,
-    balance: "0.50",
-    joined: new Date().toISOString().split('T')[0],
-    status: "active",
-    refCode: "EAR-" + Math.random().toString(36).substr(2,6).toUpperCase()
-  };
-
-  users.push(newUser);
-  saveUsers(users);
-
-  successEl.innerText = "Account created! Signing in...";
-  setTimeout(()=>{
-    localStorage.setItem("currentUser", JSON.stringify(newUser));
-    localStorage.setItem("user", newUser.username);
-    localStorage.setItem("balance", newUser.balance);
-    successEl.innerText = "";
-    enterDashboard();
-  }, 1000);
+// ===== INIT =====
+function init() {
+  getUsers(); // ensure default users exist
 }
 
-function doLogin(){
-  const username = document.getElementById("loginUsername").value.trim();
-  const password = document.getElementById("loginPassword").value;
-  const errorEl = document.getElementById("loginError");
-  errorEl.innerText = "";
+// ===== LOGIN =====
+function login() {
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+  const errorEl = document.getElementById('loginError');
+  const errorMsg = document.getElementById('loginErrorMsg');
 
-  if(!username || !password){errorEl.innerText = "Please fill in all fields";return;}
-
-  let users = getUsers();
-
-  /* Check admin first */
-  if(username === ADMIN_USERNAME && password === ADMIN_PASSWORD){
-    const adminUser = {
-      id: 0,
-      username: "Admin",
-      email: "admin@earnrewards.pro",
-      password: ADMIN_PASSWORD,
-      balance: "0.00",
-      joined: "2026-01-01",
-      status: "active",
-      refCode: "ADMIN-000000",
-      isAdmin: true
-    };
-    localStorage.setItem("currentUser", JSON.stringify(adminUser));
-    localStorage.setItem("user", adminUser.username);
-    localStorage.setItem("balance", adminUser.balance);
-    enterDashboard();
+  if (!username) {
+    errorMsg.textContent = 'Vui lòng nhập tên đăng nhập';
+    errorEl.classList.add('show');
+    return;
+  }
+  if (!password) {
+    errorMsg.textContent = 'Vui lòng nhập mật khẩu';
+    errorEl.classList.add('show');
     return;
   }
 
-  /* Check regular users */
-  const user = users.find(u => 
-    (u.username.toLowerCase() === username.toLowerCase() || u.email.toLowerCase() === username.toLowerCase()) 
-    && u.password === password
-  );
+  const users = getUsers();
+  const user = users.find(u => u.username.toLowerCase() === username.toLowerCase() && u.password === password);
 
-  if(!user){errorEl.innerText = "Invalid username/email or password";return;}
-  if(user.status === "banned"){errorEl.innerText = "Your account has been banned";return;}
+  if (!user) {
+    errorMsg.textContent = 'Sai tên đăng nhập hoặc mật khẩu!';
+    errorEl.classList.add('show');
+    return;
+  }
 
-  localStorage.setItem("currentUser", JSON.stringify(user));
-  localStorage.setItem("user", user.username);
-  localStorage.setItem("balance", user.balance);
-  enterDashboard();
+  if (user.status === 'banned') {
+    errorMsg.textContent = 'Tài khoản đã bị khóa! Liên hệ admin để được hỗ trợ.';
+    errorEl.classList.add('show');
+    return;
+  }
+
+  errorEl.classList.remove('show');
+  currentUser = user.username;
+  currentRole = user.role;
+  currentBalance = user.balance;
+  currentXP = user.xp;
+  currentStreak = user.streak;
+  offersCompleted = user.offers;
+  currentUserData = user;
+
+  showToast('🎉 Chào mừng ' + username + ' đến EarnRewards Pro!');
+  showApp();
 }
 
-function socialLogin(provider){
-  const name = provider + "_" + Math.floor(Math.random()*9999);
-  let users = getUsers();
+function loginAsAdmin() {
+  document.getElementById('username').value = 'admin';
+  document.getElementById('password').value = 'admin123';
+  login();
+  // If admin, show admin panel
+  if (currentRole === 'admin') {
+    showAdminPanel();
+  }
+}
+
+function register() {
+  const username = document.getElementById('regUsername').value.trim();
+  const password = document.getElementById('regPassword').value.trim();
+  const confirm = document.getElementById('regConfirm').value.trim();
+  const errorEl = document.getElementById('registerError');
+  const errorMsg = document.getElementById('registerErrorMsg');
+
+  if (!username || !password) {
+    errorMsg.textContent = 'Vui lòng điền đầy đủ thông tin';
+    errorEl.classList.add('show');
+    return;
+  }
+  if (username.length < 3) {
+    errorMsg.textContent = 'Tên đăng nhập phải có ít nhất 3 ký tự';
+    errorEl.classList.add('show');
+    return;
+  }
+  if (password.length < 3) {
+    errorMsg.textContent = 'Mật khẩu phải có ít nhất 3 ký tự';
+    errorEl.classList.add('show');
+    return;
+  }
+  if (password !== confirm) {
+    errorMsg.textContent = 'Mật khẩu xác nhận không khớp!';
+    errorEl.classList.add('show');
+    return;
+  }
+
+  const users = getUsers();
+  const exists = users.find(u => u.username.toLowerCase() === username.toLowerCase());
+  if (exists) {
+    errorMsg.textContent = 'Tên đăng nhập đã tồn tại!';
+    errorEl.classList.add('show');
+    return;
+  }
+
   const newUser = {
-    id: Date.now(),
-    username: name,
-    email: name.toLowerCase() + "@social.com",
-    password: "",
-    balance: "0.50",
-    joined: new Date().toISOString().split('T')[0],
-    status: "active",
-    refCode: "EAR-" + Math.random().toString(36).substr(2,6).toUpperCase(),
-    socialProvider: provider
+    id: users.length + 1,
+    username: username,
+    password: password,
+    role: 'user',
+    status: 'active',
+    balance: 0.50,
+    xp: 0,
+    offers: 0,
+    createdAt: new Date().toISOString().split('T')[0],
+    streak: 0
   };
   users.push(newUser);
   saveUsers(users);
-  localStorage.setItem("currentUser", JSON.stringify(newUser));
-  localStorage.setItem("user", newUser.username);
-  localStorage.setItem("balance", newUser.balance);
-  showToast("✅ Signed in with " + provider + "!");
-  enterDashboard();
+
+  errorEl.classList.remove('show');
+  currentUser = username;
+  currentRole = 'user';
+  currentBalance = 0.50;
+  currentXP = 0;
+  currentStreak = 0;
+  offersCompleted = 0;
+  currentUserData = newUser;
+
+  showToast('🎉 Đăng ký thành công! Chào mừng ' + username + '!');
+  showApp();
 }
 
-function enterDashboard(){
-  document.getElementById("loginPage").classList.add("hidden");
-  document.getElementById("signupPage").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
-  document.getElementById("profilePage").classList.add("hidden");
-  document.getElementById("adminPage").classList.add("hidden");
-  document.getElementById("offerView").classList.add("hidden");
-  document.getElementById("frame").src = "";
-  updateTopbar();
-  loadDashboard();
-  showDashboard();
+function showRegister() {
+  document.getElementById('loginPage').classList.add('hidden');
+  document.getElementById('registerPage').classList.remove('hidden');
 }
 
-function logout(){
-  localStorage.removeItem("currentUser");
-  localStorage.removeItem("user");
-  localStorage.removeItem("balance");
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("profilePage").classList.add("hidden");
-  document.getElementById("adminPage").classList.add("hidden");
-  document.getElementById("offerView").classList.add("hidden");
-  document.getElementById("frame").src = "";
-  openLogin();
+function showLogin() {
+  document.getElementById('registerPage').classList.add('hidden');
+  document.getElementById('loginPage').classList.remove('hidden');
 }
 
-function updateTopbar(){
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
-  const topbarRight = document.getElementById("topbarRight");
-
-  if(currentUser){
-    const isAdmin = currentUser.isAdmin || false;
-    const initial = currentUser.username.charAt(0).toUpperCase();
-    topbarRight.innerHTML = `
-      <div class="user-display">
-        <div class="avatar">${initial}</div>
-        <span>${currentUser.username}</span>
-      </div>
-      ${isAdmin ? '<span style="color:var(--orange);font-size:12px;font-weight:700;">ADMIN</span>' : ''}
-      <button class="logout-btn" onclick="logout()"><i class="fas fa-right-from-bracket"></i> Logout</button>
-    `;
-    if(isAdmin){
-      document.getElementById("navAdmin").classList.remove("hidden");
-      document.getElementById("mobileAdmin").classList.remove("hidden");
-    }
+function togglePassword() {
+  const passInput = document.getElementById('password');
+  const icon = document.getElementById('passToggle');
+  if (passInput.type === 'password') {
+    passInput.type = 'text';
+    icon.className = 'fas fa-eye-slash';
   } else {
-    topbarRight.innerHTML = `
-      <button class="topbar-btn primary" onclick="openSignup()">Sign Up</button>
-      <button class="topbar-btn" onclick="openLogin()">Sign In</button>
-    `;
-    document.getElementById("navAdmin").classList.add("hidden");
-    document.getElementById("mobileAdmin").classList.add("hidden");
+    passInput.type = 'password';
+    icon.className = 'fas fa-eye';
   }
 }
 
-/* ===== DASHBOARD FUNCTIONS ===== */
-function showDashboard(){
-  const user = localStorage.getItem("user");
-  if(!user) return;
-  document.getElementById("balance").innerText = localStorage.getItem("balance");
-  document.getElementById("myName").innerText = user;
-  document.getElementById("myBalance2").innerText = "$" + localStorage.getItem("balance");
-  document.getElementById("welcomeUser").innerText = user;
-  let pct = Math.min((parseFloat(localStorage.getItem("balance")) / 542) * 100, 100);
-  document.getElementById("myBar").style.width = pct + "%";
+function logout() {
+  document.getElementById('mainApp').classList.add('hidden');
+  document.getElementById('adminPage').classList.add('hidden');
+  document.getElementById('loginPage').classList.remove('hidden');
+  document.getElementById('username').value = '';
+  document.getElementById('password').value = '';
+  currentUser = null;
+  currentRole = 'user';
 }
 
-function loadDashboard(){
-  showDashboard();
-  loadProfile();
-  loadAdmin();
-}
+function showApp() {
+  document.getElementById('loginPage').classList.add('hidden');
+  document.getElementById('registerPage').classList.add('hidden');
+  document.getElementById('mainApp').classList.remove('hidden');
+  document.getElementById('adminPage').classList.add('hidden');
 
-function updateBalance(value){
-  let balance = parseFloat(localStorage.getItem("balance"));
-  balance += value;
-  localStorage.setItem("balance", balance.toFixed(2));
-  document.getElementById("balance").innerText = balance.toFixed(2);
-  document.getElementById("myBalance2").innerText = "$" + balance.toFixed(2);
-  let pct = Math.min((balance / 542) * 100, 100);
-  document.getElementById("myBar").style.width = pct + "%";
-  /* Update user in storage */
-  updateCurrentUserBalance(balance.toFixed(2));
-}
-
-function updateCurrentUserBalance(newBalance){
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
-  if(currentUser && !currentUser.isAdmin){
-    let users = getUsers();
-    const idx = users.findIndex(u => u.id === currentUser.id);
-    if(idx !== -1){
-      users[idx].balance = newBalance;
-      saveUsers(users);
-    }
+  // Show admin button for admin users
+  const appBtn = document.getElementById('appBtn');
+  if (currentRole === 'admin') {
+    appBtn.outerHTML = '<button class="nav-btn admin-btn" onclick="showAdminPanel()" data-tooltip="Admin Panel"><i class="fas fa-shield-alt"></i> Admin</button>';
+  } else {
+    appBtn.outerHTML = '<button class="nav-btn" onclick="switchTab(\'dashboard\')" id="appBtn" data-tooltip="Trang chủ"><i class="fas fa-home"></i></button>';
   }
+
+  updateUI();
+  initStreak();
+  startNotifications();
 }
 
-function addDaily(){
-  updateBalance(0.20);
-  showToast("🎁 Daily Bonus +$0.20!");
+// ===== ADMIN PANEL =====
+function showAdminPanel() {
+  document.getElementById('mainApp').classList.add('hidden');
+  document.getElementById('adminPage').classList.remove('hidden');
+  renderAdminStats();
+  renderUserTable();
 }
 
-function spinWheel(){
-  let rewards = [0.10, 0.25, 0.50, 1, 2];
-  let reward = rewards[Math.floor(Math.random() * rewards.length)];
-  updateBalance(reward);
-  showToast("🎡 You won $" + reward + "!");
+function backToMain() {
+  document.getElementById('adminPage').classList.add('hidden');
+  document.getElementById('mainApp').classList.remove('hidden');
+  updateUI();
 }
 
-function withdrawFake(){
-  showToast("✅ Withdraw request submitted successfully!");
+function renderAdminStats() {
+  const users = getUsers();
+  const totalUsers = users.length;
+  const activeUsers = users.filter(u => u.status === 'active').length;
+  const bannedUsers = users.filter(u => u.status === 'banned').length;
+  const totalBalance = users.reduce((sum, u) => sum + u.balance, 0);
+  const totalXP = users.reduce((sum, u) => sum + u.xp, 0);
+  const totalOffers = users.reduce((sum, u) => sum + u.offers, 0);
+
+  document.getElementById('adminStats').innerHTML = `
+    <div class="admin-stat">
+      <div class="val">${totalUsers}</div>
+      <div class="lbl">Tổng User</div>
+    </div>
+    <div class="admin-stat">
+      <div class="val" style="color:var(--accent-green)">${activeUsers}</div>
+      <div class="lbl">Active</div>
+    </div>
+    <div class="admin-stat">
+      <div class="val" style="color:var(--accent-red)">${bannedUsers}</div>
+      <div class="lbl">Banned</div>
+    </div>
+    <div class="admin-stat">
+      <div class="val" style="color:var(--accent-blue)">$${totalBalance.toFixed(2)}</div>
+      <div class="lbl">Tổng Số Dư</div>
+    </div>
+    <div class="admin-stat">
+      <div class="val" style="color:var(--accent-purple)">${totalXP.toLocaleString()}</div>
+      <div class="lbl">Tổng XP</div>
+    </div>
+    <div class="admin-stat">
+      <div class="val" style="color:var(--accent-orange)">${totalOffers}</div>
+      <div class="lbl">Tổng Offers</div>
+    </div>
+  `;
 }
 
-/* ===== PROFILE ===== */
-function loadProfile(){
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
-  if(currentUser){
-    document.getElementById("profileAvatar").innerText = currentUser.username.charAt(0).toUpperCase();
-    document.getElementById("profileName").innerText = currentUser.username;
-    document.getElementById("profileEmail").innerText = currentUser.email || currentUser.username + "@earnrewards.pro";
-    document.getElementById("profileBalance").innerText = "$" + (currentUser.isAdmin ? "0.00" : localStorage.getItem("balance"));
-    document.getElementById("refCode").innerText = currentUser.refCode;
-  }
-}
+function renderUserTable() {
+  const users = getUsers();
+  const search = (document.getElementById('searchUser')?.value || '').toLowerCase();
+  const filtered = users.filter(u => u.username.toLowerCase().includes(search));
 
-function copyRef(){
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
-  const refCode = currentUser ? currentUser.refCode : "EAR-XXXXXX";
-  const refLink = "https://earnrewards.pro/ref/" + refCode;
-  navigator.clipboard.writeText(refLink).then(()=>{
-    showToast("📋 Referral link copied!");
-  }).catch(()=>{
-    showToast("📋 Referral code: " + refCode);
-  });
-}
+  const tbody = document.getElementById('userTableBody');
+  tbody.innerHTML = '';
 
-/* ===== ADMIN ===== */
-function loadAdmin(){
-  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
-  if(!currentUser || !currentUser.isAdmin) return;
-
-  let users = getUsers();
-  const today = new Date().toISOString().split('T')[0];
-  const todayUsers = users.filter(u => u.joined === today);
-  const activeUsers = users.filter(u => u.status === "active");
-  const totalEarned = users.reduce((sum, u) => sum + parseFloat(u.balance || 0), 0);
-
-  document.getElementById("adminTotalUsers").innerText = users.length;
-  document.getElementById("adminActiveUsers").innerText = activeUsers.length;
-  document.getElementById("adminTotalEarned").innerText = "$" + totalEarned.toFixed(2);
-  document.getElementById("adminTodayReg").innerText = todayUsers.length;
-
-  renderUserTable(users);
-}
-
-function renderUserTable(users){
-  const tbody = document.getElementById("userTableBody");
-  tbody.innerHTML = "";
-  users.forEach(user => {
-    const tr = document.createElement("tr");
-    const initial = user.username.charAt(0).toUpperCase();
+  filtered.forEach((user, idx) => {
+    const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td><span class="user-avatar">${initial}</span>${user.username}</td>
-      <td style="color:var(--text2);font-size:13px;">${user.email || "-"}</td>
-      <td style="color:var(--accent);font-weight:700;">$${user.balance}</td>
-      <td style="font-size:13px;">${user.joined}</td>
-      <td><span class="status ${user.status}">${user.status}</span></td>
+      <td>${idx + 1}</td>
       <td>
-        <div class="admin-actions">
-          <button class="btn-edit" onclick="editUserBalance(${user.id})"><i class="fas fa-pen"></i></button>
-          ${user.status === "active" ? 
-            `<button class="btn-ban" onclick="banUser(${user.id})"><i class="fas fa-ban"></i></button>` : 
-            `<button class="btn-edit" onclick="unbanUser(${user.id})"><i class="fas fa-unlock"></i></button>`
+        <div class="user-avatar-cell">
+          <div class="avatar">${user.username[0].toUpperCase()}</div>
+          <span>${user.username}</span>
+        </div>
+      </td>
+      <td><code style="font-family:'JetBrains Mono',monospace; font-size:12px; background:var(--glass); padding:2px 8px; border-radius:6px;">${user.password}</code></td>
+      <td style="font-weight:700; color:var(--accent-green)">$${user.balance.toFixed(2)}</td>
+      <td>${user.xp}</td>
+      <td>${user.offers}</td>
+      <td><span class="badge ${user.role === 'admin' ? 'active' : ''}" style="${user.role === 'admin' ? 'background:rgba(59,130,246,0.15);color:var(--accent-blue)' : 'background:var(--glass)'}">${user.role}</span></td>
+      <td><span class="badge ${user.status}">${user.status === 'active' ? 'Hoạt động' : 'Đã khóa'}</span></td>
+      <td style="font-size:12px; color:var(--text-muted)">${user.createdAt}</td>
+      <td>
+        <div class="action-cell">
+          ${user.status === 'active' ?
+            `<button class="btn-ban" onclick="banUser(${user.id})"><i class="fas fa-ban"></i> Khóa</button>` :
+            `<button class="btn-unban" onclick="unbanUser(${user.id})"><i class="fas fa-check"></i> Mở</button>`
           }
+          <button class="btn-reset" onclick="resetUser(${user.id})"><i class="fas fa-redo"></i> Reset</button>
           <button class="btn-delete" onclick="deleteUser(${user.id})"><i class="fas fa-trash"></i></button>
         </div>
       </td>
@@ -905,222 +2202,339 @@ function renderUserTable(users){
   });
 }
 
-function filterUsers(){
-  const query = document.getElementById("adminSearch").value.toLowerCase();
-  let users = getUsers();
-  if(query){
-    users = users.filter(u => 
-      u.username.toLowerCase().includes(query) || 
-      (u.email && u.email.toLowerCase().includes(query))
-    );
-  }
-  renderUserTable(users);
-}
+function addUser() {
+  const username = document.getElementById('newUsername').value.trim();
+  const password = document.getElementById('newPassword').value.trim();
+  const role = document.getElementById('newRole').value;
 
-function editUserBalance(userId){
-  let users = getUsers();
-  const user = users.find(u => u.id === userId);
-  if(!user) return;
-  const newBalance = prompt("Set new balance for " + user.username + ":", user.balance);
-  if(newBalance !== null && !isNaN(parseFloat(newBalance))){
-    user.balance = parseFloat(newBalance).toFixed(2);
-    saveUsers(users);
-    loadAdmin();
-    showToast("✅ Balance updated for " + user.username);
+  if (!username || !password) {
+    showToast('⚠️ Vui lòng điền username và password!');
+    return;
   }
-}
 
-function banUser(userId){
-  let users = getUsers();
-  const user = users.find(u => u.id === userId);
-  if(!user) return;
-  if(confirm("Ban user " + user.username + "?")){
-    user.status = "banned";
-    saveUsers(users);
-    loadAdmin();
-    showToast("🚫 User " + user.username + " has been banned");
+  const users = getUsers();
+  const exists = users.find(u => u.username.toLowerCase() === username.toLowerCase());
+  if (exists) {
+    showToast('⚠️ Username đã tồn tại!');
+    return;
   }
-}
 
-function unbanUser(userId){
-  let users = getUsers();
-  const user = users.find(u => u.id === userId);
-  if(!user) return;
-  user.status = "active";
+  const newUser = {
+    id: users.length + 1,
+    username: username,
+    password: password,
+    role: role,
+    status: 'active',
+    balance: 0.50,
+    xp: 0,
+    offers: 0,
+    createdAt: new Date().toISOString().split('T')[0],
+    streak: 0
+  };
+  users.push(newUser);
   saveUsers(users);
-  loadAdmin();
-  showToast("✅ User " + user.username + " has been unbanned");
+
+  document.getElementById('newUsername').value = '';
+  document.getElementById('newPassword').value = '';
+  showToast('✅ Thêm user ' + username + ' thành công!');
+  renderAdminStats();
+  renderUserTable();
 }
 
-function deleteUser(userId){
-  let users = getUsers();
-  const user = users.find(u => u.id === userId);
-  if(!user) return;
-  if(confirm("Delete user " + user.username + "? This cannot be undone.")){
-    users = users.filter(u => u.id !== userId);
+function banUser(id) {
+  const users = getUsers();
+  const user = users.find(u => u.id === id);
+  if (user) {
+    user.status = 'banned';
     saveUsers(users);
-    loadAdmin();
-    showToast("🗑️ User " + user.username + " has been deleted");
+    showToast('🔒 Đã khóa user ' + user.username);
+    renderAdminStats();
+    renderUserTable();
   }
 }
 
-/* ===== OFFERWALL FUNCTIONS (KEEP ALL) ===== */
-const REVTOO_API_KEY = "7y9n22mjsz0c3ujyncuomz95k6p31p";
-const KLINK_PUB_ID = "b4f89770-d4da-42c1-8fee-03303dd14401";
-
-function openFrame(url, title){
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("profilePage").classList.add("hidden");
-  document.getElementById("adminPage").classList.add("hidden");
-  document.getElementById("offerView").classList.remove("hidden");
-  document.getElementById("frame").src = url;
-  document.getElementById("iframeTitle").innerText = title || "Offerwall";
+function unbanUser(id) {
+  const users = getUsers();
+  const user = users.find(u => u.id === id);
+  if (user) {
+    user.status = 'active';
+    saveUsers(users);
+    showToast('✅ Đã mở khóa user ' + user.username);
+    renderAdminStats();
+    renderUserTable();
+  }
 }
 
-function back(){
-  document.getElementById("offerView").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
-  document.getElementById("frame").src = "";
+function resetUser(id) {
+  const users = getUsers();
+  const user = users.find(u => u.id === id);
+  if (user) {
+    user.balance = 0.50;
+    user.xp = 0;
+    user.offers = 0;
+    user.streak = 0;
+    saveUsers(users);
+    showToast('🔄 Đã reset user ' + user.username);
+    renderAdminStats();
+    renderUserTable();
+  }
 }
 
-function openGemi(){
-  openFrame("https://gemiwall.com/6987046ad95123da06330801/jockmmo1998/", "Gemiwall");
+function deleteUser(id) {
+  const users = getUsers();
+  const user = users.find(u => u.id === id);
+  if (user && confirm('Bạn chắc muốn xóa user "' + user.username + '"?')) {
+    const filtered = users.filter(u => u.id !== id);
+    saveUsers(filtered);
+    showToast('🗑️ Đã xóa user ' + user.username);
+    renderAdminStats();
+    renderUserTable();
+  }
 }
 
-function openRevtoo(){
-  const user = localStorage.getItem("user");
-  openFrame(`https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`, "Revtoo");
+// ===== UI UPDATE =====
+function updateUI() {
+  const bal = currentBalance.toFixed(2);
+  document.getElementById('balance').textContent = '$' + bal;
+  document.getElementById('offersDone').textContent = offersCompleted;
+  document.getElementById('refEarnings').textContent = '$' + refEarnings.toFixed(2);
+  document.getElementById('xpPoints').textContent = currentXP;
+  document.getElementById('streakCount').textContent = currentStreak;
+  document.getElementById('withdrawBalance').textContent = '$' + bal;
+  document.getElementById('leaderMyBalance').textContent = '$' + bal;
+  document.getElementById('leaderMyName').textContent = currentUser || 'Bạn';
+  document.getElementById('myAvatar').textContent = (currentUser || 'U')[0].toUpperCase();
+  document.getElementById('navUsername').textContent = currentUser || 'User';
+  document.getElementById('navAvatar').textContent = (currentUser || 'U')[0].toUpperCase();
+  document.getElementById('myRank').textContent = Math.max(1, 18 - Math.floor(currentBalance / 5));
+
+  const levels = [
+    { name: 'Newcomer', xp: 100 },
+    { name: 'Beginner', xp: 250 },
+    { name: 'Intermediate', xp: 500 },
+    { name: 'Advanced', xp: 1000 },
+    { name: 'Expert', xp: 2000 },
+    { name: 'Master', xp: 5000 },
+    { name: 'Legend', xp: 10000 }
+  ];
+  let lvl = 0;
+  for (let i = levels.length - 1; i >= 0; i--) {
+    if (currentXP >= levels[i].xp) { lvl = i; break; }
+  }
+  currentLevel = lvl + 1;
+  const prevXP = lvl > 0 ? levels[lvl - 1].xp : 0;
+  const nextXP = levels[lvl].xp;
+  const progress = ((currentXP - prevXP) / (nextXP - prevXP) * 100).toFixed(0);
+  document.getElementById('levelName').textContent = levels[lvl].name;
+  document.getElementById('levelXP').textContent = currentXP + ' / ' + nextXP + ' XP';
+  document.getElementById('levelFill').style.width = progress + '%';
+  document.getElementById('navLevel').textContent = currentLevel;
 }
 
-function openClickwall(){
-  const user = localStorage.getItem("user");
-  openFrame(`https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`, "Clickwall");
+// ===== STREAK =====
+function initStreak() {
+  const container = document.getElementById('streakDays');
+  container.innerHTML = '';
+  const days = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+  const today = new Date().getDay();
+  const todayIdx = today === 0 ? 6 : today - 1;
+
+  for (let i = 0; i < 7; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'streak-dot';
+    dot.textContent = days[i];
+    if (i < todayIdx) dot.classList.add('completed');
+    else if (i === todayIdx) dot.classList.add('today');
+    container.appendChild(dot);
+  }
 }
 
-function openMoustache(){
-  const user = localStorage.getItem("user");
-  openFrame(`https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`, "MoustacheLeads");
+// ===== TABS =====
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.remove('active'));
+
+  const content = document.getElementById('tab-' + tab);
+  if (content) { content.classList.remove('hidden'); content.classList.add('fade-in'); }
+  document.querySelectorAll('.tab[data-tab="' + tab + '"]').forEach(el => el.classList.add('active'));
+  document.querySelectorAll('.mobile-nav-item[data-tab="' + tab + '"]').forEach(el => el.classList.add('active'));
 }
 
-function openTaskwall(){
-  const user = localStorage.getItem("user");
-  openFrame(`https://wall.taskwall.io/?app_id=0640f51b6a17749572b508423c387b00&userid=${encodeURIComponent(user)}`, "Taskwall");
+// ===== DAILY BONUS =====
+function claimDaily() {
+  if (dailyClaimed) { showToast('⚠️ Bạn đã nhận bonus hôm nay rồi!'); return; }
+  const bonus = 0.10 + (currentStreak * 0.05);
+  addBalance(bonus); addXP(10); dailyClaimed = true;
+  showToast('🎁 Bonus ngày ' + currentStreak + ': +$' + bonus.toFixed(2));
 }
 
-function openCointo(){
-  const user = localStorage.getItem("user");
-  if(!user){showToast("⚠️ Please login first");return;}
-  openFrame(`https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`, "CoinToMedia");
+// ===== SPIN WHEEL =====
+function showSpinModal() {
+  if (wheelSpins >= 3) { showToast('⚠️ Hết lượt xoay hôm nay!'); return; }
+  document.getElementById('spinModal').classList.remove('hidden');
+  document.getElementById('spinResult').textContent = '';
 }
 
-function openKlink(){
-  const user = localStorage.getItem("user");
-  if(!user){showToast("⚠️ Please login first");return;}
-  openFrame(`https://offerwall.klinkfinance.com/wall?pub_id=${KLINK_PUB_ID}&user_id=${encodeURIComponent(user)}`, "Klink Finance");
-}
-
-/* ===== NAVIGATION ===== */
-function showSection(section){
-  closeSidebar();
-  if(section === "dashboard"){
-    document.getElementById("loginPage").classList.add("hidden");
-    document.getElementById("signupPage").classList.add("hidden");
-    document.getElementById("offerView").classList.add("hidden");
-    document.getElementById("frame").src = "";
-    document.getElementById("profilePage").classList.add("hidden");
-    document.getElementById("adminPage").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-  } else if(section === "profile"){
-    document.getElementById("dashboard").classList.add("hidden");
-    document.getElementById("offerView").classList.add("hidden");
-    document.getElementById("adminPage").classList.add("hidden");
-    document.getElementById("profilePage").classList.remove("hidden");
-    loadProfile();
-  } else if(section === "admin"){
-    const currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
-    if(!currentUser || !currentUser.isAdmin){
-      showToast("⚠️ Admin access required");
-      return;
+function spinWheel() {
+  if (wheelSpins >= 3) { showToast('⚠️ Hết lượt xoay hôm nay!'); return; }
+  const rewards = [0.10, 0.25, 0.50, 1.00, 2.00, 0.15, 0.75, 3.00];
+  const reward = rewards[Math.floor(Math.random() * rewards.length)];
+  wheelSpins++;
+  let rotation = 0;
+  const interval = setInterval(() => {
+    rotation += 15;
+    if (rotation >= 1080) {
+      clearInterval(interval);
+      addBalance(reward); addXP(5);
+      document.getElementById('spinResult').textContent = '🎉 Bạn trúng $' + reward.toFixed(2) + '!';
+      showToast('🎡 Vòng quay: +$' + reward.toFixed(2));
     }
-    document.getElementById("dashboard").classList.add("hidden");
-    document.getElementById("offerView").classList.add("hidden");
-    document.getElementById("profilePage").classList.add("hidden");
-    document.getElementById("adminPage").classList.remove("hidden");
-    loadAdmin();
+  }, 20);
+}
+
+// ===== AI TASKS =====
+function startAITask() {
+  const rewards = [1.00, 1.50, 2.00, 2.50, 3.00, 4.00, 5.00];
+  const reward = rewards[Math.floor(Math.random() * rewards.length)];
+  addBalance(reward); addXP(20); offersCompleted++;
+  showToast('🤖 AI Task hoàn thành: +$' + reward.toFixed(2));
+}
+
+// ===== SOCIAL TASKS =====
+function completeSocial() {
+  const rewards = [0.10, 0.20, 0.30, 0.50, 0.75, 1.00];
+  const reward = rewards[Math.floor(Math.random() * rewards.length)];
+  addBalance(reward); addXP(5);
+  showToast('📱 Social task: +$' + reward.toFixed(2));
+}
+
+// ===== OFFERS =====
+function openOffer(type) {
+  let url = '';
+  const user = currentUser || 'guest';
+  switch (type) {
+    case 'revtoo': url = `https://revtoo.com/offerwall/${REVTOO_API_KEY}/${encodeURIComponent(user)}`; break;
+    case 'clickwall': url = `https://clickwall.net/app/iframe/10621/${encodeURIComponent(user)}`; break;
+    case 'moustache': url = `https://offerwall.moustacheleads.com/offerwall?placement_id=ZVtFVRbd5DyrjELq&user_id=${encodeURIComponent(user)}&api_key=B6GScgjbtwvjAJRH4P5Fzhx4iXBk7I7L`; break;
+    case 'taskwall': url = `https://wall.taskwall.io/?app_id=0640f51b6a17749572b508423c387b00&userid=${encodeURIComponent(user)}`; break;
+    case 'cointo': url = `https://cointomedia.com/offer/Po5Qt6/${encodeURIComponent(user)}`; break;
+    case 'klink': url = `https://offerwall.klinkfinance.com/wall?pub_id=${KLINK_PUB_ID}&user_id=${encodeURIComponent(user)}`; break;
+    default: url = type;
+  }
+  document.getElementById('offerView').classList.remove('hidden');
+  document.getElementById('offerFrame').src = url;
+}
+
+function backFromOffer() {
+  document.getElementById('offerView').classList.add('hidden');
+  document.getElementById('offerFrame').src = '';
+  if (Math.random() > 0.5) {
+    const reward = (Math.random() * 3 + 0.5).toFixed(2);
+    addBalance(parseFloat(reward)); addXP(15); offersCompleted++;
+    showToast('✅ Offer hoàn thành: +$' + reward);
   }
 }
 
-function toggleSidebar(){
-  document.getElementById("sidebar").classList.toggle("open");
-  document.getElementById("sidebarOverlay").classList.toggle("show");
+// ===== WITHDRAW =====
+function showWithdrawModal() {
+  document.getElementById('withdrawModal').classList.remove('hidden');
+  document.getElementById('withdrawBalance').textContent = '$' + currentBalance.toFixed(2);
+}
+function selectPayment(el, method) {
+  document.querySelectorAll('.payment-method').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected'); selectedPayment = method;
+}
+function submitWithdraw() {
+  const amount = parseFloat(document.getElementById('withdrawAmount').value);
+  const account = document.getElementById('withdrawAccount').value.trim();
+  if (!amount || amount < MIN_WITHDRAW) { showToast('⚠️ Số tiền tối thiểu rút: $' + MIN_WITHDRAW.toFixed(2)); return; }
+  if (amount > currentBalance) { showToast('⚠️ Số dư không đủ!'); return; }
+  if (!account) { showToast('⚠️ Vui lòng nhập tài khoản nhận!'); return; }
+  currentBalance -= amount; updateUI();
+  document.getElementById('withdrawModal').classList.add('hidden');
+  document.getElementById('withdrawAmount').value = '';
+  document.getElementById('withdrawAccount').value = '';
+  showToast('✅ Yêu cầu rút $' + amount.toFixed(2) + ' qua ' + selectedPayment + ' đã được gửi!');
 }
 
-function closeSidebar(){
-  document.getElementById("sidebar").classList.remove("open");
-  document.getElementById("sidebarOverlay").classList.remove("show");
+// ===== CALCULATOR =====
+function calcIncome() {
+  const method = document.getElementById('calcMethod').value;
+  const hours = parseFloat(document.getElementById('calcHours').value) || 2;
+  const days = parseInt(document.getElementById('calcDays').value) || 5;
+  const exp = parseFloat(document.getElementById('calcExp').value) || 1;
+  const rates = { offers: 5, ai: 12, crypto: 3, social: 4, referral: 2, combined: 15 };
+  const daily = rates[method] * hours * exp * 0.5;
+  const weekly = daily * days;
+  const monthly = weekly * 4.3;
+  const yearly = monthly * 12;
+  document.getElementById('calcResult').textContent = '$' + daily.toFixed(2);
+  document.getElementById('calcPeriod').textContent = '/ ngày';
+  document.getElementById('calcWeek').textContent = '$' + weekly.toFixed(0);
+  document.getElementById('calcMonth').textContent = '$' + monthly.toFixed(0);
+  document.getElementById('calcYear').textContent = '$' + yearly.toFixed(0);
 }
 
-function showNotice(){
-  showToast("🔔 No new notices at this time.");
+// ===== REFERRAL =====
+function copyRefLink() {
+  const link = document.getElementById('refLink');
+  link.select();
+  navigator.clipboard.writeText(link.value).then(() => showToast('📋 Đã sao chép link giới thiệu!')).catch(() => { document.execCommand('copy'); showToast('📋 Đã sao chép!'); });
 }
 
-function openSignup(){
-  document.getElementById("loginPage").classList.add("hidden");
-  document.getElementById("signupPage").classList.remove("hidden");
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("offerView").classList.add("hidden");
-  document.getElementById("profilePage").classList.add("hidden");
-  document.getElementById("adminPage").classList.add("hidden");
-  document.getElementById("frame").src = "";
-  window.scrollTo({top:0, behavior:'smooth'});
+// ===== GUIDES =====
+function toggleGuide(el) { el.classList.toggle('open'); }
+
+// ===== HELPERS =====
+function addBalance(amount) { currentBalance += amount; totalEarned += amount; updateUI(); }
+function addXP(amount) { currentXP += amount; updateUI(); }
+function closeModal(event, id) { if (event.target === document.getElementById(id)) { document.getElementById(id).classList.add('hidden'); } }
+
+function showToast(msg) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  setTimeout(() => { toast.style.animation = 'slideOut .4s ease forwards'; setTimeout(() => toast.remove(), 400); }, 3500);
 }
 
-function openLogin(){
-  document.getElementById("signupPage").classList.add("hidden");
-  document.getElementById("loginPage").classList.remove("hidden");
-  document.getElementById("dashboard").classList.add("hidden");
-  document.getElementById("offerView").classList.add("hidden");
-  document.getElementById("profilePage").classList.add("hidden");
-  document.getElementById("adminPage").classList.add("hidden");
-  document.getElementById("frame").src = "";
-  window.scrollTo({top:0, behavior:'smooth'});
+function startNotifications() {
+  const messages = [
+    '🔥 King_Earner vừa kiếm $5.20',
+    '💰 RewardMaster nhận $2.50 từ referral',
+    '🎉 AIWorker99 hoàn thành 15 offers hôm nay',
+    '⚡ SurveyKing nhận $8.00 từ survey cao cấp',
+    '🏆 CryptoPro rút $50 qua PayPal',
+    '🎁 Chào mừng thành viên mới!',
+    '💎 Taskwall vừa cập nhật offers mới',
+    '🚀 Gemiwall đang có sự kiện reward x2!'
+  ];
+  setInterval(() => {
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    showToast(msg);
+  }, 15000);
 }
 
-function showToast(msg){
-  const popup = document.getElementById("popup");
-  document.getElementById("popupText").innerText = msg;
-  popup.classList.remove("hidden");
-  setTimeout(()=>{popup.classList.add("hidden");}, 3500);
-}
+// ===== INIT ON LOAD =====
+window.addEventListener('DOMContentLoaded', () => {
+  init();
+  calcIncome();
 
-/* ===== INIT ===== */
-(function init(){
-  const user = localStorage.getItem("user");
-  if(user){
-    document.getElementById("loginPage").classList.add("hidden");
-    document.getElementById("signupPage").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-    updateTopbar();
-    loadDashboard();
-    showDashboard();
-  }
-})();
-
-/* ===== AUTO POPUP ===== */
-setInterval(()=>{
-  const amounts = ["1.20","2.50","5.00","3.40","4.10","1.85"];
-  const names = ["Alex","Jordan","Mike","Sarah","Liam","Emma","Noah","Olivia"];
-  const name = names[Math.floor(Math.random()*names.length)];
-  const popup = document.getElementById("popup");
-  document.getElementById("popupText").innerText = `🔥 ${name} just earned $${amounts[Math.floor(Math.random()*amounts.length)]}`;
-  popup.classList.remove("hidden");
-  setTimeout(()=>{popup.classList.add("hidden");}, 3500);
-}, 12000);
-
-setInterval(()=>{
-  const count = 145 + Math.floor(Math.random()*20);
-  document.getElementById("offerCount").innerText = count;
-}, 30000);
+  // Enter key login
+  document.getElementById('password').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') login();
+  });
+  document.getElementById('username').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') login();
+  });
+  document.getElementById('regConfirm').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') register();
+  });
+});
 </script>
+
 </body>
 </html>
